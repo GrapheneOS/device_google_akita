@@ -3,8 +3,8 @@
     <ctl name="TDM_0_RX Mixer EP3" value="0" />
     <ctl name="TDM_0_RX Mixer EP6" value="0" />
     <ctl name="I2S_0_RX Mixer EP3" value="0" />
-    <ctl name="Main AMP Enable Switch" value="0" />
-    <ctl name="R Main AMP Enable Switch" value="0" />
+    <ctl name="TAS256X ASI Left Switch" value="0" />
+    <ctl name="TAS256X ASI Right Switch" value="0" />
     <ctl name="MIC HW Gain At Lower Power Mode (cB)" value="-160" />
     <ctl name="MIC HW Gain At High Power Mode (cB)" value="0" />
     <ctl name="MIC Record Soft Gain (dB)" value="0"/>
@@ -19,8 +19,6 @@
 
     <ctl name="TDM_0_RX Mixer US" value="0" />
     <ctl name="US Record Enable" value="0" />
-    <ctl name="ASPRX1 Slot Position" value="0"/>
-    <ctl name="R ASPRX1 Slot Position" value="1"/>
 
     <path name="mfg-playback">
     </path>
@@ -179,62 +177,14 @@
     </path>
 
     <path name="amp_iv-only">
-        <ctl name="R ASPTX1 Slot Position" value="2" />
-        <ctl name="R ASPTX2 Slot Position" value="3" />
-        <ctl name="R ASPTX3 Slot Position" value="6" />
-        <ctl name="R ASPTX4 Slot Position" value="7" />
-        <ctl name="ASPTX1 Slot Position" value="0" />
-        <ctl name="ASPTX2 Slot Position" value="1" />
-        <ctl name="ASPTX3 Slot Position" value="4" />
-        <ctl name="ASPTX4 Slot Position" value="5" />
-        <ctl name="R ASP TX1 Source" value="VMON" />
-        <ctl name="R ASP TX2 Source" value="ASPRX1" />
-        <ctl name="R ASP TX3 Source" value="Zero" />
-        <ctl name="R ASP TX4 Source" value="Zero" />
-        <ctl name="ASP TX1 Source" value="VMON" />
-        <ctl name="ASP TX2 Source" value="ASPRX1" />
-        <ctl name="ASP TX3 Source" value="Zero" />
-        <ctl name="ASP TX4 Source" value="Zero" />
         <ctl name="NoHost1 TX Mixer TDM_0_TX" value="1" />
     </path>
 
     <path name="amp_iv1-only">
-        <ctl name="R ASPTX1 Slot Position" value="4" />
-        <ctl name="R ASPTX2 Slot Position" value="5" />
-        <ctl name="R ASPTX3 Slot Position" value="6" />
-        <ctl name="R ASPTX4 Slot Position" value="7" />
-        <ctl name="ASPTX1 Slot Position" value="0" />
-        <ctl name="ASPTX2 Slot Position" value="1" />
-        <ctl name="ASPTX3 Slot Position" value="2" />
-        <ctl name="ASPTX4 Slot Position" value="3" />
-        <ctl name="R ASP TX1 Source" value="Zero" />
-        <ctl name="R ASP TX2 Source" value="Zero" />
-        <ctl name="R ASP TX3 Source" value="Zero" />
-        <ctl name="R ASP TX4 Source" value="Zero" />
-        <ctl name="ASP TX1 Source" value="VMON" />
-        <ctl name="ASP TX2 Source" value="IMON" />
-        <ctl name="ASP TX3 Source" value="VPMON" />
-        <ctl name="ASP TX4 Source" value="ASPRX1" />
         <ctl name="NoHost1 TX Mixer TDM_0_TX" value="1" />
     </path>
 
     <path name="amp_iv2-only">
-        <ctl name="R ASPTX1 Slot Position" value="0" />
-        <ctl name="R ASPTX2 Slot Position" value="1" />
-        <ctl name="R ASPTX3 Slot Position" value="2" />
-        <ctl name="R ASPTX4 Slot Position" value="3" />
-        <ctl name="ASPTX1 Slot Position" value="4" />
-        <ctl name="ASPTX2 Slot Position" value="5" />
-        <ctl name="ASPTX3 Slot Position" value="6" />
-        <ctl name="ASPTX4 Slot Position" value="7" />
-        <ctl name="R ASP TX1 Source" value="VMON" />
-        <ctl name="R ASP TX2 Source" value="IMON" />
-        <ctl name="R ASP TX3 Source" value="VPMON" />
-        <ctl name="R ASP TX4 Source" value="ASPRX1" />
-        <ctl name="ASP TX1 Source" value="Zero" />
-        <ctl name="ASP TX2 Source" value="Zero" />
-        <ctl name="ASP TX3 Source" value="Zero" />
-        <ctl name="ASP TX4 Source" value="Zero" />
         <ctl name="NoHost1 TX Mixer TDM_0_TX" value="1" />
     </path>
 
@@ -257,19 +207,19 @@
     </path>
 
     <path name="speaker1-status">
-        <ctl name="Main AMP Enable Switch" value="1" />
+        <ctl name="TAS256X ASI Left Switch" value="1" />
     </path>
 
     <path name="speaker2-status">
-        <ctl name="R Main AMP Enable Switch" value="1" />
+        <ctl name="TAS256X ASI Right Switch" value="1" />
     </path>
 
     <path name="speaker1-gain">
-        <ctl name="AMP PCM Gain" />
+        <ctl name="TAS256X AMP OUTPUT LVL LEFT" />
     </path>
 
     <path name="speaker2-gain">
-        <ctl name="R AMP PCM Gain" />
+        <ctl name="TAS256X AMP OUTPUT LVL RIGHT" />
     </path>
 
     <path name="usb-playback-gain">
@@ -279,8 +229,6 @@
     <path name="mfg-playback speaker">
         <ctl name="AoC Speaker Mixer ASP Mode" value="ASP_BYPASS" />
         <ctl name="TDM_0_RX Mixer EP3" value="1" />
-        <ctl name="ASPRX1 Slot Position" value="0" />
-        <ctl name="R ASPRX1 Slot Position" value="1" />
         <ctl name="SINK_IDS" id="0" value="0" />
         <ctl name="SINK_IDS" id="1" value="-1" />
     </path>
@@ -305,36 +253,38 @@
     </path>
 
     <path name="us-mfg-playback speaker">
-        <path name="cs35l41-us-config" />
+        <!--path name="cs35l41-us-config" /-->
         <ctl name="TDM_0_RX Sample Rate" value="SR_96K" />
         <ctl name="TDM_0_TX Sample Rate" value="SR_96K" />
         <ctl name="TDM_0_RX Mixer US" value="1" />
     </path>
 
     <path name="speaker1-only">
-        <ctl name="Main AMP Enable Switch" value="1" />
         <path name="mfg-playback speaker" />
-        <ctl name="AMP PCM Gain" value="17" />
-        <ctl name="PCM Source" value="ASP" />
+        <ctl name="TAS256X AMP OUTPUT LVL LEFT" value="16" />
+        <ctl name="TAS25XX_ALGO_BYPASS" value="TRUE" />
+        <ctl name="TAS256X ASI Left Switch" value="1" />
     </path>
 
     <path name="speaker2-only">
-        <ctl name="R Main AMP Enable Switch" value="1" />
         <path name="mfg-playback speaker" />
-        <ctl name="R AMP PCM Gain" value="17" />
-        <ctl name="R PCM Source" value="ASP" />
+        <ctl name="TAS256X AMP OUTPUT LVL RIGHT" value="16" />
+        <ctl name="TAS25XX_ALGO_BYPASS" value="TRUE" />
+        <ctl name="TAS256X ASI Right Switch" value="1" />
     </path>
 
     <path name="us-speaker1-only">
         <path name="us-mfg-playback speaker" />
-        <ctl name="PCM Source" value="ASP" />
-        <ctl name="Main AMP Enable Switch" value="1" />
+        <ctl name="TAS256X AMP OUTPUT LVL LEFT" value="16" />
+        <ctl name="TAS25XX_ALGO_BYPASS" value="TRUE" />
+        <ctl name="TAS256X ASI Left Switch" value="1" />
     </path>
 
     <path name="us-speaker2-only">
         <path name="us-mfg-playback speaker" />
-        <ctl name="R PCM Source" value="ASP" />
-        <ctl name="R Main AMP Enable Switch" value="1" />
+        <ctl name="TAS256X AMP OUTPUT LVL RIGHT" value="16" />
+        <ctl name="TAS25XX_ALGO_BYPASS" value="TRUE" />
+        <ctl name="TAS256X ASI Right Switch" value="1" />
     </path>
 
     <path name="headphones">
@@ -350,19 +300,17 @@
     </path>
 
     <path name="speaker-all">
-        <ctl name="Main AMP Enable Switch" value="1" />
-        <ctl name="PCM Source" value="ASP" />
-        <ctl name="R Main AMP Enable Switch" value="1" />
-        <ctl name="R PCM Source" value="ASP" />
         <path name="mfg-playback speaker" />
+        <ctl name="TAS25XX_ALGO_BYPASS" value="TRUE" />
+        <ctl name="TAS256X ASI Left Switch" value="1" />
+        <ctl name="TAS256X ASI Right Switch" value="1" />
     </path>
 
     <path name="us-speaker-all">
         <path name="us-mfg-playback speaker" />
-        <ctl name="PCM Source" value="ASP" />
-        <ctl name="Main AMP Enable Switch" value="1" />
-        <ctl name="R PCM Source" value="ASP" />
-        <ctl name="R Main AMP Enable Switch" value="1" />
+        <ctl name="TAS25XX_ALGO_BYPASS" value="TRUE" />
+        <ctl name="TAS256X ASI Left Switch" value="1" />
+        <ctl name="TAS256X ASI Right Switch" value="1" />
     </path>
 
     <path name="loopback-mic-speaker">
