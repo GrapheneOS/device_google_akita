@@ -26,6 +26,7 @@ include device/google/zuma/device-shipping-common.mk
 include device/google/akita/audio/akita/audio-tables.mk
 include device/google/akita/vibrator/cs40l26/device-akita.mk
 include device/google/gs-common/bcmbt/bluetooth.mk
+include device/google/gs-common/touch/stm/stm20.mk
 
 # go/lyric-soong-variables
 $(call soong_config_set,lyric,camera_hardware,shiba)
