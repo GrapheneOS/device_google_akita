@@ -29,8 +29,8 @@ include device/google/gs-common/bcmbt/bluetooth.mk
 include device/google/gs-common/touch/gti/gti.mk
 
 # go/lyric-soong-variables
-$(call soong_config_set,lyric,camera_hardware,shiba)
-$(call soong_config_set,lyric,tuning_product,shiba)
+$(call soong_config_set,lyric,camera_hardware,akita)
+$(call soong_config_set,lyric,tuning_product,ripcurrent)
 $(call soong_config_set,google3a_config,target_device,shiba)
 
 # Init files
