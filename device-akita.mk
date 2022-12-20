@@ -182,3 +182,8 @@ endif
 PRODUCT_VENDOR_PROPERTIES += \
     persist.vendor.udfps.als_feed_forward_supported=true \
     persist.vendor.udfps.lhbm_controlled_in_hal_supported=true
+
+# Camera
+# Disable camera DPM
+PRODUCT_PROPERTY_OVERRIDES += \
+    vendor.camera.debug.force_dpm_on=0
