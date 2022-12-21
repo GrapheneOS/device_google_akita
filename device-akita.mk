@@ -162,12 +162,19 @@ PRODUCT_PACKAGES += \
 PRODUCT_SOONG_NAMESPACES += vendor/google_devices/akita/prebuilts
 
 # Location
+PRODUCT_COPY_FILES += \
+       device/google/akita/location/gps.cer:$(TARGET_COPY_OUT_VENDOR)/etc/gnss/gps.cer
+
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
         PRODUCT_COPY_FILES += \
-                device/google/akita/location/gps.xml:$(TARGET_COPY_OUT_VENDOR)/etc/gnss/gps.xml
+		device/google/akita/location/lhd.conf:$(TARGET_COPY_OUT_VENDOR)/etc/gnss/lhd.conf \
+		device/google/akita/location/scd.conf:$(TARGET_COPY_OUT_VENDOR)/etc/gnss/scd.conf \
+		device/google/akita/location/gps.xml:$(TARGET_COPY_OUT_VENDOR)/etc/gnss/gps.xml
 else
         PRODUCT_COPY_FILES += \
-                device/google/akita/location/gps_user.xml:$(TARGET_COPY_OUT_VENDOR)/etc/gnss/gps.xml
+		device/google/akita/location/lhd_user.conf:$(TARGET_COPY_OUT_VENDOR)/etc/gnss/lhd.conf \
+		device/google/akita/location/scd_user.conf:$(TARGET_COPY_OUT_VENDOR)/etc/gnss/scd.conf \
+		device/google/akita/location/gps_user.xml:$(TARGET_COPY_OUT_VENDOR)/etc/gnss/gps.xml
 endif
 
 # Set zram size

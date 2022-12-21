@@ -52,6 +52,8 @@
        CpLppGuardTimeSec="1"
        IgnoreInjectedSystemTime="true"
 
+       AttributionAppPkgName="com.google.android.carrierlocation"
+
        AssertEnabled="true"
        CpLppeCancelDbhOnAgnssProvideLoc="true"
        CpLppeUseAgnssLocForEmptyDbh="true"
@@ -64,10 +66,9 @@
        LogPriMask="LOG_INFO"
        LogFacMask="LOG_NMEA | LOG_GLLIOS | LOG_GLLAPI"
        FrqPlan="FRQ_PLAN_26MHZ_2PPM_49_152MHZ_300PPB"
-       MultiCarrRFMode="GL_MULTI_CARR_RF_MODE_L1_L5"
-       MultiCarrLnaMask="L1_EXT_ON|L5_EXT_ON"
+       MultiCarrRFMode="GL_MULTI_CARR_RF_MODE_L1"
+       MultiCarrLnaMask="L1_EXT_ON"
        RfType="GL_RF_4776_BRCM"
-       ExtL5Bias="13.0"
 
        WarmStandbyTimeout1Seconds="10"
        WarmStandbyTimeout2Seconds="15"
@@ -76,18 +77,16 @@
 
        RfPathLossDb_Ap="3.5"
        RfPathLossDb_Cp="3.5"
-       RfPathLossDb_Ap_L5="3.5"
-       RfPathLossDb_Cp_L5="3.5"
        OnChipGpsCarrierType="3,2,3,3,2,3,2,3,3,3,1,2,1,3,2,1,2,3,1,1,1,1,3,3,3,3,3,1,2,3,2,3"
 
        EnableOnChipStopNotification="2"
        PowerMode="3"
        MinGpsWeekNumber="2216"
+       OnChipAccMask="50"
   />
 
   <gll_features
        EnableNicAutoSwitch="true"
-       EnableNavic="true"
   />
 
 </glgps>
