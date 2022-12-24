@@ -1,0 +1,384 @@
+soong_namespace {
+}
+
+package {
+    default_applicable_licenses: ["vendor_samsung_slsi_gnss_license"],
+}
+license {
+    name: "vendor_samsung_slsi_gnss_license",
+    visibility: [":__subpackages__"],
+    license_kinds: [
+        "legacy_by_exception_only", // by exception only
+        "legacy_proprietary", // by exception only
+    ],
+}
+
+cc_prebuilt_library_shared {
+    name: "android.hardware.gnss@2.1-impl",
+    arch: {
+        arm64: {
+            srcs: ["release/android_hardware_gnss_2_1-impl.so"],
+            shared_libs: [
+                "liblog",
+                "libhidlbase",
+                "libutils",
+                "android.hardware.gnss@1.0",
+                "android.hardware.gnss@1.1",
+                "android.hardware.gnss@2.0",
+                "android.hardware.gnss@2.1",
+                "android.hardware.gnss.measurement_corrections@1.0",
+                "android.hardware.gnss.visibility_control@1.0",
+                "libhardware",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    vendor: true,
+    relative_install_path: "hw",
+    strip: {
+        none: true,
+    },
+    // Bypass because libhidltransport is deprecated
+    check_elf_files: false,
+    //vintf_fragments: ["android.hardware.gnss@2.1-service-lass.xml"]
+}
+
+
+cc_prebuilt_library_shared {
+    name: "vendor.samsung.hardware.gnss@1.0-impl",
+    arch: {
+        arm64: {
+            srcs: ["release/slsi_samsung_hardware_gnss_1_0-impl.so"],
+            shared_libs: [
+                "liblog",
+                "libhidlbase",
+                "libutils",
+                "android.hardware.gnss@1.0",
+                "android.hardware.gnss@1.1",
+                "android.hardware.gnss@2.0",
+                "android.hardware.gnss@2.1",
+                "android.hardware.gnss.measurement_corrections@1.0",
+                "android.hardware.gnss.visibility_control@1.0",
+                "libhardware",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    vendor: true,
+    relative_install_path: "hw",
+    strip: {
+        none: true,
+    },
+    // Bypass because libhidltransport is deprecated
+    check_elf_files: false,
+}
+
+cc_prebuilt_library_shared {
+    name: "vendor.samsung.hardware.gnss@1.0",
+    arch: {
+        arm64: {
+            srcs: ["release/vendor.samsung.hardware.gnss@1.0.so"],
+            shared_libs: [
+                "liblog",
+                "libhidlbase",
+                "libutils",
+                "android.hardware.gnss@1.0",
+                "android.hardware.gnss@1.1",
+                "android.hardware.gnss@2.0",
+                "android.hardware.gnss@2.1",
+                "android.hardware.gnss.measurement_corrections@1.0",
+                "android.hardware.gnss.visibility_control@1.0",
+                "libhardware",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    vendor: true,
+    strip: {
+        none: true,
+    },
+    // Bypass because libhidltransport is deprecated
+    check_elf_files: false,
+}
+
+
+cc_prebuilt_binary {
+    name: "gnss-aidl-service_IGnssV2_ISlsiGnssV1",
+    arch: {
+        arm64: {
+            srcs: ["release/gnss-aidl-service_IGnssV2_ISlsiGnssV1"],
+            shared_libs: [
+                "liblog",
+                "libutils",
+                "libhardware",
+                "android.hardware.gnss@1.0",
+                "libhidlbase",
+                "android.hardware.gnss@1.1",
+                "android.hardware.gnss@2.0",
+                "android.hardware.gnss@2.1",
+		"android.hardware.gnss-V2-ndk",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    vendor: true,
+    relative_install_path: "hw",
+    strip: {
+        none: true,
+    },
+    // Bypass because libhidltransport is deprecated
+    // Bypass because libhwbinder is deprecated
+    check_elf_files: false,
+}
+
+cc_prebuilt_binary {
+    name: "gnssd",
+    arch: {
+        arm64: {
+            srcs: ["release/gnssd"],
+            shared_libs: [
+                "liblog",
+                "libutils",
+                "libhardware_legacy",
+                "libcutils",
+                "libssl",
+                "libcrypto",
+                // "libsitril-gps",
+                "android.frameworks.sensorservice@1.0",
+                "libhidlbase",
+                "libandroid_net",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    vendor: true,
+    relative_install_path: "hw",
+    strip: {
+        none: true,
+    },
+    // Bypass because libsitril-gps is Android.mk module
+    check_elf_files: false,
+}
+
+// factory daemon and libraries
+cc_prebuilt_binary {
+    name: "sctd",
+    arch: {
+        arm64: {
+            srcs: ["release/sctd"],
+            shared_libs: [
+                "liblog",
+                "libutils",
+                "libhardware_legacy",
+                "libcutils",
+                "libssl",
+                "libcrypto",
+                // "libsitril-gps",
+                "android.frameworks.sensorservice@1.0",
+                "libhidlbase",
+                "libandroid_net",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    vendor: true,
+    relative_install_path: "hw",
+    strip: {
+        none: true,
+    },
+    // Bypass because libsitril-gps is Android.mk module
+    check_elf_files: false,
+}
+
+cc_prebuilt_binary {
+    name: "spad",
+    arch: {
+        arm64: {
+            srcs: ["release/spad"],
+            shared_libs: [
+                "liblog",
+                "libutils",
+                "libhardware_legacy",
+                "libcutils",
+                "libssl",
+                "libcrypto",
+                // "libsitril-gps",
+                "android.frameworks.sensorservice@1.0",
+                "libhidlbase",
+                "libandroid_net",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    vendor: true,
+    relative_install_path: "hw",
+    strip: {
+        none: true,
+    },
+    // Bypass because libsitril-gps is Android.mk module
+    check_elf_files: false,
+}
+
+cc_prebuilt_binary {
+    name: "swcnd",
+    arch: {
+        arm64: {
+            srcs: ["release/swcnd"],
+            shared_libs: [
+                "liblog",
+                "libutils",
+                "libhardware_legacy",
+                "libcutils",
+                "libssl",
+                "libcrypto",
+                // "libsitril-gps",
+                "android.frameworks.sensorservice@1.0",
+                "libhidlbase",
+                "libandroid_net",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    vendor: true,
+    relative_install_path: "hw",
+    strip: {
+        none: true,
+    },
+    // Bypass because libsitril-gps is Android.mk module
+    check_elf_files: false,
+}
+
+
+cc_prebuilt_library_shared {
+    name: "libmptool_utils",
+    arch: {
+        arm64: {
+            srcs: ["release/libmptool_utils.so"],
+            shared_libs: [
+                "liblog",
+                "libhidlbase",
+                "libutils",
+                "android.hardware.gnss@1.0",
+                "android.hardware.gnss@1.1",
+                "android.hardware.gnss@2.0",
+                "android.hardware.gnss@2.1",
+                "android.hardware.gnss.measurement_corrections@1.0",
+                "android.hardware.gnss.visibility_control@1.0",
+                "libhardware",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    vendor: true,
+    // relative_install_path: "hw",
+    strip: {
+        none: true,
+    },
+    // Bypass because libhidltransport is deprecated
+    check_elf_files: false,
+    //vintf_fragments: ["android.hardware.gnss@2.1-service-lass.xml"]
+}
+
+cc_prebuilt_library_shared {
+    name: "libmptool_log",
+    arch: {
+        arm64: {
+            srcs: ["release/libmptool_log.so"],
+            shared_libs: [
+                "liblog",
+                "libhidlbase",
+                "libutils",
+                "android.hardware.gnss@1.0",
+                "android.hardware.gnss@1.1",
+                "android.hardware.gnss@2.0",
+                "android.hardware.gnss@2.1",
+                "android.hardware.gnss.measurement_corrections@1.0",
+                "android.hardware.gnss.visibility_control@1.0",
+                "libhardware",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    vendor: true,
+    // relative_install_path: "hw",
+    strip: {
+        none: true,
+    },
+    // Bypass because libhidltransport is deprecated
+    check_elf_files: false,
+    //vintf_fragments: ["android.hardware.gnss@2.1-service-lass.xml"]
+}
+
+cc_prebuilt_library_shared {
+    name: "libmptool_json",
+    arch: {
+        arm64: {
+            srcs: ["release/libmptool_json.so"],
+            shared_libs: [
+                "liblog",
+                "libhidlbase",
+                "libutils",
+                "android.hardware.gnss@1.0",
+                "android.hardware.gnss@1.1",
+                "android.hardware.gnss@2.0",
+                "android.hardware.gnss@2.1",
+                "android.hardware.gnss.measurement_corrections@1.0",
+                "android.hardware.gnss.visibility_control@1.0",
+                "libhardware",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    vendor: true,
+    // relative_install_path: "hw",
+    strip: {
+        none: true,
+    },
+    // Bypass because libhidltransport is deprecated
+    check_elf_files: false,
+    //vintf_fragments: ["android.hardware.gnss@2.1-service-lass.xml"]
+}

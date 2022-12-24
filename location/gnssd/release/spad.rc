@@ -1,0 +1,5 @@
+service SPA-daemon  /vendor/bin/spad
+    class factory
+    group system root radio cache inet misc audio log
+    user root
+    seclabel u:r:su:s0

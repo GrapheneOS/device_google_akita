@@ -1,0 +1,51 @@
+{
+        "console"       :       {
+                                        "tcp"                           :       {
+                                                                                        "support"       :       true,
+                                                                                        "active"        :       false,
+                                                                                        "ip"            :       "",
+                                                                                        "port"          :       "2543"
+                                                                                        },
+                                        "local"                         :       {
+                                                                                        "support"       :       true,
+                                                                                        "active"        :       true,
+                                                                                        "ip"            :       "/dev/socket/sync_wcn"
+                                                                                        }
+                                        },
+        "module"        :       {
+                                        "interaction"           :       {
+                                                                                        "wlan&bt"       :       {
+                                                                                                                        "libpath"               :       "/vendor/lib64/libwlbt.so",
+                                                                                                                        "support"               :       true,
+                                                                                                                        "timeout"               :       15
+                                                                                                                        },
+                                                                                        "gnss"          :       {
+                                                                                                                        "libpath"               :       "/vendor/lib64/hw/android.hardware.gnss@2.1-impl.so",
+                                                                                                                        "timeout"       :       15,
+                                                                                                                        "support"               :       true
+                                                                                                                        }
+                                                                                        },
+
+                                        "whitelist"                     :       {
+                                                                                        "wlan&bt"       :       [
+                                                                                                                        "RF+AP2WB",
+                                                                                                                        "RF+WB2AP",
+                                                                                                                        "AT+BTRF",
+                                                                                                                        "ATA+BT",
+                                                                                                                        "AT+WIFIRF",
+                                                                                                                        "ATA+WIFI"
+                                                                                                                        ],
+                                                                                        "gnss"          :       [
+                                                                                                                        "AT+GPSFTTEST",
+                                                                                                                        "ATA+GPS"
+                                                                                                                        ],
+                                                                                        "internal"      :       [
+                                                                                                                        "SAT+WCNTCP",
+                                                                                                                        "SAT+WCNTCPIP",
+                                                                                                                        "SAT+WCNTCPPORT",
+                                                                                                                        "SAT+WCNSETTIME"
+                                                                                                                        ]
+                                                                                        }
+                                        }
+}
+
