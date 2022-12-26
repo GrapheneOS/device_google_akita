@@ -262,28 +262,24 @@
     <path name="speaker1-only">
         <path name="mfg-playback speaker" />
         <ctl name="TAS256X AMP OUTPUT LVL LEFT" value="16" />
-        <ctl name="TAS25XX_ALGO_BYPASS" value="TRUE" />
         <ctl name="TAS256X ASI Left Switch" value="1" />
     </path>
 
     <path name="speaker2-only">
         <path name="mfg-playback speaker" />
         <ctl name="TAS256X AMP OUTPUT LVL RIGHT" value="16" />
-        <ctl name="TAS25XX_ALGO_BYPASS" value="TRUE" />
         <ctl name="TAS256X ASI Right Switch" value="1" />
     </path>
 
     <path name="us-speaker1-only">
         <path name="us-mfg-playback speaker" />
         <ctl name="TAS256X AMP OUTPUT LVL LEFT" value="16" />
-        <ctl name="TAS25XX_ALGO_BYPASS" value="TRUE" />
         <ctl name="TAS256X ASI Left Switch" value="1" />
     </path>
 
     <path name="us-speaker2-only">
         <path name="us-mfg-playback speaker" />
         <ctl name="TAS256X AMP OUTPUT LVL RIGHT" value="16" />
-        <ctl name="TAS25XX_ALGO_BYPASS" value="TRUE" />
         <ctl name="TAS256X ASI Right Switch" value="1" />
     </path>
 
