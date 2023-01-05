@@ -297,14 +297,12 @@
 
     <path name="speaker-all">
         <path name="mfg-playback speaker" />
-        <ctl name="TAS25XX_ALGO_BYPASS" value="TRUE" />
         <ctl name="TAS256X ASI Left Switch" value="1" />
         <ctl name="TAS256X ASI Right Switch" value="1" />
     </path>
 
     <path name="us-speaker-all">
         <path name="us-mfg-playback speaker" />
-        <ctl name="TAS25XX_ALGO_BYPASS" value="TRUE" />
         <ctl name="TAS256X ASI Left Switch" value="1" />
         <ctl name="TAS256X ASI Right Switch" value="1" />
     </path>
