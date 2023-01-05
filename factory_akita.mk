@@ -29,3 +29,6 @@ PRODUCT_MANUFACTURER := Google
 # default BDADDR for EVB only
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.vendor.bluetooth.evb_bdaddr="22:22:22:33:44:55"
+
+# Factory binaries of camera
+PRODUCT_PACKAGES += fatp_ak3_wide_hat_tool
