@@ -1,0 +1,8 @@
+{
+        "misc"  :       {
+                                "libpath"               :       "/vendor/lib64/libmphal_default.so",
+                                "default_timeout"   :   15,
+                                "support"               :       true
+                                }
+}
+

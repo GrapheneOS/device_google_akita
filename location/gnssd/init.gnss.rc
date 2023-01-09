@@ -1,0 +1,105 @@
+on post-fs-data
+# Exynos Data folder
+    mkdir /data/vendor 0771 root system
+    mkdir /data/vendor/gps 0771 system system
+    mkdir /data/vendor/log/gps 0771 system system
+
+# Directory for GPS
+    rm /data/system/gps/gps_started
+    rm /data/system/gps/glonass_started
+    rm /data/system/gps/beidou_started
+    rm /data/system/gps/smd_started
+    rm /data/system/gps/sv_cno.info
+
+# Permissions for gnss
+    chmod 0660 /dev/gnss_ipc
+    chown system system /dev/gnss_ipc
+    chmod 0660 /dev/gnss_dump
+    chown system system /dev/gnss_dump
+    chmod 0660 /dev/gnss_boot
+    chown system system /dev/gnss_boot
+
+on fs
+# GPS daemon
+service gnssd /vendor/bin/hw/gnssd
+    class main
+    user gps
+    group system inet net_raw wakelock sdcard_rw
+    capabilities BLOCK_SUSPEND
+    ioprio be 0
+    seclabel u:r:gnssd:s0
+    disabled
+
+service slsi_gnss_service /vendor/bin/hw/gnss-aidl-service_IGnssV2_ISlsiGnssV1
+    class main
+    user system
+    group system gps
+    disabled
+
+# check cdt for lassen gps
+# DEV 1.0
+on property:ro.boot.cdt_hwid=0x00040401000100010100000000000000
+	setprop persist.vendor.gps 1
+
+on property:ro.boot.cdt_hwid=0x00040401000100010200000000000000
+	setprop persist.vendor.gps 1
+
+on property:ro.boot.cdt_hwid=0x00040401000100010300000000000000
+	setprop persist.vendor.gps 1
+
+# proto 1.0
+on property:ro.boot.cdt_hwid=0x00040402000100020000000000000000
+	setprop persist.vendor.gps 1
+
+on property:ro.boot.cdt_hwid=0x00040402000100020100000000000000
+	setprop persist.vendor.gps 1
+
+on property:ro.boot.cdt_hwid=0x00040402000100020200000000000000
+	setprop persist.vendor.gps 1
+
+on property:ro.boot.cdt_hwid=0x00040402000100020300000000000000
+	setprop persist.vendor.gps 1
+
+on property:ro.boot.cdt_hwid=0x00040402000100030000000000000000
+	setprop persist.vendor.gps 1
+
+on property:ro.boot.cdt_hwid=0x00040402000100030100000000000000
+	setprop persist.vendor.gps 1
+
+on property:ro.boot.cdt_hwid=0x00040402000100030200000000000000
+	setprop persist.vendor.gps 1
+
+on property:ro.boot.cdt_hwid=0x00040402000100030300000000000000
+	setprop persist.vendor.gps 1
+
+# start lassen gps
+on property:persist.vendor.gps=1
+       stop gpsd
+       stop lhd
+       stop scd
+       stop gnss_service
+       start gnssd
+       start slsi_gnss_service
+
+
+# factory daemon
+service sctd /vendor/bin/hw/sctd --json "/vendor/etc/sctd.json"
+    class factory
+    user root
+    group root system bluetooth radio misc
+    disabled
+    #seclabel u:r:shell:s0
+
+service swcnd /vendor/bin/hw/swcnd --json "/vendor/etc/swcnd.json"
+    class factory
+    user root
+    group system bluetooth radio misc
+    disabled
+    #seclabel u:r:shell:s0
+
+service spad /vendor/bin/hw/spad --json "/vendor/etc/spad.json"
+    class factory
+    user root
+    group system bluetooth radio misc
+    disabled
+    #seclabel u:r:shell:s0

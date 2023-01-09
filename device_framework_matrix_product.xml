@@ -1,0 +1,20 @@
+<compatibility-matrix version="1.0" type="framework" level="7">
+  <hal format="hidl">
+    <name>vendor.samsung.hardware.gnss</name>
+    <transport>hwbinder</transport>
+    <version>1.0</version>
+    <interface>
+      <name>ISlsiGnss</name>
+      <instance>default</instance>
+    </interface>
+    <fqname>@1.0::ISlsiGnss/default</fqname>
+  </hal>
+     <hal format="aidl" optional="true">
+       <name>android.hardware.gnss</name>
+       <interface>
+           <name>IGnss</name>
+           <instance>default</instance>
+       </interface>
+       <fqname>IGnss/default</fqname>
+   </hal>
+</compatibility-matrix>

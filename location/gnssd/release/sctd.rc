@@ -1,0 +1,6 @@
+
+service sctd /vendor/bin/sctd --json "/vendor/etc/sctd.json"
+    class factory
+    user root
+    group root system bluetooth radio misc
+    #seclabel u:r:shell:s0
