@@ -50,69 +50,17 @@
     <ctl name="RX Slots" id="0" value="2"/>
     <ctl name="RX Slots" id="1" value="3"/>
 
-    <!-- Cirrus default 96K -->
-    <ctl name="Default 96K" value="0"/>
-    <ctl name="R Default 96K" value="0"/>
-
-    <!-- Cirrus Booster Amp TDM slot assignment-->
-    <!-- RX slot -->
-    <ctl name="ASPRX1 Slot Position" value="0"/>
-    <ctl name="ASPRX2 Slot Position" value="1"/>
-    <ctl name="R ASPRX1 Slot Position" value="1"/>
-    <ctl name="R ASPRX2 Slot Position" value="0"/>
-    <!-- TX slot -->
-    <ctl name="ASPTX1 Slot Position" value="0"/>
-    <ctl name="R ASPTX1 Slot Position" value="1"/>
-    <ctl name="ASPTX2 Slot Position" value="2"/>
-    <ctl name="R ASPTX2 Slot Position" value="3"/>
-    <ctl name="ASPTX3 Slot Position" value="4"/>
-    <ctl name="R ASPTX3 Slot Position" value="5"/>
-    <ctl name="ASPTX4 Slot Position" value="6"/>
-    <ctl name="R ASPTX4 Slot Position" value="7"/>
-
-    <!-- Cirrus Booster Amp DRE and VBST config-->
-    <ctl name="VBSTMON Output Switch" value="1"/>
-    <ctl name="R VBSTMON Output Switch" value="1"/>
-    <ctl name="DRE DRE Switch" value="1"/>
-    <ctl name="R DRE DRE Switch" value="1"/>
-
-    <!-- Cirrus Booster Amp Output Gain -->
-    <ctl name="AMP PCM Gain" value="17"/>
-    <ctl name="R AMP PCM Gain" value="17"/>
-    <ctl name="Digital PCM Volume" value="817"/>
-    <ctl name="R Digital PCM Volume" value="817"/>
-
-    <!-- Cirrus Booster Amp Power -->
-    <ctl name="Main AMP Enable Switch" value="0"/>
-    <ctl name="R Main AMP Enable Switch" value="0"/>
-
-    <!-- Cirrus Booster mode -->
-    <ctl name="PCM Source" value="DSP"/>
-    <ctl name="R PCM Source" value="DSP"/>
-    <ctl name="DSP1 Firmware" value="Protection"/>
-    <ctl name="R DSP1 Firmware" value="Protection"/>
-    <ctl name="DSP RX1 Source" value="ASPRX1"/>
-    <ctl name="DSP RX2 Source" value="ASPRX1"/>
-    <ctl name="R DSP RX1 Source" value="ASPRX1"/>
-    <ctl name="R DSP RX2 Source" value="ASPRX1"/>
-    <ctl name="Boost Peak Current Limit" value="3.50A"/>
-    <ctl name="R Boost Peak Current Limit" value="3.50A"/>
-
-    <!-- Cirrus ASP TX source -->
-    <ctl name="ASP TX1 Source" value="VMON" />
-    <ctl name="R ASP TX1 Source" value="VMON" />
-    <ctl name="ASP TX2 Source" value="IMON" />
-    <ctl name="R ASP TX2 Source" value="IMON" />
-    <ctl name="ASP TX3 Source" value="Zero" />
-    <ctl name="R ASP TX3 Source" value="Zero" />
-    <ctl name="ASP TX4 Source" value="Zero" />
-    <ctl name="R ASP TX4 Source" value="Zero" />
-
-    <!-- Cirrus fast switch init -->
-    <!--ctl name="Fast Use Case Switch Enable" value="0" />
-    <ctl name="Fast Use Case Delta File" value="fast_switch5.txt" />
-    <ctl name="R Fast Use Case Switch Enable" value="0" />
-    <ctl name="R Fast Use Case Delta File" value="fast_switch5.txt" /-->
+    <!-- Tas2562 settings -->
+    <ctl name="TAS256X ASI Left Switch" value="0" />
+    <ctl name="TAS256X ASI Right Switch" value="0" />
+    <ctl name="TAS256X ASI1 SEL LEFT" value="Left" />
+    <ctl name="TAS256X ASI1 SEL RIGHT" value="Right" />
+    <ctl name="TAS256X PLAYBACK VOLUME LEFT" value="55" />
+    <ctl name="TAS256X PLAYBACK VOLUME RIGHT" value="55" />
+    <ctl name="TAS256X AMP OUTPUT LVL LEFT" value="16" />
+    <ctl name="TAS256X AMP OUTPUT LVL RIGHT" value="16" />
+    <ctl name="TAS25XX_ALGO_PROFILE" value="MUSIC" />
+    <ctl name="TAS25XX_ALGO_BYPASS" value="TRUE" />
 
     <!-- default EP volume -->
     <ctl name="PCM Playback Switch" value="1"/>
@@ -240,7 +188,7 @@
     <ctl name="MIC Record Soft Gain (dB)" value="-40"/>
 
     <!-- USB setting v2 -->
-    <ctl name="USB Bus ID v2" value="1"/>
+    <ctl name="USB Bus ID v2" value="2"/>
     <ctl name="USB Dev ID v2" value="2"/>
     <ctl name="USB Playback EP ID v2" value="1"/>
     <ctl name="USB Playback FORMAT v2" value="0"/>
@@ -649,16 +597,21 @@
     <!-- codec setting -->>
     <!-- Rx device -->
     <path name="handset">
-        <ctl name="PCM Source" value="ASP"/>
-        <ctl name="AMP PCM Gain" value="6"/>
-        <ctl name="Main AMP Enable Switch" value="1"/>
+        <ctl name="TAS25XX_ALGO_BYPASS" value="TRUE" />
+        <ctl name="TAS256X PLAYBACK VOLUME LEFT" value="55" />
+        <ctl name="TAS256X PLAYBACK VOLUME RIGHT" value="55" />
+        <ctl name="TAS256X AMP OUTPUT LVL LEFT" value="1" />
+        <ctl name="TAS256X ASI Left Switch" value="1" />
+        <ctl name="TAS256X ASI Right Switch" value="0" />
     </path>
 
     <path name="voice-handset">
-        <ctl name="Boost Peak Current Limit" value="3.50A"/>
-        <ctl name="PCM Source" value="ASP"/>
-        <ctl name="AMP PCM Gain" value="7"/>
-        <ctl name="Main AMP Enable Switch" value="1"/>
+        <ctl name="TAS25XX_ALGO_BYPASS" value="TRUE" />
+        <ctl name="TAS256X PLAYBACK VOLUME LEFT" value="55" />
+        <ctl name="TAS256X PLAYBACK VOLUME RIGHT" value="55" />
+        <ctl name="TAS256X AMP OUTPUT LVL LEFT" value="1" />
+        <ctl name="TAS256X ASI Left Switch" value="1" />
+        <ctl name="TAS256X ASI Right Switch" value="0" />
     </path>
 
     <path name="voice-hac">
@@ -669,54 +622,31 @@
     </path>
 
     <path name="speaker">
-        <ctl name="Boost Peak Current Limit" value="2.50A"/>
-        <ctl name="R Boost Peak Current Limit" value="2.50A"/>
-        <ctl name="Main AMP Enable Switch" value="1"/>
-        <ctl name="R Main AMP Enable Switch" value="1"/>
+        <ctl name="TAS256X ASI Left Switch" value="1" />
+        <ctl name="TAS256X ASI Right Switch" value="1" />
     </path>
 
     <path name="speaker-post">
-        <!-- load Bypass FIR -->
-        <!--ctl name="Fast Use Case Delta File" value="fast_switch3.txt" />
-        <ctl name="Fast Use Case Switch Enable" value="1" />
-        <ctl name="R Fast Use Case Delta File" value="fast_switch4.txt" />
-        <ctl name="R Fast Use Case Switch Enable" value="1" /-->
     </path>
 
     <path name="voice-speaker">
-        <ctl name="R Boost Peak Current Limit" value="3.50A"/>
-        <ctl name="Boost Peak Current Limit" value="3.50A"/>
-        <ctl name="ASPTX1 Slot Position" value="1"/>
-        <ctl name="R ASPTX1 Slot Position" value="0"/>
-    <!--<ctl name="R DSP RX2 Source" value="ASPRX2"/>-->
-        <ctl name="R Main AMP Enable Switch" value="1"/>
-        <ctl name="Main AMP Enable Switch" value="1"/>
-    </path>
-
-    <path name="voice-speaker-post">
-        <!-- load Enable FIR -->
-        <!--ctl name="Fast Use Case Delta File" value="fast_switch1.txt" />
-        <ctl name="Fast Use Case Switch Enable" value="1" />
-        <ctl name="R Fast Use Case Delta File" value="fast_switch2.txt" />
-        <ctl name="R Fast Use Case Switch Enable" value="1" />
-        <ctl name="Digital PCM Volume" value="800"/-->
+        <ctl name="TAS25XX_ALGO_PROFILE" value="VOICE" />
+        <ctl name="TAS256X ASI Left Switch" value="0" />
+        <ctl name="TAS256X ASI Right Switch" value="1" />
     </path>
 
     <path name="voice-dual-speaker">
-        <!-- Speaker Separation -->
-        <path name="voice-speaker" />
-        <path name="voice-speaker-post" />
+        <ctl name="TAS25XX_ALGO_PROFILE" value="VOICE" />
+        <ctl name="TAS256X ASI Left Switch" value="1" />
+        <ctl name="TAS256X ASI Right Switch" value="1" />
     </path>
 
     <path name="speaker-safe">
-        <ctl name="R Boost Peak Current Limit" value="3.50A"/>
-        <ctl name="R Main AMP Enable Switch" value="1"/>
+        <ctl name="TAS256X ASI Left Switch" value="1" />
+        <ctl name="TAS256X ASI Right Switch" value="0" />
     </path>
 
     <path name="speaker-safe-post">
-        <!-- load Bypass FIR -->
-        <!--ctl name="R Fast Use Case Delta File" value="fast_switch4.txt" />
-        <ctl name="R Fast Use Case Switch Enable" value="1" /-->
     </path>
 
     <path name="usb-tty-full">

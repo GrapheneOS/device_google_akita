@@ -30,7 +30,8 @@ PRODUCT_COPY_FILES += \
 
 # Mixer Path Configuration for AudioHAL
 PRODUCT_COPY_FILES += \
-    device/google/akita/audio/$(AUDIO_TABLE_FOLDER)/config/mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths.xml
+    device/google/akita/audio/$(AUDIO_TABLE_FOLDER)/config/mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths.xml \
+    device/google/akita/audio/$(AUDIO_TABLE_FOLDER)/config/mixer_paths_ti.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_ti.xml
 
 # Speaker firmware files
 SPK_FIRMWARE_PATH := $(AUDIO_TABLE_FOLDER)/cs35l41/fw
