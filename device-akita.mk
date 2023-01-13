@@ -206,3 +206,9 @@ PRODUCT_VENDOR_PROPERTIES += \
 # Disable camera DPM
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.camera.debug.force_dpm_on=0
+
+# Vibrator HAL
+PRODUCT_VENDOR_PROPERTIES += \
+    ro.vendor.vibrator.hal.supported_primitives=243 \
+    ro.vendor.vibrator.hal.f0.comp.enabled=1 \
+    ro.vendor.vibrator.hal.redc.comp.enabled=0 \
