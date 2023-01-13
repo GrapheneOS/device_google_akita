@@ -24,6 +24,7 @@ $(call inherit-product-if-exists, vendor/google_devices/akita/proprietary/akita/
 
 include device/google/zuma/device-shipping-common.mk
 include device/google/akita/audio/akita/audio-tables.mk
+include hardware/google/pixel/vibrator/cs40l26/device.mk
 include device/google/gs-common/bcmbt/bluetooth.mk
 include device/google/gs-common/touch/gti/gti.mk
 
