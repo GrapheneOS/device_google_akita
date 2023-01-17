@@ -94,6 +94,7 @@ class HwApi : public Vibrator::HwApi, private HwApiBase {
     bool setMinOnOffInterval(uint32_t value) override { return set(value, &mMinOnOffInterval); }
     // TODO(b/234338136): Need to add the force feedback HW API test cases
     bool setFFGain(int fd, uint16_t value) override {
+        ATRACE_NAME(StringPrintf("%s %d%%", __func__, value).c_str());
         struct input_event gain = {
                 .type = EV_FF,
                 .code = FF_GAIN,
@@ -105,6 +106,7 @@ class HwApi : public Vibrator::HwApi, private HwApiBase {
         return true;
     }
     bool setFFEffect(int fd, struct ff_effect *effect, uint16_t timeoutMs) override {
+        ATRACE_NAME(StringPrintf("%s %dms", __func__, timeoutMs).c_str());
         if (((*effect).replay.length != timeoutMs) || (ioctl(fd, EVIOCSFF, effect) < 0)) {
             ALOGE("setFFEffect fail");
             return false;
@@ -113,6 +115,7 @@ class HwApi : public Vibrator::HwApi, private HwApiBase {
         }
     }
     bool setFFPlay(int fd, int8_t index, bool value) override {
+        ATRACE_NAME(StringPrintf("%s index:%d %s", __func__, index, value ? "on" : "off").c_str());
         struct input_event play = {
                 .type = EV_FF,
                 .code = static_cast<uint16_t>(index),
@@ -125,6 +128,7 @@ class HwApi : public Vibrator::HwApi, private HwApiBase {
         }
     }
     bool getHapticAlsaDevice(int *card, int *device) override {
+        ATRACE_NAME(__func__);
         std::string line;
         std::ifstream myfile(PROC_SND_PCM);
         if (myfile.is_open()) {
@@ -144,6 +148,7 @@ class HwApi : public Vibrator::HwApi, private HwApiBase {
         return false;
     }
     bool setHapticPcmAmp(struct pcm **haptic_pcm, bool enable, int card, int device) override {
+        ATRACE_NAME(StringPrintf("%s %s", __func__, enable ? "enable" : "disable").c_str());
         int ret = 0;
 
         if (enable) {
@@ -181,6 +186,7 @@ class HwApi : public Vibrator::HwApi, private HwApiBase {
     }
     bool uploadOwtEffect(int fd, uint8_t *owtData, uint32_t numBytes, struct ff_effect *effect,
                          uint32_t *outEffectIndex, int *status) override {
+        ATRACE_NAME(__func__);
         (*effect).u.periodic.custom_len = numBytes / sizeof(uint16_t);
         delete[] ((*effect).u.periodic.custom_data);
         (*effect).u.periodic.custom_data = new int16_t[(*effect).u.periodic.custom_len]{0x0000};
@@ -214,13 +220,17 @@ class HwApi : public Vibrator::HwApi, private HwApiBase {
         return true;
     }
     bool eraseOwtEffect(int fd, int8_t effectIndex, std::vector<ff_effect> *effect) override {
+        ATRACE_NAME(__func__);
         uint32_t effectCountBefore, effectCountAfter, i, successFlush = 0;
 
         if (effectIndex < WAVEFORM_MAX_PHYSICAL_INDEX) {
             ALOGE("Invalid waveform index for OWT erase: %d", effectIndex);
             return false;
         }
-
+        // Turn off the waiting time for SVC init phase to complete since chip
+        // should already under STOP state
+        setMinOnOffInterval(0);
+        // Do erase flow
         if (effectIndex < WAVEFORM_MAX_INDEX) {
             /* Normal situation. Only erase the effect which we just played. */
             if (ioctl(fd, EVIOCRMFF, effectIndex) < 0) {
@@ -248,6 +258,8 @@ class HwApi : public Vibrator::HwApi, private HwApiBase {
                 (*effect)[i].id = -1;
             }
         }
+        // Turn on the waiting time for SVC init phase to complete
+        setMinOnOffInterval(Vibrator::MIN_ON_OFF_INTERVAL_US);
         return true;
     }
 
@@ -334,6 +346,16 @@ class HwCal : public Vibrator::HwCal, private HwCalBase {
     }
     bool getSupportedPrimitives(uint32_t *value) override {
         return getProperty("supported_primitives", value, (uint32_t)0);
+    }
+    bool isF0CompEnabled() override {
+        bool value;
+        getProperty("f0.comp.enabled", &value, true);
+        return value;
+    }
+    bool isRedcCompEnabled() override {
+        bool value;
+        getProperty("redc.comp.enabled", &value, true);
+        return value;
     }
     void debug(int fd) override { HwCalBase::debug(fd); }
 };
