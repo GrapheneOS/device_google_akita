@@ -1,5 +1,5 @@
 on property:vendor.all.modules.ready=1
-    wait /sys/bus/i2c/devices/6-0043/calibration/redc_cal_time_ms
+    wait /sys/bus/i2c/devices/5-0043/calibration/redc_cal_time_ms
 
     mkdir /mnt/vendor/persist/haptics 0770 system system
     chmod 770 /mnt/vendor/persist/haptics

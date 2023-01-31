@@ -298,6 +298,8 @@ class VibratorTest : public Test {
         EXPECT_CALL(*mMockCal, getLongVolLevels(_)).Times(times);
         EXPECT_CALL(*mMockCal, isChirpEnabled()).Times(times);
         EXPECT_CALL(*mMockCal, getLongFrequencyShift(_)).Times(times);
+        EXPECT_CALL(*mMockCal, isF0CompEnabled()).Times(times);
+        EXPECT_CALL(*mMockCal, isRedcCompEnabled()).Times(times);
         EXPECT_CALL(*mMockCal, debug(_)).Times(times);
     }
 
@@ -350,7 +352,9 @@ TEST_F(VibratorTest, Constructor) {
         volGet = EXPECT_CALL(*mMockCal, getLongVolLevels(_)).WillOnce(DoDefault());
     }
 
+    EXPECT_CALL(*mMockCal, isF0CompEnabled()).WillOnce(Return(true));
     EXPECT_CALL(*mMockApi, setF0CompEnable(true)).WillOnce(Return(true));
+    EXPECT_CALL(*mMockCal, isRedcCompEnabled()).WillOnce(Return(true));
     EXPECT_CALL(*mMockApi, setRedcCompEnable(true)).WillOnce(Return(true));
 
     EXPECT_CALL(*mMockCal, isChirpEnabled()).WillOnce(Return(true));
@@ -379,6 +383,8 @@ TEST_F(VibratorTest, on) {
 }
 
 TEST_F(VibratorTest, off) {
+    Sequence s1;
+    EXPECT_CALL(*mMockApi, setFFGain(_, ON_GLOBAL_SCALE)).InSequence(s1).WillOnce(DoDefault());
     EXPECT_TRUE(mVibrator->off().isOk());
 }
 
@@ -547,26 +553,6 @@ TEST_P(EffectsTest, perform) {
     }
 }
 
-TEST_P(EffectsTest, alwaysOnEnable) {
-    // No real function now in P22+
-    auto param = GetParam();
-    auto effect = std::get<0>(param);
-    auto strength = std::get<1>(param);
-    auto scale = EFFECT_SCALE.find(param);
-    bool supported = (scale != EFFECT_SCALE.end());
-
-    if (supported) {
-        // Do nothing
-    }
-
-    ndk::ScopedAStatus status = mVibrator->alwaysOnEnable(0, effect, strength);
-    if (supported) {
-        EXPECT_EQ(EX_NONE, status.getExceptionCode());
-    } else {
-        EXPECT_EQ(EX_UNSUPPORTED_OPERATION, status.getExceptionCode());
-    }
-}
-
 const std::vector<Effect> kEffects{ndk::enum_range<Effect>().begin(),
                                    ndk::enum_range<Effect>().end()};
 const std::vector<EffectStrength> kEffectStrengths{ndk::enum_range<EffectStrength>().begin(),
@@ -692,50 +678,6 @@ const std::vector<ComposeParam> kComposeParams = {
 INSTANTIATE_TEST_CASE_P(VibratorTests, ComposeTest,
                         ValuesIn(kComposeParams.begin(), kComposeParams.end()),
                         ComposeTest::PrintParam);
-
-class AlwaysOnTest : public VibratorTest, public WithParamInterface<int32_t> {
-  public:
-    static auto PrintParam(const TestParamInfo<ParamType> &info) {
-        return std::to_string(info.param);
-    }
-};
-
-TEST_P(AlwaysOnTest, alwaysOnEnable) {
-    auto param = GetParam();
-    auto scale = EFFECT_SCALE.begin();
-
-    std::advance(scale, std::rand() % EFFECT_SCALE.size());
-
-    auto effect = std::get<0>(scale->first);
-    auto strength = std::get<1>(scale->first);
-
-    switch (param) {
-        case 0:
-        case 1:
-            // Do nothing
-            break;
-    }
-
-    ndk::ScopedAStatus status = mVibrator->alwaysOnEnable(param, effect, strength);
-    EXPECT_EQ(EX_NONE, status.getExceptionCode());
-}
-
-TEST_P(AlwaysOnTest, alwaysOnDisable) {
-    auto param = GetParam();
-
-    switch (param) {
-        case 0:
-        case 1:
-            // Do nothing
-            break;
-    }
-
-    ndk::ScopedAStatus status = mVibrator->alwaysOnDisable(param);
-    EXPECT_EQ(EX_NONE, status.getExceptionCode());
-}
-
-INSTANTIATE_TEST_CASE_P(VibratorTests, AlwaysOnTest, Range(0, 1), AlwaysOnTest::PrintParam);
-
 }  // namespace vibrator
 }  // namespace hardware
 }  // namespace android
