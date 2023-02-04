@@ -33,6 +33,8 @@ $(call soong_config_set,lyric,camera_hardware,akita)
 $(call soong_config_set,lyric,tuning_product,ripcurrent)
 $(call soong_config_set,google3a_config,target_device,shiba)
 
+DEVICE_PACKAGE_OVERLAYS += device/google/akita/akita/overlay
+
 # Init files
 PRODUCT_COPY_FILES += \
 	device/google/akita/conf/init.akita.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.akita.rc
