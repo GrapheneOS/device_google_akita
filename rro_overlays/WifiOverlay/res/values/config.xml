@@ -137,8 +137,8 @@
     <!-- Indicate the driver doesn't support NL80211 Reg changed event -->
     <bool translatable="false" name="config_wifiDriverSupportedNl80211RegChangedEvent">false</bool>
 
-    <!-- boolean indicating whether or not to disable shutdown idle instance timer in the bridged mode when plugged -->
-    <bool translatable="false" name ="config_wifiFrameworkSoftApDisableBridgedModeShutdownIdleInstanceWhenPlugged">true</bool>
+    <!-- boolean indicating whether or not to disable shutdown idle instance timer in the bridged mode when connected to a power source -->
+    <bool translatable="false" name ="config_wifiFrameworkSoftApDisableBridgedModeShutdownIdleInstanceWhenCharging">true</bool>
 
     <!-- Indicate whether the verbose logging is always on -->
     <!-- 0: verbose logging controlled by user
