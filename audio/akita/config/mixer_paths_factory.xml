@@ -58,11 +58,11 @@
     </path>
 
     <path name="mic2-status">
-        <ctl name="MIC1" value="1" />
+        <ctl name="MIC2" value="1" />
     </path>
 
     <path name="mic3-status">
-        <ctl name="MIC2" value="1" />
+        <ctl name="MIC1" value="1" />
     </path>
 
     <path name="mic1-gain">
@@ -106,20 +106,20 @@
     </path>
 
     <path name="mic2-only">
-        <ctl name="BUILDIN MIC ID CAPTURE LIST" id="0" value="1" />
-        <ctl name="BUILDIN MIC ID CAPTURE LIST" id="1" value="-1" />
-        <ctl name="BUILDIN MIC ID CAPTURE LIST" id="2" value="-1" />
-        <ctl name="BUILDIN MIC ID CAPTURE LIST" id="3" value="-1" />
-        <ctl name="MIC1" value="1" />
-        <ctl name="MIC Record Soft Gain (dB)" value="0" />
-    </path>
-
-    <path name="mic3-only">
         <ctl name="BUILDIN MIC ID CAPTURE LIST" id="0" value="2" />
         <ctl name="BUILDIN MIC ID CAPTURE LIST" id="1" value="-1" />
         <ctl name="BUILDIN MIC ID CAPTURE LIST" id="2" value="-1" />
         <ctl name="BUILDIN MIC ID CAPTURE LIST" id="3" value="-1" />
         <ctl name="MIC2" value="1" />
+        <ctl name="MIC Record Soft Gain (dB)" value="0" />
+    </path>
+
+    <path name="mic3-only">
+        <ctl name="BUILDIN MIC ID CAPTURE LIST" id="0" value="1" />
+        <ctl name="BUILDIN MIC ID CAPTURE LIST" id="1" value="-1" />
+        <ctl name="BUILDIN MIC ID CAPTURE LIST" id="2" value="-1" />
+        <ctl name="BUILDIN MIC ID CAPTURE LIST" id="3" value="-1" />
+        <ctl name="MIC1" value="1" />
         <ctl name="MIC Record Soft Gain (dB)" value="0" />
     </path>
 
@@ -145,20 +145,20 @@
     </path>
 
     <path name="us-mic2-only">
-        <ctl name="BUILDIN US MIC ID CAPTURE LIST" id="0" value="1" />
-        <ctl name="BUILDIN US MIC ID CAPTURE LIST" id="1" value="-1" />
-        <ctl name="BUILDIN US MIC ID CAPTURE LIST" id="2" value="-1" />
-        <ctl name="BUILDIN US MIC ID CAPTURE LIST" id="3" value="-1" />
-        <ctl name="MIC1" value="1" />
-        <ctl name="MIC Record Soft Gain (dB)" value="0" />
-    </path>
-
-    <path name="us-mic3-only">
         <ctl name="BUILDIN US MIC ID CAPTURE LIST" id="0" value="2" />
         <ctl name="BUILDIN US MIC ID CAPTURE LIST" id="1" value="-1" />
         <ctl name="BUILDIN US MIC ID CAPTURE LIST" id="2" value="-1" />
         <ctl name="BUILDIN US MIC ID CAPTURE LIST" id="3" value="-1" />
         <ctl name="MIC2" value="1" />
+        <ctl name="MIC Record Soft Gain (dB)" value="0" />
+    </path>
+
+    <path name="us-mic3-only">
+        <ctl name="BUILDIN US MIC ID CAPTURE LIST" id="0" value="1" />
+        <ctl name="BUILDIN US MIC ID CAPTURE LIST" id="1" value="-1" />
+        <ctl name="BUILDIN US MIC ID CAPTURE LIST" id="2" value="-1" />
+        <ctl name="BUILDIN US MIC ID CAPTURE LIST" id="3" value="-1" />
+        <ctl name="MIC1" value="1" />
         <ctl name="MIC Record Soft Gain (dB)" value="0" />
     </path>
 
