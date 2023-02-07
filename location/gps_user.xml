@@ -82,8 +82,6 @@
        PowerMode="3"
        MinGpsWeekNumber="2216"
        OnChipAccMask="50"
-
-       EnableCoex="true"
   />
 
   <gll_features
