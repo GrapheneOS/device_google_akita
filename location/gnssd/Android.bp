@@ -13,107 +13,6 @@ license {
     ],
 }
 
-cc_prebuilt_library_shared {
-    name: "android.hardware.gnss@2.1-impl",
-    arch: {
-        arm64: {
-            srcs: ["release/android_hardware_gnss_2_1-impl.so"],
-            shared_libs: [
-                "liblog",
-                "libhidlbase",
-                "libutils",
-                "android.hardware.gnss@1.0",
-                "android.hardware.gnss@1.1",
-                "android.hardware.gnss@2.0",
-                "android.hardware.gnss@2.1",
-                "android.hardware.gnss.measurement_corrections@1.0",
-                "android.hardware.gnss.visibility_control@1.0",
-                "libhardware",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    vendor: true,
-    relative_install_path: "hw",
-    strip: {
-        none: true,
-    },
-    // Bypass because libhidltransport is deprecated
-    check_elf_files: false,
-    //vintf_fragments: ["android.hardware.gnss@2.1-service-lass.xml"]
-}
-
-
-cc_prebuilt_library_shared {
-    name: "vendor.samsung.hardware.gnss@1.0-impl",
-    arch: {
-        arm64: {
-            srcs: ["release/slsi_samsung_hardware_gnss_1_0-impl.so"],
-            shared_libs: [
-                "liblog",
-                "libhidlbase",
-                "libutils",
-                "android.hardware.gnss@1.0",
-                "android.hardware.gnss@1.1",
-                "android.hardware.gnss@2.0",
-                "android.hardware.gnss@2.1",
-                "android.hardware.gnss.measurement_corrections@1.0",
-                "android.hardware.gnss.visibility_control@1.0",
-                "libhardware",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    vendor: true,
-    relative_install_path: "hw",
-    strip: {
-        none: true,
-    },
-    // Bypass because libhidltransport is deprecated
-    check_elf_files: false,
-}
-
-cc_prebuilt_library_shared {
-    name: "vendor.samsung.hardware.gnss@1.0",
-    arch: {
-        arm64: {
-            srcs: ["release/vendor.samsung.hardware.gnss@1.0.so"],
-            shared_libs: [
-                "liblog",
-                "libhidlbase",
-                "libutils",
-                "android.hardware.gnss@1.0",
-                "android.hardware.gnss@1.1",
-                "android.hardware.gnss@2.0",
-                "android.hardware.gnss@2.1",
-                "android.hardware.gnss.measurement_corrections@1.0",
-                "android.hardware.gnss.visibility_control@1.0",
-                "libhardware",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    vendor: true,
-    strip: {
-        none: true,
-    },
-    // Bypass because libhidltransport is deprecated
-    check_elf_files: false,
-}
-
-
 cc_prebuilt_binary {
     name: "gnss-aidl-service_IGnssV2_ISlsiGnssV1",
     arch: {
@@ -123,12 +22,8 @@ cc_prebuilt_binary {
                 "liblog",
                 "libutils",
                 "libhardware",
-                "android.hardware.gnss@1.0",
                 "libhidlbase",
-                "android.hardware.gnss@1.1",
-                "android.hardware.gnss@2.0",
-                "android.hardware.gnss@2.1",
-		"android.hardware.gnss-V2-ndk",
+		"android.hardware.gnss-V3-ndk",
                 "libc++",
                 "libc",
                 "libm",
