@@ -208,6 +208,10 @@ PRODUCT_VENDOR_PROPERTIES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.camera.debug.force_dpm_on=0
 
+# OIS with system imu
+PRODUCT_VENDOR_PROPERTIES += \
+    persist.vendor.camera.ois_with_system_imu=true
+
 # Vibrator HAL
 PRODUCT_VENDOR_PROPERTIES += \
     ro.vendor.vibrator.hal.supported_primitives=243 \
