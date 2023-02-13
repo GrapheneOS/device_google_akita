@@ -157,8 +157,7 @@ PRODUCT_SOONG_NAMESPACES += \
 
 # WiFi Overlay
 PRODUCT_PACKAGES += \
-	WifiOverlay2024Mid \
-	PixelWifiOverlay2023
+	WifiOverlay2024Mid
 
 # Trusty liboemcrypto.so
 PRODUCT_SOONG_NAMESPACES += vendor/google_devices/akita/prebuilts
