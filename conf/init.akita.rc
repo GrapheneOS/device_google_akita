@@ -4,6 +4,11 @@ import /vendor/etc/init/hw/init.zuma.rc
 on init && property:ro.vendor.factory=1
     import /vendor/etc/init/hw/init.factory.rc
 
+on init
+    # NFC streset tool name
+    setprop persist.vendor.nfc.streset libstreset23
+    setprop persist.vendor.se.streset libstreset23
+
 on early-boot
     # Wait for insmod_sh to finish all common modules
     wait_for_prop vendor.common.modules.ready 1
