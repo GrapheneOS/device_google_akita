@@ -83,6 +83,7 @@
        MinGpsWeekNumber="2216"
        OnChipAccMask="50"
 
+       EnableB1C="false"
        EnableCoex="true"
   />
 
