@@ -55,6 +55,14 @@
         <ctl name="R DSP1 Preload Switch" value="1" />
     </path>
 
+    <path name="crus-fw-preload-amp1">
+        <ctl name="DSP1 Preload Switch" value="1" />
+    </path>
+
+    <path name="crus-fw-preload-amp2">
+        <ctl name="R DSP1 Preload Switch" value="1" />
+    </path>
+
     <!-- Firmware-switching Stage -->
     <path name="crus-switch-fw-Calibration">
         <ctl name="AMP PCM Gain" value="17" />
