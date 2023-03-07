@@ -43,10 +43,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
         device/google/akita/conf/init.recovery.device.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.akita.rc
 
-# insmod files
-PRODUCT_COPY_FILES += \
-	device/google/akita/init.insmod.akita.cfg:$(TARGET_COPY_OUT_VENDOR)/etc/init.insmod.akita.cfg
-
 # Camera
 PRODUCT_COPY_FILES += \
 	device/google/akita/media_profiles_akita.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml
