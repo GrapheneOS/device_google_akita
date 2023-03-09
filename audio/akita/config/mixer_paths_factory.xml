@@ -43,6 +43,7 @@
     <path name="mfg-record usb-headset-mic">
         <ctl name="Audio Capture Mic Source" value="USB_MIC"/>
         <ctl name="USB Playback EP ID v2" value="0" />
+        <ctl name="USB Capture EP ID v2" value="1" />
         <ctl name="USB Capture FORMAT v2" value="1" />
         <ctl name="USB Config To AoC v2" value="1"/>
         <ctl name="EP1 TX Mixer USB_TX" value="1"/>
