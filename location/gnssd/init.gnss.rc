@@ -107,25 +107,3 @@ on property:persist.vendor.gps=1
        start gnssd
        start slsi_gnss_service
 
-
-# factory daemon
-service sctd /vendor/bin/hw/sctd --json "/vendor/etc/sctd.json"
-    class factory
-    user root
-    group root system bluetooth radio misc
-    disabled
-    #seclabel u:r:shell:s0
-
-service swcnd /vendor/bin/hw/swcnd --json "/vendor/etc/swcnd.json"
-    class factory
-    user root
-    group system bluetooth radio misc
-    disabled
-    #seclabel u:r:shell:s0
-
-service spad /vendor/bin/hw/spad --json "/vendor/etc/spad.json"
-    class factory
-    user root
-    group system bluetooth radio misc
-    disabled
-    #seclabel u:r:shell:s0
