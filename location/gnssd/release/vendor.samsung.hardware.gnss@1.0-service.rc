@@ -1,5 +1,0 @@
-service slsi_gnss_service /vendor/bin/hw/gnss-aidl-service_IGnssV2_ISlsiGnssV1
-    class main
-    user system
-    group system gps
-    disabled

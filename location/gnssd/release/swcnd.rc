@@ -1,8 +1,0 @@
-on post-fs-data && property:ro.bootmode=sfactory
-    setprop sys.boot_completed 1
-
-service swcnd /vendor/bin/swcnd --json "/vendor/etc/swcnd.json"
-    class factory
-    user root
-    group system bluetooth radio misc
-    #seclabel u:r:shell:s0
