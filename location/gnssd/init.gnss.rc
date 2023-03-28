@@ -97,6 +97,30 @@ on property:ro.boot.cdt_hwid=0x00040402000101030200000000000000
 on property:ro.boot.cdt_hwid=0x00040402000101030300000000000000
 	setprop persist.vendor.gps 1
 
+# proto 1.1 K DOE
+on property:ro.boot.cdt_hwid=0x00040402000101010001000000000000
+	setprop persist.vendor.gps 1
+
+on property:ro.boot.cdt_hwid=0x00040402000101010101000000000000
+	setprop persist.vendor.gps 1
+
+on property:ro.boot.cdt_hwid=0x00040402000101010201000000000000
+	setprop persist.vendor.gps 1
+
+on property:ro.boot.cdt_hwid=0x00040402000101010301000000000000
+	setprop persist.vendor.gps 1
+
+on property:ro.boot.cdt_hwid=0x00040402000101030001000000000000
+	setprop persist.vendor.gps 1
+
+on property:ro.boot.cdt_hwid=0x00040402000101030101000000000000
+	setprop persist.vendor.gps 1
+
+on property:ro.boot.cdt_hwid=0x00040402000101030201000000000000
+	setprop persist.vendor.gps 1
+
+on property:ro.boot.cdt_hwid=0x00040402000101030301000000000000
+	setprop persist.vendor.gps 1
 
 # start lassen gps
 on property:persist.vendor.gps=1
