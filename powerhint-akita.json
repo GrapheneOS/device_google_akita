@@ -115,11 +115,11 @@
       "Path": "/proc/vendor_sched/ta_uclamp_min",
       "Values": [
         "0",
-	"553",
-	"246",
-        "185",
-        "123",
-        "62"
+	"691",
+	"307",
+        "231",
+        "153",
+        "77"
       ],
       "DefaultIndex": 0,
       "ResetOnInit": true
@@ -285,19 +285,19 @@
       "PowerHint": "INTERACTION_120",
       "Node": "TAUClampBoost",
       "Duration": 6000,
-      "Value": "246"
+      "Value": "307"
     },
     {
       "PowerHint": "INTERACTION_90",
       "Node": "TAUClampBoost",
       "Duration": 6000,
-      "Value": "185"
+      "Value": "231"
     },
     {
       "PowerHint": "INTERACTION_60",
       "Node": "TAUClampBoost",
       "Duration": 6000,
-      "Value": "123"
+      "Value": "153"
     },
     {
       "PowerHint": "REFRESH_120FPS",
@@ -365,7 +365,7 @@
       "PowerHint": "LAUNCH",
       "Node": "TAUClampBoost",
       "Duration": 5000,
-      "Value": "553"
+      "Value": "691"
     },
     {
       "PowerHint": "LAUNCH",
@@ -905,19 +905,19 @@
       "PowerHint": "REFRESH_120FPS",
       "Node": "TAUClampBoost",
       "Duration": 0,
-      "Value": "185"
+      "Value": "231"
     },
     {
       "PowerHint": "REFRESH_90FPS",
       "Node": "TAUClampBoost",
       "Duration": 0,
-      "Value": "123"
+      "Value": "153"
     },
     {
       "PowerHint": "REFRESH_60FPS",
       "Node": "TAUClampBoost",
       "Duration": 0,
-      "Value": "62"
+      "Value": "77"
     },
     {
       "PowerHint": "DISABLE_TA_BOOST",
