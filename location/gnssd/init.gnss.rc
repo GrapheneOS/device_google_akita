@@ -97,6 +97,20 @@ on property:ro.boot.cdt_hwid=0x00040402000101030200000000000000
 on property:ro.boot.cdt_hwid=0x00040402000101030300000000000000
 	setprop persist.vendor.gps 1
 
+# proto 1.1 S DOE
+on property:ro.boot.cdt_hwid=0x00040402000101050000000000000000
+	setprop persist.vendor.gps 1
+
+on property:ro.boot.cdt_hwid=0x00040402000101050100000000000000
+	setprop persist.vendor.gps 1
+
+on property:ro.boot.cdt_hwid=0x00040402000101050200000000000000
+	setprop persist.vendor.gps 1
+
+on property:ro.boot.cdt_hwid=0x00040402000101050300000000000000
+	setprop persist.vendor.gps 1
+
+
 # proto 1.1 K DOE
 on property:ro.boot.cdt_hwid=0x00040402000101010001000000000000
 	setprop persist.vendor.gps 1
