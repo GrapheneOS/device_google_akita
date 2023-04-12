@@ -22,6 +22,10 @@ $(call inherit-product-if-exists, vendor/google_devices/zuma/prebuilts/device-ve
 $(call inherit-product-if-exists, vendor/google_devices/zuma/proprietary/device-vendor.mk)
 $(call inherit-product-if-exists, vendor/google_devices/akita/proprietary/akita/device-vendor-akita.mk)
 
+# display
+PRODUCT_COPY_FILES += \
+	device/google/akita/akita/display_colordata_dev_cal0.pb:$(TARGET_COPY_OUT_VENDOR)/etc/display_colordata_dev_cal0.pb
+
 include device/google/zuma/device-shipping-common.mk
 include device/google/akita/audio/akita/audio-tables.mk
 include hardware/google/pixel/vibrator/cs40l26/device.mk
