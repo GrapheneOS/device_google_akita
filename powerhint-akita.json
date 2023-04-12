@@ -20,6 +20,28 @@
       "ResetOnInit": true
     },
     {
+      "Name": "DsuFreq",
+      "Path": "/sys/devices/platform/17000090.devfreq_dsu/devfreq/17000090.devfreq_dsu/min_freq",
+      "Values": [
+        "2150000",
+        "1328000",
+        "820000",
+        "324000"
+      ],
+      "ResetOnInit": true
+    },
+    {
+      "Name": "BCIFreq",
+      "Path": "/sys/devices/platform/170000a0.devfreq_bci/devfreq/170000a0.devfreq_bci/min_freq",
+      "Values": [
+        "1850000",
+        "1205000",
+        "840000",
+        "315000"
+      ],
+      "ResetOnInit": true
+    },
+    {
       "Name": "CPULittleClusterMaxFreq",
       "Path": "/sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq",
       "Values": [
