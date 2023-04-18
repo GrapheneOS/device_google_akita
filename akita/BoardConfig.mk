@@ -19,6 +19,7 @@ TARGET_SCREEN_DENSITY := 420
 BOARD_USES_GENERIC_AUDIO := true
 USES_DEVICE_GOOGLE_AKITA := true
 BOARD_KERNEL_CMDLINE += swiotlb=noforce
+BOARD_KERNEL_CMDLINE += disable_dma32=on
 
 include device/google/zuma/BoardConfig-common.mk
 -include vendor/google_devices/zuma/prebuilts/BoardConfigVendor.mk
