@@ -1,6 +1,20 @@
 {
   "Nodes": [
     {
+      "Name": "GPUMinFreq",
+      "Path": "/sys/devices/platform/1f000000.mali/hint_min_freq",
+      "Values": [
+        "649000",
+        "580000",
+        "521000",
+        "467000",
+        "376000",
+        "302000",
+        "150000"
+      ],
+      "ResetOnInit": true
+    },
+    {
       "Name": "MemFreq",
       "Path": "/sys/devices/platform/17000010.devfreq_mif/devfreq/17000010.devfreq_mif/min_freq",
       "Values": [
@@ -105,20 +119,6 @@
         "9999999",
         "1106000",
         "0"
-      ],
-      "ResetOnInit": true
-    },
-    {
-      "Name": "GPUMinFreq",
-      "Path": "/sys/devices/platform/1f000000.mali/hint_min_freq",
-      "Values": [
-        "649000",
-        "580000",
-        "521000",
-        "467000",
-        "376000",
-        "302000",
-        "150000"
       ],
       "ResetOnInit": true
     },
@@ -394,6 +394,12 @@
       "Node": "MemFreq",
       "Duration": 5000,
       "Value": "3172000"
+    },
+    {
+      "PowerHint": "CPU_LOAD_RESET",
+      "Node": "GPUMinFreq",
+      "Duration": 50,
+      "Value": "302000"
     },
     {
       "PowerHint": "CPU_LOAD_RESET",
