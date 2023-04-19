@@ -402,6 +402,12 @@
       "Value": "1014000"
     },
     {
+      "PowerHint": "CPU_LOAD_RESET",
+      "Node": "DsuFreq",
+      "Duration": 33,
+      "Value": "820000"
+    },
+    {
       "PowerHint": "CAMERA_LAUNCH",
       "Node": "MemFreq",
       "Duration": 1000,
