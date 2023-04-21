@@ -23,4 +23,14 @@
     <item>G576D</item>
   </string-array>
   <bool name="tag_intent_app_pref_supported">true</bool>
+  <!-- NFC Antenna Location API -->
+  <integer name="device_width">68</integer>
+  <integer name="device_height">142</integer>
+  <bool name="device_foldable">false</bool>
+  <integer-array name="antenna_x">
+    <item>34</item>
+  </integer-array>
+  <integer-array name="antenna_y">
+    <item>96</item>
+  </integer-array>
 </resources>
