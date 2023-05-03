@@ -39,6 +39,7 @@
       "Path": "/sys/devices/platform/17000090.devfreq_dsu/devfreq/17000090.devfreq_dsu/min_freq",
       "Values": [
         "9999999",
+        "1548000",
         "820000",
         "0"
       ],
@@ -59,6 +60,7 @@
       "Path": "/sys/devices/platform/170000a0.devfreq_bci/devfreq/170000a0.devfreq_bci/min_freq",
       "Values": [
         "9999999",
+        "1401000',
         "0"
       ],
       "ResetOnInit": true
@@ -566,6 +568,18 @@
       "Node": "MemFreq",
       "Duration": 5000,
       "Value": "9999999"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "DsuMinFreq",
+      "Duration": 5000,
+      "Value": "1548000"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "BCIMinFreq",
+      "Duration": 5000,
+      "Value": "1401000"
     },
     {
       "PowerHint": "LAUNCH",
