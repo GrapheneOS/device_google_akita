@@ -37,6 +37,13 @@ on post-fs-data
 on post-fs-data
     chown bluetooth system /proc/bluetooth/timesync
 
+# Toggle high_sensitivity according to touch_sensitivity_mode
+on property:persist.vendor.touch_sensitivity_mode=0 && property:sys.boot_completed=1
+    write /sys/devices/virtual/goog_touch_interface/gti.0/screen_protector_mode_enabled 0
+
+on property:persist.vendor.touch_sensitivity_mode=1 && property:sys.boot_completed=1
+    write /sys/devices/virtual/goog_touch_interface/gti.0/screen_protector_mode_enabled 1
+
 # Haptics
 on property:vendor.all.modules.ready=1
     mkdir /mnt/vendor/persist/haptics 0770 system system
