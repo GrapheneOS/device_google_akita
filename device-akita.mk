@@ -26,6 +26,10 @@ $(call inherit-product-if-exists, vendor/google_devices/akita/proprietary/akita/
 PRODUCT_COPY_FILES += \
 	device/google/akita/akita/display_colordata_dev_cal0.pb:$(TARGET_COPY_OUT_VENDOR)/etc/display_colordata_dev_cal0.pb
 
+# display brightness curve
+PRODUCT_COPY_FILES += \
+	device/google/akita/akita/panel_config_google-ak3b_cal0.pb:$(TARGET_COPY_OUT_VENDOR)/etc/panel_config_google-ak3b_cal0.pb
+
 include device/google/zuma/device-shipping-common.mk
 include device/google/akita/audio/akita/audio-tables.mk
 include hardware/google/pixel/vibrator/cs40l26/device.mk
