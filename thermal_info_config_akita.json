@@ -225,11 +225,11 @@
                 "K_Pu":["NAN", "NAN", "NAN", 300, "NAN", "NAN", "NAN"],
                 "K_I":["NAN", "NAN", "NAN", 5, "NAN", "NAN", "NAN"],
                 "K_D":["NAN", "NAN", "NAN", 0, "NAN", "NAN", "NAN"],
-                "I_Max":["NAN", "NAN", "NAN", 700, "NAN", "NAN", "NAN"],
+                "I_Max":["NAN", "NAN", "NAN", 2600, "NAN", "NAN", "NAN"],
                 "S_Power":["NAN", "NAN", "NAN", 800, "NAN", "NAN", "NAN"],
                 "MinAllocPower":["NAN", "NAN", "NAN", 0, "NAN", "NAN", "NAN"],
                 "MaxAllocPower":["NAN", "NAN", "NAN", 3900, "NAN", "NAN", "NAN"],
-                "I_Cutoff":["NAN", "NAN", "NAN", 2, "NAN", "NAN", "NAN"]
+                "I_Cutoff":["NAN", "NAN", "NAN", 8, "NAN", "NAN", "NAN"]
             },
             "BindedCdevInfo": [
                 {
@@ -265,8 +265,41 @@
                     "MaxReleaseStep": 1,
                     "MaxThrottleStep": 1,
                     "BindedPowerRail": "S2S_VDD_G3D",
-                    "CdevCeiling": [0, 7, 7, 7, 9, 11, 11],
+                    "CdevCeiling": [0, 9, 9, 9, 9, 11, 11],
                     "LimitInfo": [0, 0, 0, 0, 9, 11, 11]
+                }
+            ]
+        },
+        {
+            "Name":"VIRTUAL-SKIN-GPU",
+            "Type":"UNKNOWN",
+            "Hidden":true,
+            "VirtualSensor":true,
+            "TriggerSensor":"soc_therm",
+            "Formula":"MAXIMUM",
+            "Combination":["VIRTUAL-SKIN"],
+            "Coefficient":[1.0],
+            "HotThreshold":["NAN", 43.0, 45.0, 46.5, 52.0, "NAN", "NAN"],
+            "HotHysteresis":[0.0, 1.9, 1.9, 1.4, 1.9, 0.0, 0.0],
+            "Multiplier":0.001,
+            "PollingDelay":300000,
+            "PassiveDelay":7000,
+            "PIDInfo": {
+                "K_Po":["NAN", "NAN", 700, "NAN", "NAN", "NAN", "NAN"],
+                "K_Pu":["NAN", "NAN", 700, "NAN", "NAN", "NAN", "NAN"],
+                "K_I":["NAN", "NAN", 5, "NAN", "NAN", "NAN", "NAN"],
+                "K_D":["NAN", "NAN", 0, "NAN", "NAN", "NAN", "NAN"],
+                "I_Max":["NAN", "NAN", 1723, "NAN", "NAN", "NAN", "NAN"],
+                "S_Power":["NAN", "NAN", 473, "NAN", "NAN", "NAN", "NAN"],
+                "MinAllocPower":["NAN", "NAN", 0, "NAN", "NAN", "NAN", "NAN"],
+                "MaxAllocPower":["NAN", "NAN", 2500, "NAN", "NAN", "NAN", "NAN"],
+                "I_Cutoff":["NAN", "NAN", 4, "NAN", "NAN", "NAN", "NAN"]
+            },
+            "BindedCdevInfo": [
+                {
+                    "CdevRequest": "thermal-gpufreq-0",
+                    "CdevWeightForPID": [1, 1, 1, 1, 1, 1, 1],
+                    "CdevCeiling": [0, 9, 9, 9, 11, 11, 11]
                 }
             ]
         },
