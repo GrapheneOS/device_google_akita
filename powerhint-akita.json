@@ -178,6 +178,16 @@
       "ResetOnInit": true
     },
     {
+      "Name": "CPUDVFSHeadroom",
+      "Path": "/proc/vendor_sched/dvfs_headroom",
+      "Values": [
+        "1280",
+        "1100"
+      ],
+      "DefaultIndex": 0,
+      "ResetOnInit": true
+    },
+    {
       "Name": "CAMUClampBoost",
       "Path": "/proc/vendor_sched/cam_uclamp_min",
       "Values": [
@@ -1093,6 +1103,12 @@
     {
       "PowerHint": "CAMERA_STREAMING_HIGH",
       "Node": "CPUUtilThreshold",
+      "Duration": 0,
+      "Value": "1100"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_HIGH",
+      "Node": "CPUDVFSHeadroom",
       "Duration": 0,
       "Value": "1100"
     },
