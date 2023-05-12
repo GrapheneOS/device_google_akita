@@ -60,7 +60,7 @@
       "Path": "/sys/devices/platform/170000a0.devfreq_bci/devfreq/170000a0.devfreq_bci/min_freq",
       "Values": [
         "9999999",
-        "1401000',
+        "1401000",
         "0"
       ],
       "ResetOnInit": true
