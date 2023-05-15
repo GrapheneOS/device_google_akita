@@ -136,6 +136,20 @@ on property:ro.boot.cdt_hwid=0x00040402000101030201000000000000
 on property:ro.boot.cdt_hwid=0x00040402000101030301000000000000
 	setprop persist.vendor.gps 1
 
+# EVT 1.0
+on property:ro.boot.cdt_hwid=0x00040403000100010000000000000000
+	setprop persist.vendor.gps 1
+
+on property:ro.boot.cdt_hwid=0x00040403000100010100000000000000
+	setprop persist.vendor.gps 1
+
+on property:ro.boot.cdt_hwid=0x00040403000100010200000000000000
+	setprop persist.vendor.gps 1
+
+on property:ro.boot.cdt_hwid=0x00040403000100010300000000000000
+	setprop persist.vendor.gps 1
+
+
 # start lassen gps
 on property:persist.vendor.gps=1
        stop gpsd
