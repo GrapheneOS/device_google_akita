@@ -269,8 +269,8 @@
             "Name":"PARTIAL_SYSTEM_POWER",
             "VirtualRails":true,
             "Formula":"WEIGHTED_AVG",
-            "Combination":["S1S_VDD_CAM", "S2S_VDD_G3D", "S4S_VDD2H_MEM", "S5S_VDDQ_MEM", "S8S_VDD_G3D_L2", "S9S_VDD_AOC", "L2S_PLL_MIPI_UFS", "L9S_GNSS_CORE", "L21S_VDD2L_MEM", "VSYS_PWR_DISPLAY", "VSYS_PWR_WLAN_BT", "VSYS_PWR_MMWAVE", "S1M_VDD_MIF", "S2M_VDD_CPUCL2", "S3M_VDD_CPUCL1", "S4M_VDD_CPUCL0", "S5M_VDD_INT", "S6M_LLDO1", "S7M_VDD_TPU", "S8M_LLDO2", "L22M_DISP", "VSYS_PWR_MODEM", "VSYS_PWR_RFFE"],
-            "Coefficient":[1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0],
+            "Combination":["S1S_VDD_CAM", "S2S_VDD_G3D", "S4S_VDD2H_MEM", "S5S_VDDQ_MEM", "S8S_VDD_G3D_L2", "S9S_VDD_AOC", "L2S_PLL_MIPI_UFS", "L9S_GNSS_CORE", "L21S_VDD2L_MEM", "VSYS_PWR_DISPLAY", "VSYS_PWR_WLAN_BT", "S1M_VDD_MIF", "S2M_VDD_CPUCL2", "S3M_VDD_CPUCL1", "S4M_VDD_CPUCL0", "S5M_VDD_INT", "S6M_LLDO1", "S7M_VDD_TPU", "S8M_LLDO2", "L22M_DISP", "VSYS_PWR_MODEM", "VSYS_PWR_RFFE"],
+            "Coefficient":[1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0],
             "PowerSampleDelay":7000,
             "PowerSampleCount":5
         }
