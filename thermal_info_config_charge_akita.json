@@ -153,7 +153,7 @@
             "VirtualSensor":true,
             "TriggerSensor":"soc_therm",
             "Formula":"WEIGHTED_AVG",
-            "Combination":["charger_therm", "rffe_therm", "inner_disp_therm"],
+            "Combination":["charger_therm", "rffe_therm", "display_therm"],
             "Coefficient":[0.51, 0.25, 0.24],
             "HotThreshold":["NAN", 35.0, 39.0, 43.0, 45.0, 47.0, 55.0],
             "HotHysteresis":[0.0, 1.9, 1.9, 1.9, 1.9, 1.9, 1.9],
