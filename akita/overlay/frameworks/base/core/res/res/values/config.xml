@@ -40,6 +40,11 @@
          The user is forbidden from setting the brightness above this level. -->
     <item name="config_screenBrightnessSettingMaximumFloat" format="float" type="dimen">1.0</item>
 
+    <!-- Default screen brightness setting
+         Must be in the range specified by minimum and maximum. -->
+    <!-- 140 nits: (140-2)/(800-2)*(0.57-0.0)+0.0 = 0.098571429 -->
+    <item name="config_screenBrightnessSettingDefaultFloat" format="float" type="dimen">0.098571429</item>
+
     <!-- Array of light sensor LUX values to define our levels for auto backlight brightness support.
       The N entries of this array define N  1 zones as follows:
          Zone 0:        0 <= LUX < array[0]
