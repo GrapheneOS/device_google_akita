@@ -1,4 +1,4 @@
-<manifest version="1.0" type="device" target-level="7">
+<manifest version="1.0" type="device" target-level="8">
   <hal format="hidl">
     <name>vendor.samsung.hardware.gnss</name>
     <transport>hwbinder</transport>
