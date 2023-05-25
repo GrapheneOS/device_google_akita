@@ -39,6 +39,7 @@
       "Path": "/sys/devices/platform/17000090.devfreq_dsu/devfreq/17000090.devfreq_dsu/min_freq",
       "Values": [
         "9999999",
+        "1800000",
         "1548000",
         "820000",
         "0"
@@ -593,7 +594,7 @@
       "PowerHint": "LAUNCH",
       "Node": "DsuMinFreq",
       "Duration": 5000,
-      "Value": "1548000"
+      "Value": "1800000"
     },
     {
       "PowerHint": "LAUNCH",
