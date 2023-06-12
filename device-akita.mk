@@ -30,6 +30,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
 	device/google/akita/akita/panel_config_google-ak3b_cal0.pb:$(TARGET_COPY_OUT_VENDOR)/etc/panel_config_google-ak3b_cal0.pb
 
+PRODUCT_VENDOR_PROPERTIES += \
+    vendor.primarydisplay.op.hs_hz=120 \
+    vendor.primarydisplay.op.ns_hz=60 \
+    vendor.primarydisplay.op.ns_min_dbv=593
+
 include device/google/zuma/device-shipping-common.mk
 include device/google/akita/audio/akita/audio-tables.mk
 include hardware/google/pixel/vibrator/cs40l26/device.mk
