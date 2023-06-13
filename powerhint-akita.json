@@ -1742,7 +1742,7 @@
       "EarlyBoost_On": false,
       "EarlyBoost_TimeFactor": 0.0,
       "TargetTimeFactor": 1.0,
-      "StaleTimeFactor": 20.0
+      "StaleTimeFactor": 15.0
     },
     {
       "Name": "REFRESH_90FPS",
@@ -1766,7 +1766,7 @@
       "EarlyBoost_On": false,
       "EarlyBoost_TimeFactor": 0.0,
       "TargetTimeFactor": 1.0,
-      "StaleTimeFactor": 20.0
+      "StaleTimeFactor": 15.0
     },
     {
       "Name": "REFRESH_60FPS",
@@ -1790,7 +1790,7 @@
       "EarlyBoost_On": false,
       "EarlyBoost_TimeFactor": 0.0,
       "TargetTimeFactor": 1.0,
-      "StaleTimeFactor": 20.0
+      "StaleTimeFactor": 15.0
     },
     {
       "Name": "UiHighBoostWithoutPid",
