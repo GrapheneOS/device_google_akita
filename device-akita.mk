@@ -22,13 +22,7 @@ $(call inherit-product-if-exists, vendor/google_devices/zuma/prebuilts/device-ve
 $(call inherit-product-if-exists, vendor/google_devices/zuma/proprietary/device-vendor.mk)
 $(call inherit-product-if-exists, vendor/google_devices/akita/proprietary/akita/device-vendor-akita.mk)
 
-# display
-PRODUCT_COPY_FILES += \
-	device/google/akita/akita/display_colordata_dev_cal0.pb:$(TARGET_COPY_OUT_VENDOR)/etc/display_colordata_dev_cal0.pb
-
-# display brightness curve
-PRODUCT_COPY_FILES += \
-	device/google/akita/akita/panel_config_google-ak3b_cal0.pb:$(TARGET_COPY_OUT_VENDOR)/etc/panel_config_google-ak3b_cal0.pb
+DEVICE_PACKAGE_OVERLAYS += device/google/akita/akita/overlay
 
 include device/google/zuma/device-shipping-common.mk
 include device/google/akita/audio/akita/audio-tables.mk
@@ -41,8 +35,6 @@ $(call soong_config_set,lyric,camera_hardware,akita)
 $(call soong_config_set,lyric,tuning_product,akita)
 $(call soong_config_set,google3a_config,target_device,akita)
 
-DEVICE_PACKAGE_OVERLAYS += device/google/akita/akita/overlay
-
 # Init files
 PRODUCT_COPY_FILES += \
 	device/google/akita/conf/init.akita.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.akita.rc
@@ -50,6 +42,19 @@ PRODUCT_COPY_FILES += \
 # Recovery files
 PRODUCT_COPY_FILES += \
         device/google/akita/conf/init.recovery.device.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.akita.rc
+
+# Display
+PRODUCT_COPY_FILES += \
+	device/google/akita/akita/display_colordata_dev_cal0.pb:$(TARGET_COPY_OUT_VENDOR)/etc/display_colordata_dev_cal0.pb
+
+# Display brightness curve
+PRODUCT_COPY_FILES += \
+	device/google/akita/akita/panel_config_google-ak3b_cal0.pb:$(TARGET_COPY_OUT_VENDOR)/etc/panel_config_google-ak3b_cal0.pb
+
+PRODUCT_VENDOR_PROPERTIES += \
+    vendor.primarydisplay.op.hs_hz=120 \
+    vendor.primarydisplay.op.ns_hz=60 \
+    vendor.primarydisplay.op.ns_min_dbv=593
 
 # Camera
 PRODUCT_COPY_FILES += \
@@ -95,6 +100,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.bluetooth.a2dp_offload.supported=true \
     persist.bluetooth.a2dp_offload.disabled=false \
     persist.bluetooth.a2dp_offload.cap=sbc-aac-aptx-aptxhd-ldac
+
+# DCK properties based on target
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.gms.dck.eligible_wcc=2 \
+    ro.gms.dck.se_capability=1
 
 # Bluetooth hci_inject test tool
 PRODUCT_PACKAGES_DEBUG += \
