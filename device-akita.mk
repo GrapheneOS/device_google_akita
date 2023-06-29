@@ -56,6 +56,9 @@ PRODUCT_VENDOR_PROPERTIES += \
     vendor.primarydisplay.op.ns_hz=60 \
     vendor.primarydisplay.op.ns_min_dbv=593
 
+# lhbm peak brightness delay: decided by kernel
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += vendor.primarydisplay.lhbm.frames_to_reach_peak_brightness=0
+
 # Camera
 PRODUCT_COPY_FILES += \
 	device/google/akita/media_profiles_akita.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml
@@ -230,3 +233,7 @@ PRODUCT_VENDOR_PROPERTIES += \
 	persist.vendor.vibrator.hal.context.fade=true \
 	persist.vendor.vibrator.hal.context.cooldowntime=1600 \
 	persist.vendor.vibrator.hal.context.settlingtime=5000
+
+# Increment the SVN for any official public releases
+PRODUCT_VENDOR_PROPERTIES += \
+    ro.vendor.build.svn=1
