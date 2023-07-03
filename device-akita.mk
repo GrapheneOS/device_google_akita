@@ -59,6 +59,12 @@ PRODUCT_VENDOR_PROPERTIES += \
 # lhbm peak brightness delay: decided by kernel
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += vendor.primarydisplay.lhbm.frames_to_reach_peak_brightness=0
 
+PRODUCT_SOONG_NAMESPACES += device/google/akita/radio/coex
+
+# Coex Configs
+PRODUCT_PACKAGES += \
+        display_primary_mipi_coex_table
+
 # Camera
 PRODUCT_COPY_FILES += \
 	device/google/akita/media_profiles_akita.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml
