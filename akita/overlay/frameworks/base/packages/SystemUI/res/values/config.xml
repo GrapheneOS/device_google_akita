@@ -20,6 +20,20 @@
 <!-- These resources are around just to allow their values to be customized
      for different hardware and product builds. -->
 <resources>
+    <!-- Configure 13px of extra protection around the front-facing camera -->
+    <string translatable="false" name="config_frontBuiltInDisplayCutoutProtection">
+        m 585.73821,68.395595 a 49.159131,60.602208 0 0 0 -91.47461,0 49.159131,60.602208 0 0 0 91.47461,0 Z
+    </string>
+
+    <!-- Camera 0 is the front camera -->
+    <string translatable="false" name="config_protectedCameraId">0</string>
+
+    <!-- Comma-separated list of packages to exclude from camera protection. In our case,
+    ignore the gaze detection package -->
+    <string translatable="false" name="config_cameraProtectionExcludedPackages">com.google.android.as</string>
+
+    <bool name="config_enableDisplayCutoutProtection">true</bool>
+
 <!-- Type of a sensor that provides a low-power estimate of the desired display
          brightness, suitable to listen to while the device is asleep (e.g. during
          always-on display) -->
