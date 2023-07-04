@@ -64,7 +64,22 @@ int main() {
 
     std::shared_ptr<PowerStats> p = ndk::SharedRefBase::make<PowerStats>();
 
-    addZumaCommonDataProviders(p);
+    setEnergyMeter(p);
+    addAoC(p);
+    addPixelStateResidencyDataProvider(p);
+    addCPUclusters(p);
+    addSoC(p);
+    // TODO(b/289764363): add GNSS power stats back when the sysfs is ready
+    addMobileRadio(p);
+    addNFC(p);
+    addPCIe(p);
+    addWifi(p);
+    addTPU(p);
+    addUfs(p);
+    addPowerDomains(p);
+    addDvfsStats(p);
+    addDevfreq(p);
+    addGPU(p);
     addDisplay(p);
 
     const std::string instance = std::string() + PowerStats::descriptor + "/default";
