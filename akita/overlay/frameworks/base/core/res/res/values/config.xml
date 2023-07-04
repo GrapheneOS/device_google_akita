@@ -143,7 +143,7 @@
     <integer name="config_defaultRefreshRate">0</integer>
 
     <!-- The default peak refresh rate. -->
-    <integer name="config_defaultPeakRefreshRate">120</integer>
+    <integer name="config_defaultPeakRefreshRate">60</integer>
 
     <integer-array name="config_ambientThresholdLevels">
         <item>2</item>
