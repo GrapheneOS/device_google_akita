@@ -43,6 +43,7 @@
       <param default="0" id="27" name="ch0_assignFrom" type="int32"/>
       <param default="1" id="28" name="ch1_assignFrom" type="int32"/>
       <param default="2" id="29" name="ch2_assignFrom" type="int32"/>
+      <param default="0.333" id="30" max="1" min="0.01" name="alphaEnhancedRate" type="float"/>
     </module>
     <module id="7" name="Multi Channel IIR 2">
       <param default="0" id="0" max="3" name="opMode_" type="uint32"/>
@@ -124,10 +125,11 @@
       <param default="1" id="16" name="strength level" type="uint32"/>
       <param id="17" name="POWER_TIME_SMOOTH" type="float"/>
       <param id="18" name="RMS_TIME_SMOOTH" type="float"/>
-      <param id="19" name="LOWER_BAND_THRESHOLD" size="129" type="float"/>
+      <param id="19" name="LOWER_BAND_THRESHOLD" size="257" type="float"/>
       <param id="20" name="UPPER_BAND_THRESHOLD" size="3" type="float"/>
       <param id="21" name="ATTACK_TIME" type="float"/>
       <param id="22" name="RELEASE_TIME" type="float"/>
+      <param id="23" name="BIN_THRESHOLD" size="5" type="uint32"/>
     </module>
     <module id="14" name="Linear Gain">
       <param default="0" id="0" max="3" name="opMode_" type="uint32"/>
@@ -135,6 +137,9 @@
       <param default="1" id="2" name="numCh_" type="uint32"/>
       <param default="1" id="3" name="chMask_" type="uint32"/>
       <param id="16" name="Simple_gain" type="float"/>
+      <param default="0" id="17" name="ch0_assignFrom" type="int32"/>
+      <param default="1" id="18" name="ch1_assignFrom" type="int32"/>
+      <param default="2" id="19" name="ch2_assignFrom" type="int32"/>
     </module>
     <module id="17" name="Wind Noise Reduction">
       <param default="0" id="0" max="3" name="opMode_" type="uint32"/>
@@ -199,6 +204,13 @@
       <param default="450" id="71" name="SSC_SOFT_DECISION_MAX_FREQ" type="int32"/>
       <param default="5" id="72" name="SSC_KEEP_SAVED_PROB_SMOOTH_SIZE" type="int32"/>
       <param default="1000" id="73" name="GAIN_BOOSTING_COST" type="int32"/>
+      <param default="450" id="74" name="GAIN_SMOOTHING_FACTOR" type="int32"/>
+      <param default="150" id="75" name="FINAL_GAIN_SMOOTHING_OFFSET_FACTOR" type="int32"/>
+      <param default="1" id="76" name="MUL_CH_SPEC_DIFF_ENABLE" type="int32"/>
+      <param default="4" id="77" name="MUL_CH_SPEC_DIFF_CENTER_SPEC_SEL" type="int32"/>
+      <param default="1000" id="78" name="MUL_CH_SPEC_DIFF_WIENER_OVERDRIVE" type="int32"/>
+      <param default="2" id="79" name="MUL_CH_SPEC_DIFF_GAIN_COMB" type="int32"/>
+      <param default="900" id="80" name="MUL_CH_SPEC_DIFF_TIME_SMOOTH" type="int32"/>
     </module>
     <module id="18" name="Multi Channel IIR 1">
       <param default="0" id="0" max="3" name="opMode_" type="uint32"/>
@@ -231,6 +243,8 @@
         <param name="attackTime_ms" size="4" type="float"/>
         <param name="releaseTime_ms" size="4" type="float"/>
         <param name="hysteresis" size="4" type="float"/>
+        <param default="0" max="1" min="0" name="rms_manual_enable" type="uint32"/>
+        <param default="0" max="2" min="0" name="rms_channel" type="uint32"/>
       </struct>
       <struct id="17">
         <param max="30" min="-30" name="limiter_gain_dB" type="float"/>
@@ -249,6 +263,9 @@
     </module>
     <module id="10002" name="CHRE">
       <param id="297" name="chre_gain" type="uint32"/>
+      <param id="345" name="chre_aec_timeout" type="uint32"/>
+      <param id="346" name="chre_pdm_gain" type="int32"/>
+      <param id="347" name="chre_aec_gain" type="int32"/>
     </module>
   </modules>
   <signalflows>
@@ -270,7 +287,8 @@
       <block id="137">
         <moduleRef id="14"/>
         <moduleRef id="7"/>
-        <moduleRef id="32"/>
+        <moduleRef id="5"/>
+        <moduleRef id="8"/>
       </block>
     </signalflow>
     <signalflow id="1000" name="Smart Feature">
