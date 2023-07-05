@@ -66,6 +66,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.camera.debug.enable_software_post_sharpen_node=false
 
+# Media Performance Class 14
+PRODUCT_PROPERTY_OVERRIDES += ro.odm.build.media_performance_class=34
+
 # NFC
 PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.nfc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.xml \
