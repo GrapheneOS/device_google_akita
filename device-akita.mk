@@ -64,7 +64,8 @@ PRODUCT_COPY_FILES += \
 	device/google/akita/media_profiles_akita.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.camera.debug.enable_software_post_sharpen_node=false
+    vendor.camera.debug.enable_software_post_sharpen_node=false \
+	vendor.camera.allow_sensor_binning_aspect_ratio_to_override_itp_output=false
 
 # Media Performance Class 14
 PRODUCT_PROPERTY_OVERRIDES += ro.odm.build.media_performance_class=34
