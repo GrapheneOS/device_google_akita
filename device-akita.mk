@@ -24,8 +24,8 @@ $(call inherit-product-if-exists, vendor/google_devices/akita/proprietary/akita/
 
 DEVICE_PACKAGE_OVERLAYS += device/google/akita/akita/overlay
 
-include device/google/zuma/device-shipping-common.mk
 include device/google/akita/audio/akita/audio-tables.mk
+include device/google/zuma/device-shipping-common.mk
 include hardware/google/pixel/vibrator/cs40l26/device.mk
 include device/google/gs-common/bcmbt/bluetooth.mk
 include device/google/gs-common/touch/gti/gti.mk
@@ -64,7 +64,8 @@ PRODUCT_COPY_FILES += \
 	device/google/akita/media_profiles_akita.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.camera.debug.enable_software_post_sharpen_node=false
+    vendor.camera.debug.enable_software_post_sharpen_node=false \
+	vendor.camera.allow_sensor_binning_aspect_ratio_to_override_itp_output=false
 
 # Media Performance Class 14
 PRODUCT_PROPERTY_OVERRIDES += ro.odm.build.media_performance_class=34
@@ -108,7 +109,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.bluetooth.a2dp_offload.supported=true \
     persist.bluetooth.a2dp_offload.disabled=false \
-    persist.bluetooth.a2dp_offload.cap=sbc-aac-aptx-aptxhd-ldac
+    persist.bluetooth.a2dp_offload.cap=sbc-aac-aptx-aptxhd-ldac-opus
 
 # DCK properties based on target
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -135,6 +136,10 @@ PRODUCT_PRODUCT_PROPERTIES += \
 PRODUCT_PACKAGES += \
 	libspatialaudio \
 	librondo
+
+# declare use of spatial audio
+PRODUCT_PROPERTY_OVERRIDES += \
+       ro.audio.spatializer_enabled=true
 
 # Keymaster HAL
 #LOCAL_KEYMASTER_PRODUCT_PACKAGE ?= android.hardware.keymaster@4.1-service
