@@ -134,4 +134,27 @@
          1: verbose logging on by default for userdebug
          2: verbose logging on by default for all builds -->
     <integer translatable="false" name="config_wifiVerboseLoggingAlwaysOnLevel">1</integer>
+    <!-- Boolean indicating whether DTIM multiplier configuration is enabled. DTIM multiplier value
+        is when the system is in the suspended mode -->
+    <bool translatable="false" name="config_wifiDtimMultiplierConfigEnabled">true</bool>
+
+    <!-- Boolean indicating whether we should enable the STA current connected indoor channel
+     for SAP, WFD GO, Wi-Fi Aware -->
+    <bool translatable="false" name="config_wifiEnableStaIndoorChannelForPeerNetwork">true</bool>
+    <!-- Boolean indicating whether we should enable the STA current connected DFS channel
+         for SAP, WFD GO, Wi-Fi Aware -->
+    <bool translatable="false" name="config_wifiEnableStaDfsChannelForPeerNetwork">true</bool>
+
+    <!-- Enable the feature of adjusting link layer stats polling interval based on
+    device mobility state and client mode RSSI monitoring. -->
+    <bool translatable="false" name="config_wifiAdjustPollRssiIntervalEnabled">true</bool>
+
+    <!-- Boolean indicating whether the framework updates country from scan results when there is
+         no telephony country code. This is applied to all generic cases and might require the
+         regulatory approval (for example, FCC pre-approval is required according to "594280 D01
+         Software Configuration Control v02r01").-->
+    <bool translatable="false" name ="config_wifiUpdateCountryCodeFromScanResultGeneric">true</bool>
+
+    <!-- boolean indicating whether the caller thread needs to wait for destroyed listeners -->
+    <bool translatable="false" name ="config_wifiWaitForDestroyedListeners">true</bool>
 </resources>
