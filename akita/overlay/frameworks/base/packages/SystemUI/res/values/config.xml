@@ -22,7 +22,7 @@
 <resources>
     <!-- Configure 13px of extra protection around the front-facing camera -->
     <string translatable="false" name="config_frontBuiltInDisplayCutoutProtection">
-        m 585.73821,68.395595 a 49.159131,60.602208 0 0 0 -91.47461,0 49.159131,60.602208 0 0 0 91.47461,0 Z
+        m 585.74,68.4 a 49.16,60.6 0 0 0 -91.47,0 49.16,60.6 0 0 0 91.47,0 Z
     </string>
 
     <!-- Camera 0 is the front camera -->
