@@ -20,7 +20,7 @@
         {
             "Name":"usb_conn_therm",
             "Type":"UNKNOWN",
-            "HotThreshold":["NAN", 46.0, "NAN", "NAN", "NAN", "NAN", "NAN"],
+            "HotThreshold":["NAN", 40.0, "NAN", "NAN", "NAN", "NAN", "NAN"],
             "TempPath":"/dev/thermal/tz-by-name/usb_conn_therm/tz_temp",
             "Multiplier":0.001,
             "PollingDelay":60000,
@@ -408,7 +408,6 @@
             "Formula":"WEIGHTED_AVG",
             "Combination":["usb_conn_therm", "charger_therm"],
             "Coefficient":[1.0, -1.0],
-	    "HotThreshold":["NAN", "7.0", "NAN", "NAN", "NAN", "NAN", "NAN"],
             "Multiplier":0.001,
             "PollingDelay":0,
             "PassiveDelay":7000
@@ -421,12 +420,12 @@
             "Formula":"COUNT_THRESHOLD",
             "TriggerSensor": "usb_conn_therm",
             "Combination":["usb_conn_therm", "USB-MINUS-CHARGER"],
-            "Coefficient":[46000, 10000],
+            "Coefficient":[40000, 10000],
             "HotThreshold":["NAN", "NAN", "NAN", "NAN", "2.0", "NAN", "NAN"],
             "BindedCdevInfo": [
                 {
                     "CdevRequest": "usbc-port",
-                    "LimitInfo": [0, 0, 0, 0, 1, 1, 1]
+                    "LimitInfo": [0, 0, 0, 0, 0, 0, 0]
                 }
             ],
             "VrThreshold":"NAN",
@@ -442,14 +441,8 @@
             "Formula":"COUNT_THRESHOLD",
             "TriggerSensor": "usb_conn_therm",
             "Combination":["usb_conn_therm", "USB-MINUS-CHARGER"],
-            "Coefficient":[46000, 13000],
+            "Coefficient":[40000, 13000],
             "HotThreshold":["NAN", "NAN", "NAN", "NAN", "NAN", "2.0", "NAN"],
-	    "BindedCdevInfo": [
-                {
-                    "CdevRequest": "usbc-port",
-                    "LimitInfo": [0, 0, 0, 0, 1, 1, 1]
-                }
-            ],
             "VrThreshold":"NAN",
             "Multiplier":1,
             "SendCallback":true,
