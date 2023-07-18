@@ -113,6 +113,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.bluetooth.a2dp_offload.disabled=false \
     persist.bluetooth.a2dp_offload.cap=sbc-aac-aptx-aptxhd-ldac-opus
 
+# POF
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.bluetooth.finder.supported=true
+
 # DCK properties based on target
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.gms.dck.eligible_wcc=2 \
