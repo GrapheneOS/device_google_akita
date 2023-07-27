@@ -134,6 +134,10 @@ PRODUCT_PACKAGES_DEBUG += \
 PRODUCT_PRODUCT_PROPERTIES += \
     persist.bluetooth.a2dp_aac.vbr_supported=true
 
+# Enable one-handed mode
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.support_one_handed_mode=true
+
 # Spatial Audio
 PRODUCT_PACKAGES += \
 	libspatialaudio \
