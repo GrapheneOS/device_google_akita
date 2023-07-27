@@ -409,8 +409,8 @@
                     "MaxReleaseStep": 1,
                     "MaxThrottleStep": 1,
                     "BindedPowerRail": "S4M_VDD_CPUCL0",
-                    "CdevCeiling": [0, 12, 12, 12, 12, 14, 14],
-                    "LimitInfo": [0, 0, 0, 0, 12, 14, 14]
+                    "CdevCeiling": [0, 8, 8, 8, 8, 9, 9],
+                    "LimitInfo": [0, 0, 0, 0, 0, 9, 9]
                 },
                 {
                     "CdevRequest": "thermal-cpufreq-1",
@@ -418,8 +418,8 @@
                     "MaxReleaseStep": 1,
                     "MaxThrottleStep": 1,
                     "BindedPowerRail": "S3M_VDD_CPUCL1",
-                    "CdevCeiling": [0, 14, 14, 14, 14, 16, 16],
-                    "LimitInfo": [0, 0, 0, 0, 14, 16, 16]
+                    "CdevCeiling": [0, 11, 11, 11, 11, 14, 14],
+                    "LimitInfo": [0, 0, 0, 0, 0, 14, 14]
                 },
                 {
                     "CdevRequest": "thermal-cpufreq-2",
@@ -427,8 +427,8 @@
                     "MaxReleaseStep": 1,
                     "MaxThrottleStep": 1,
                     "BindedPowerRail": "S2M_VDD_CPUCL2",
-                    "CdevCeiling": [0, 14, 14, 14, 14, 16, 16],
-                    "LimitInfo": [0, 0, 0, 0, 14, 16, 16]
+                    "CdevCeiling": [0, 13, 13, 13, 13, 14, 14],
+                    "LimitInfo": [0, 0, 0, 0, 0, 14, 14]
                 },
                 {
                     "CdevRequest": "thermal-gpufreq-0",
@@ -437,7 +437,7 @@
                     "MaxThrottleStep": 1,
                     "BindedPowerRail": "S2S_VDD_G3D",
                     "CdevCeiling": [0, 9, 9, 9, 9, 11, 11],
-                    "LimitInfo": [0, 0, 0, 0, 9, 11, 11]
+                    "LimitInfo": [0, 0, 0, 0, 0, 11, 11]
                 }
             ]
         },
@@ -470,7 +470,7 @@
                 {
                     "CdevRequest": "thermal-gpufreq-0",
                     "CdevWeightForPID": [1, 1, 1, 1, 1, 1, 1],
-                    "CdevCeiling": [0, 9, 9, 9, 11, 11, 11]
+		    "CdevCeiling": [0, 8, 8, 9, 11, 11, 11]
                 }
             ]
         },
