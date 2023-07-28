@@ -1,6 +1,9 @@
 # Akita specific init.rc
 import /vendor/etc/init/hw/init.zuma.rc
 
+on early-init && property:ro.product.name=akita_fullmte
+    export SCUDO_OPTIONS allocation_ring_buffer_size=131072
+
 on init && property:ro.vendor.factory=1
     import /vendor/etc/init/hw/init.factory.rc
 
