@@ -64,6 +64,7 @@ PRODUCT_COPY_FILES += \
 	device/google/akita/media_profiles_akita.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml
 
 PRODUCT_PROPERTY_OVERRIDES += \
+	persist.vendor.camera.extended_launch_boost=1 \
     vendor.camera.debug.enable_software_post_sharpen_node=false \
 	vendor.camera.allow_sensor_binning_aspect_ratio_to_override_itp_output=false
 
@@ -219,6 +220,10 @@ DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE += device/google/akita/device_framework
 PRODUCT_VENDOR_PROPERTIES += \
 	vendor.zram.size=50p \
 	persist.device_config.configuration.disable_rescue_party=true
+
+# Increase thread priority for nodes stop
+PRODUCT_VENDOR_PROPERTIES += \
+	persist.vendor.camera.increase_thread_priority_nodes_stop=true
 
 # Fingerprint HAL
 GOODIX_CONFIG_BUILD_VERSION := g7_trusty
