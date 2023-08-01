@@ -1,8 +1,7 @@
 on post-fs-data
-# Exynos Data folder
-    mkdir /data/vendor 0771 root system
     mkdir /data/vendor/gps 0771 system system
-    mkdir /data/vendor/log/gps 0771 system system
+    mkdir /data/vendor/gps/logs 0771 gps system
+    mkdir /data/vendor/gps/overlay 0771 gps system
 
 # Directory for GPS
     rm /data/system/gps/gps_started
@@ -19,7 +18,6 @@ on post-fs-data
     chmod 0660 /dev/gnss_boot
     chown system system /dev/gnss_boot
 
-on fs
 # GPS daemon
 service gnssd /vendor/bin/hw/gnssd
     class main
@@ -28,146 +26,9 @@ service gnssd /vendor/bin/hw/gnssd
     capabilities BLOCK_SUSPEND
     ioprio be 0
     seclabel u:r:gnssd:s0
-    disabled
 
 service slsi_gnss_service /vendor/bin/hw/gnss-aidl-service_IGnssV2_ISlsiGnssV1
     class main
     user system
     group system gps
-    disabled
-
-# check cdt for lassen gps
-# DEV 1.0
-on property:ro.boot.cdt_hwid=0x00040401000100010100000000000000
-	setprop persist.vendor.gps 1
-
-on property:ro.boot.cdt_hwid=0x00040401000100010200000000000000
-	setprop persist.vendor.gps 1
-
-on property:ro.boot.cdt_hwid=0x00040401000100010300000000000000
-	setprop persist.vendor.gps 1
-
-# proto 1.0
-on property:ro.boot.cdt_hwid=0x00040402000100020000000000000000
-	setprop persist.vendor.gps 1
-
-on property:ro.boot.cdt_hwid=0x00040402000100020100000000000000
-	setprop persist.vendor.gps 1
-
-on property:ro.boot.cdt_hwid=0x00040402000100020200000000000000
-	setprop persist.vendor.gps 1
-
-on property:ro.boot.cdt_hwid=0x00040402000100020300000000000000
-	setprop persist.vendor.gps 1
-
-on property:ro.boot.cdt_hwid=0x00040402000100030000000000000000
-	setprop persist.vendor.gps 1
-
-on property:ro.boot.cdt_hwid=0x00040402000100030100000000000000
-	setprop persist.vendor.gps 1
-
-on property:ro.boot.cdt_hwid=0x00040402000100030200000000000000
-	setprop persist.vendor.gps 1
-
-on property:ro.boot.cdt_hwid=0x00040402000100030300000000000000
-	setprop persist.vendor.gps 1
-
-# proto 1.1
-on property:ro.boot.cdt_hwid=0x00040402000101010000000000000000
-	setprop persist.vendor.gps 1
-
-on property:ro.boot.cdt_hwid=0x00040402000101010100000000000000
-	setprop persist.vendor.gps 1
-
-on property:ro.boot.cdt_hwid=0x00040402000101010200000000000000
-	setprop persist.vendor.gps 1
-
-on property:ro.boot.cdt_hwid=0x00040402000101010300000000000000
-	setprop persist.vendor.gps 1
-
-on property:ro.boot.cdt_hwid=0x00040402000101030000000000000000
-	setprop persist.vendor.gps 1
-
-on property:ro.boot.cdt_hwid=0x00040402000101030100000000000000
-	setprop persist.vendor.gps 1
-
-on property:ro.boot.cdt_hwid=0x00040402000101030200000000000000
-	setprop persist.vendor.gps 1
-
-on property:ro.boot.cdt_hwid=0x00040402000101030300000000000000
-	setprop persist.vendor.gps 1
-
-# proto 1.1 S DOE
-on property:ro.boot.cdt_hwid=0x00040402000101050000000000000000
-	setprop persist.vendor.gps 1
-
-on property:ro.boot.cdt_hwid=0x00040402000101050100000000000000
-	setprop persist.vendor.gps 1
-
-on property:ro.boot.cdt_hwid=0x00040402000101050200000000000000
-	setprop persist.vendor.gps 1
-
-on property:ro.boot.cdt_hwid=0x00040402000101050300000000000000
-	setprop persist.vendor.gps 1
-
-
-# proto 1.1 K DOE
-on property:ro.boot.cdt_hwid=0x00040402000101010001000000000000
-	setprop persist.vendor.gps 1
-
-on property:ro.boot.cdt_hwid=0x00040402000101010101000000000000
-	setprop persist.vendor.gps 1
-
-on property:ro.boot.cdt_hwid=0x00040402000101010201000000000000
-	setprop persist.vendor.gps 1
-
-on property:ro.boot.cdt_hwid=0x00040402000101010301000000000000
-	setprop persist.vendor.gps 1
-
-on property:ro.boot.cdt_hwid=0x00040402000101030001000000000000
-	setprop persist.vendor.gps 1
-
-on property:ro.boot.cdt_hwid=0x00040402000101030101000000000000
-	setprop persist.vendor.gps 1
-
-on property:ro.boot.cdt_hwid=0x00040402000101030201000000000000
-	setprop persist.vendor.gps 1
-
-on property:ro.boot.cdt_hwid=0x00040402000101030301000000000000
-	setprop persist.vendor.gps 1
-
-# EVT 1.0
-on property:ro.boot.cdt_hwid=0x00040403000100010000000000000000
-	setprop persist.vendor.gps 1
-
-on property:ro.boot.cdt_hwid=0x00040403000100010100000000000000
-	setprop persist.vendor.gps 1
-
-on property:ro.boot.cdt_hwid=0x00040403000100010200000000000000
-	setprop persist.vendor.gps 1
-
-on property:ro.boot.cdt_hwid=0x00040403000100010300000000000000
-	setprop persist.vendor.gps 1
-
-# EVT 1.1
-on property:ro.boot.cdt_hwid=0x00040403000101000000000000000000
-	setprop persist.vendor.gps 1
-
-on property:ro.boot.cdt_hwid=0x00040403000101000100000000000000
-	setprop persist.vendor.gps 1
-
-on property:ro.boot.cdt_hwid=0x00040403000101000200000000000000
-	setprop persist.vendor.gps 1
-
-on property:ro.boot.cdt_hwid=0x00040403000101000300000000000000
-	setprop persist.vendor.gps 1
-
-# start lassen gps
-on property:persist.vendor.gps=1
-       stop gpsd
-       stop lhd
-       stop scd
-       stop gnss_service
-       start gnssd
-       start slsi_gnss_service
 
