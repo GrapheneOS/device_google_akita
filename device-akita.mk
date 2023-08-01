@@ -139,6 +139,29 @@ PRODUCT_PACKAGES_DEBUG += \
 PRODUCT_PRODUCT_PROPERTIES += \
     persist.bluetooth.a2dp_aac.vbr_supported=true
 
+# Bluetooth LE Audio
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.bluetooth.leaudio_switcher.supported=true \
+    bluetooth.profile.bap.unicast.client.enabled=true \
+    bluetooth.profile.csip.set_coordinator.enabled=true \
+    bluetooth.profile.hap.client.enabled=true \
+    bluetooth.profile.mcp.server.enabled=true \
+    bluetooth.profile.ccp.server.enabled=true \
+    bluetooth.profile.vcp.controller.enabled=true
+
+# Bluetooth LE Audio enable hardware offloading
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.bluetooth.leaudio_offload.supported=true \
+    persist.bluetooth.leaudio_offload.disabled=false
+
+# Include Bluetooth soong namespace
+PRODUCT_SOONG_NAMESPACES += \
+    device/google/akita/bluetooth
+
+# Bluetooth LE Auido offload capabilities setting
+PRODUCT_PACKAGES += \
+    le_audio_codec_capabilities.xml
+
 # Enable one-handed mode
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.support_one_handed_mode=true
