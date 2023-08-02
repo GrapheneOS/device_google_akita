@@ -23,7 +23,8 @@ cc_prebuilt_binary {
                 "libutils",
                 "libhardware",
                 "libhidlbase",
-		"android.hardware.gnss-V3-ndk",
+                "android.hardware.gnss-V3-ndk",
+                "libsensorndkbridge",
                 "libc++",
                 "libc",
                 "libm",
@@ -40,6 +41,8 @@ cc_prebuilt_binary {
     // Bypass because libhidltransport is deprecated
     // Bypass because libhwbinder is deprecated
     check_elf_files: false,
+    vintf_fragments: ["android.hardware.gnss@lassen.xml"],
+    init_rc: ["init.gnss.rc"],
 }
 
 cc_prebuilt_binary {

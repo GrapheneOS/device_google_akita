@@ -139,6 +139,29 @@ PRODUCT_PACKAGES_DEBUG += \
 PRODUCT_PRODUCT_PROPERTIES += \
     persist.bluetooth.a2dp_aac.vbr_supported=true
 
+# Bluetooth LE Audio
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.bluetooth.leaudio_switcher.supported=true \
+    bluetooth.profile.bap.unicast.client.enabled=true \
+    bluetooth.profile.csip.set_coordinator.enabled=true \
+    bluetooth.profile.hap.client.enabled=true \
+    bluetooth.profile.mcp.server.enabled=true \
+    bluetooth.profile.ccp.server.enabled=true \
+    bluetooth.profile.vcp.controller.enabled=true
+
+# Bluetooth LE Audio enable hardware offloading
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.bluetooth.leaudio_offload.supported=true \
+    persist.bluetooth.leaudio_offload.disabled=false
+
+# Include Bluetooth soong namespace
+PRODUCT_SOONG_NAMESPACES += \
+    device/google/akita/bluetooth
+
+# Bluetooth LE Auido offload capabilities setting
+PRODUCT_PACKAGES += \
+    le_audio_codec_capabilities.xml
+
 # Enable one-handed mode
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.support_one_handed_mode=true
@@ -151,6 +174,10 @@ PRODUCT_PACKAGES += \
 # declare use of spatial audio
 PRODUCT_PROPERTY_OVERRIDES += \
        ro.audio.spatializer_enabled=true
+
+# Audio CCA property
+PRODUCT_PROPERTY_OVERRIDES += \
+	persist.vendor.audio.cca.enabled=true
 
 # Keymaster HAL
 #LOCAL_KEYMASTER_PRODUCT_PACKAGE ?= android.hardware.keymaster@4.1-service
@@ -193,28 +220,8 @@ PRODUCT_PACKAGES += \
 # Trusty liboemcrypto.so
 PRODUCT_SOONG_NAMESPACES += vendor/google_devices/akita/prebuilts
 
-# Location
-PRODUCT_COPY_FILES += \
-       device/google/akita/location/gps.cer:$(TARGET_COPY_OUT_VENDOR)/etc/gnss/gps.cer
-
-ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
-        PRODUCT_COPY_FILES += \
-		device/google/akita/location/lhd.conf:$(TARGET_COPY_OUT_VENDOR)/etc/gnss/lhd.conf \
-		device/google/akita/location/scd.conf:$(TARGET_COPY_OUT_VENDOR)/etc/gnss/scd.conf \
-		device/google/akita/location/gps.xml:$(TARGET_COPY_OUT_VENDOR)/etc/gnss/gps.xml
-else
-        PRODUCT_COPY_FILES += \
-		device/google/akita/location/lhd_user.conf:$(TARGET_COPY_OUT_VENDOR)/etc/gnss/lhd.conf \
-		device/google/akita/location/scd_user.conf:$(TARGET_COPY_OUT_VENDOR)/etc/gnss/scd.conf \
-		device/google/akita/location/gps_user.xml:$(TARGET_COPY_OUT_VENDOR)/etc/gnss/gps.xml
-endif
-
 # include GNSSD
 include device/google/akita/location/gnssd/device-gnss.mk
-
-# Install product specific framework compatibility matrix
-DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE += device/google/akita/device_framework_matrix_product.xml
-
 
 # Set zram size
 PRODUCT_VENDOR_PROPERTIES += \
