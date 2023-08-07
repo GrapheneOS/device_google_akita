@@ -144,7 +144,7 @@
                 </devicePort>
                 <devicePort tagName="USB Headset Out" type="AUDIO_DEVICE_OUT_USB_HEADSET" role="sink">
                 </devicePort>
-                <devicePort tagName="Aux Digital" type="AUDIO_DEVICE_OUT_AUX_DIGITAL" role="sink">
+                <devicePort tagName="HDMI Out" type="AUDIO_DEVICE_OUT_HDMI" role="sink">
                 </devicePort>
                 <devicePort tagName="Telephony Tx" type="AUDIO_DEVICE_OUT_TELEPHONY_TX" role="sink">
                 </devicePort>
@@ -179,6 +179,8 @@
                        sources="primary output,deep buffer,haptic,raw,mmap_no_irq_out,voip_rx,hifi_playback"/>
                 <route type="mix" sink="USB Headset Out"
                        sources="primary output,deep buffer,haptic,raw,mmap_no_irq_out,voip_rx,hifi_playback"/>
+                <route type="mix" sink="HDMI Out"
+                       sources="primary output,deep buffer,haptic,raw,mmap_no_irq_out,voip_rx"/>
                 <route type="mix" sink="BT SCO"
                        sources="primary output,deep buffer,haptic,voip_rx"/>
                 <route type="mix" sink="BT SCO Headset"

@@ -687,6 +687,12 @@
         <ctl name="R Fast Use Case Switch Enable" value="1" /-->
     </path>
 
+    <path name="hdmi">
+    </path>
+
+    <path name="hdmi-post">
+    </path>
+
     <path name="voice-speaker">
         <ctl name="R Boost Peak Current Limit" value="3.50A"/>
         <ctl name="Boost Peak Current Limit" value="3.50A"/>
