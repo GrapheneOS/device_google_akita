@@ -14,10 +14,10 @@ license {
 }
 
 cc_prebuilt_binary {
-    name: "gnss-aidl-service_IGnssV2_ISlsiGnssV1",
+    name: "android.hardware.gnss-service",
     arch: {
         arm64: {
-            srcs: ["release/gnss-aidl-service_IGnssV2_ISlsiGnssV1"],
+            srcs: ["release/android.hardware.gnss-service"],
             shared_libs: [
                 "liblog",
                 "libutils",

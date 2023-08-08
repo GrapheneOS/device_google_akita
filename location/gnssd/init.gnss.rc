@@ -27,7 +27,7 @@ service gnssd /vendor/bin/hw/gnssd
     ioprio be 0
     seclabel u:r:gnssd:s0
 
-service slsi_gnss_service /vendor/bin/hw/gnss-aidl-service_IGnssV2_ISlsiGnssV1
+service slsi_gnss_service /vendor/bin/hw/android.hardware.gnss-service
     class main
     user system
     group system gps
