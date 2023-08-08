@@ -80,8 +80,11 @@ volume index from 0 to 100.
     <volume stream="AUDIO_STREAM_MUSIC" deviceCategory="DEVICE_CATEGORY_HEADSET"
                                         ref="DEFAULT_MEDIA_VOLUME_CURVE"/>
     <volume stream="AUDIO_STREAM_MUSIC" deviceCategory="DEVICE_CATEGORY_SPEAKER">
-        <point>1,-6200</point>
-        <point>28,-3950</point>
+        <point>1,-6400</point>
+        <point>28,-4010</point>
+        <point>52,-2700</point>
+        <point>56,-2380</point>
+        <point>60,-2210</point>
         <point>64,-1950</point>
         <point>68,-1800</point>
         <point>72,-1550</point>
