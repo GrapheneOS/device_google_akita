@@ -37,9 +37,9 @@ void addDisplay(std::shared_ptr<PowerStats> p) {
         "Off",
         "LP: 1080x2400@30",
         "On: 1080x2400@60",
-        "On: 1080x2400@90",
+        "On: 1080x2400@120",
         "HBM: 1080x2400@60",
-        "HBM: 1080x2400@90"};
+        "HBM: 1080x2400@120"};
 
     p->addStateResidencyDataProvider(std::make_unique<DisplayStateResidencyDataProvider>(
             "Display",
@@ -51,9 +51,9 @@ void addDisplay(std::shared_ptr<PowerStats> p) {
             p, EnergyConsumerType::DISPLAY, "Display", {"VSYS_PWR_DISPLAY"}, "Display",
             {{"LP: 1080x2400@30", 1},
              {"On: 1080x2400@60", 2},
-             {"On: 1080x2400@90", 3},
+             {"On: 1080x2400@120", 3},
              {"HBM: 1080x2400@60", 4},
-             {"HBM: 1080x2400@90", 5}}));
+             {"HBM: 1080x2400@120", 5}}));
 }
 
 int main() {
