@@ -3,7 +3,7 @@ GPS_ROOT := device/google/akita/location/gnssd
 
 PRODUCT_PACKAGES += \
     gnssd \
-    gnss-aidl-service_IGnssV2_ISlsiGnssV1 \
+    android.hardware.gnss-service \
     android.hardware.location.gps.prebuilt.xml
 
 PRODUCT_PROPERTY_OVERRIDES += \
