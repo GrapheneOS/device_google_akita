@@ -288,9 +288,10 @@
       "Name": "CDPreferIdle",
       "Path": "/proc/vendor_sched/cam_prefer_idle",
       "Values": [
-        "0",
-        "1"
+        "1",
+        "0"
       ],
+      "DefaultIndex": 0,
       "ResetOnInit": true
     },
     {
@@ -1193,6 +1194,18 @@
       "Node": "TNRFreq",
       "Duration": 1000,
       "Value": "664000"
+    },
+    {
+      "PowerHint": "CAMERA_ZOOMING_BOOST",
+      "Node": "CDPreferIdle",
+      "Duration": 100,
+      "Value": "1"
+    },
+    {
+      "PowerHint": "CAMERA_ZOOMING_BOOST",
+      "Node": "PMU_POLL",
+      "Duration": 100,
+      "Value": "0"
     },
     {
       "PowerHint": "GCA_CAMERA_SHOT_BIGCPU",
