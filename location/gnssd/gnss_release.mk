@@ -6,11 +6,6 @@ PRODUCT_PACKAGES += \
     android.hardware.gnss-service \
     android.hardware.location.gps.prebuilt.xml
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.vendor.gnsslog.maxfilesize=256 \
-    persist.vendor.gnsslog.status=0 \
-    exynos.gnss.path.log=/data/vendor/gps/
-
 PRODUCT_COPY_FILES += \
     $(GPS_ROOT)/release/ca.pem:vendor/etc/gnss/ca.pem \
 
