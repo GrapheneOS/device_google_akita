@@ -112,7 +112,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.bluetooth.a2dp_offload.supported=true \
     persist.bluetooth.a2dp_offload.disabled=false \
-    persist.bluetooth.a2dp_offload.cap=sbc-aac-aptx-aptxhd-ldac-opus
+    persist.bluetooth.a2dp_offload.cap=sbc-aac-aptx-aptxhd-ldac
 
 # POF
 PRODUCT_PRODUCT_PROPERTIES += \
@@ -185,10 +185,6 @@ endif
 PRODUCT_PACKAGES += \
 	libspatialaudio \
 	librondo
-
-# declare use of spatial audio
-PRODUCT_PROPERTY_OVERRIDES += \
-       ro.audio.spatializer_enabled=true
 
 # Audio CCA property
 PRODUCT_PROPERTY_OVERRIDES += \
