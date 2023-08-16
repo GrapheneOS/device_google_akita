@@ -470,7 +470,7 @@
                 {
                     "CdevRequest": "thermal-gpufreq-0",
                     "CdevWeightForPID": [1, 1, 1, 1, 1, 1, 1],
-		    "CdevCeiling": [0, 8, 8, 9, 11, 11, 11]
+                    "CdevCeiling": [0, 8, 8, 9, 11, 11, 11]
                 }
             ]
         },
@@ -579,7 +579,7 @@
             "Formula":"WEIGHTED_AVG",
             "Combination":["usb_conn_therm", "charger_therm"],
             "Coefficient":[1.0, -1.0],
-	    "HotThreshold":["NAN", "7.0", "NAN", "NAN", "NAN", "NAN", "NAN"],
+            "HotThreshold":["NAN", "7.0", "NAN", "NAN", "NAN", "NAN", "NAN"],
             "Multiplier":0.001,
             "PollingDelay":0,
             "PassiveDelay":7000
@@ -730,10 +730,14 @@
     ],
     "Stats": {
         "Sensors": {
-            "RecordWithDefaultThreshold": ["VIRTUAL-SKIN", "VIRTUAL-SKIN-CHARGE-WLC"],
+            "RecordWithDefaultThreshold": ["VIRTUAL-SKIN", "VIRTUAL-SKIN-CHARGE", "VIRTUAL-SKIN-CHARGE-WLC"],
             "RecordWithThreshold": [
                 {
                     "Name": "VIRTUAL-SKIN",
+                    "Thresholds": [31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51]
+                },
+                {
+                    "Name": "VIRTUAL-SKIN-CHARGE",
                     "Thresholds": [31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51]
                 },
                 {
