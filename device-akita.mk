@@ -67,8 +67,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.camera.debug.enable_software_post_sharpen_node=false \
 	vendor.camera.allow_sensor_binning_aspect_ratio_to_override_itp_output=false
 
-# Media Performance Class 14
-PRODUCT_PROPERTY_OVERRIDES += ro.odm.build.media_performance_class=34
+# Media Performance Class 13
+PRODUCT_PROPERTY_OVERRIDES += ro.odm.build.media_performance_class=33
 
 # NFC
 PRODUCT_COPY_FILES += \
