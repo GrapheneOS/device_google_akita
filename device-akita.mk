@@ -267,7 +267,3 @@ PRODUCT_VENDOR_PROPERTIES += \
 # Increment the SVN for any official public releases
 PRODUCT_VENDOR_PROPERTIES += \
     ro.vendor.build.svn=1
-
-# Wifi SAP Interface Name
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.wifi.sap.interface=wlan1
