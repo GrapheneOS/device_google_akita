@@ -288,4 +288,9 @@
     <!-- The maximum range of gamma adjustment possible using the screen
          auto-brightness adjustment setting. -->
     <fraction name="config_autoBrightnessAdjustmentMaxGamma">105%</fraction>
+
+    <!-- MMS user agent string -->
+    <string name="config_mms_user_agent" translatable="false">gkv4x</string>
+    <!-- MMS user agent profile url -->
+    <string name="config_mms_user_agent_profile_url" translatable="false">http://www.gstatic.com/android/sms/GKV4X.xml</string>
 </resources>
