@@ -12,5 +12,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_SOONG_NAMESPACES += \
     $(GPS_ROOT)
 
-PRODUCT_COPY_FILES += \
-    $(GPS_ROOT)/release/gps.cfg:vendor/etc/gnss/gps.cfg
+ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
+    PRODUCT_COPY_FILES += \
+        $(GPS_ROOT)/release/gps.cfg:vendor/etc/gnss/gps.cfg
+else
+    PRODUCT_COPY_FILES += \
+        $(GPS_ROOT)/release/gps_user.cfg:vendor/etc/gnss/gps.cfg
+endif

@@ -1,7 +1,7 @@
 on post-fs-data
     mkdir /data/vendor/gps 0771 system system
     mkdir /data/vendor/gps/logs 0771 gps system
-    mkdir /data/vendor/gps/overlay 0771 gps system
+    mkdir /data/vendor/gps/overlay 0777 gps system
 
 # Directory for GPS
     rm /data/system/gps/gps_started
