@@ -5,7 +5,7 @@
             "Type":"BATTERY",
             "Multiplier":0.001
         },
-	{
+        {
             "Name":"modem_therm",
             "Type":"UNKNOWN",
             "HotThreshold":["NAN", 35.5, "NAN", "NAN", "NAN", "NAN", "NAN"],
@@ -89,32 +89,32 @@
         {
             "Name":"VIRTUAL-SKIN-CHARGE",
             "Type":"UNKNOWN",
-            "Hidden":true,
             "VirtualSensor":true,
             "TriggerSensor":"charger_therm",
             "Formula":"MAXIMUM",
             "Combination":["VIRTUAL-SKIN-CHARGE-SUB-1"],
             "Coefficient":[1.0],
-            "HotThreshold":["NAN", 35.0, 39.0, 43.0, 45.0, 47.0, 55.0],
-            "HotHysteresis":[0.0, 1.9, 1.9, 1.9, 1.9, 1.9, 1.9],
+            "HotThreshold":["NAN", 34.0, 38.0, 41.0, 45.0, 47.0, 55.0],
+            "HotHysteresis":[0.0, 1.9, 3.9, 2.9, 3.9, 1.9, 1.9],
             "Multiplier":0.001,
-            "PollingDelay":300000,
+            "PollingDelay":60000,
             "PassiveDelay":7000,
             "PIDInfo": {
-                "K_Po":["NAN", "NAN", 700, "NAN", "NAN", "NAN", "NAN"],
-                "K_Pu":["NAN", "NAN", 700, "NAN", "NAN", "NAN", "NAN"],
-                "K_I":["NAN", "NAN", 5, "NAN", "NAN", "NAN", "NAN"],
+                "K_Po":["NAN", "NAN", 310, "NAN", "NAN", "NAN", "NAN"],
+                "K_Pu":["NAN", "NAN", 310, "NAN", "NAN", "NAN", "NAN"],
+                "K_I":["NAN", "NAN", 21, "NAN", "NAN", "NAN", "NAN"],
                 "K_D":["NAN", "NAN", 0, "NAN", "NAN", "NAN", "NAN"],
-                "I_Max":["NAN", "NAN", 800, "NAN", "NAN", "NAN", "NAN"],
-                "S_Power":["NAN", "NAN", 1200, "NAN", "NAN", "NAN", "NAN"],
+                "I_Max":["NAN", "NAN", 2224, "NAN", "NAN", "NAN", "NAN"],
+                "S_Power":["NAN", "NAN", 2577, "NAN", "NAN", "NAN", "NAN"],
                 "MinAllocPower":["NAN", "NAN", 300, "NAN", "NAN", "NAN", "NAN"],
                 "MaxAllocPower":["NAN", "NAN", 6000, "NAN", "NAN", "NAN", "NAN"],
-                "I_Cutoff":["NAN", "NAN", 2, "NAN", "NAN", "NAN", "NAN"]
+                "I_Cutoff":["NAN", "NAN", 6, "NAN", "NAN", "NAN", "NAN"],
+                "I_Default":2224
             },
             "ExcludedPowerInfo": [
                 {
                     "PowerRail": "PARTIAL_SYSTEM_POWER",
-                    "PowerWeight": [0.5, 0.5, 0.8, 1.0, 1.0, 1.0, 1.0]
+                    "PowerWeight": [0.1, 0.1, 0.05, 0.05, 0.2, 0.2, 0.2]
                 }
             ],
             "BindedCdevInfo": [
@@ -123,40 +123,40 @@
                     "CdevWeightForPID": [1, 1, 1, 1, 1, 1, 1],
                     "MaxReleaseStep": 1,
                     "MaxThrottleStep": 1,
-                    "CdevCeiling": [0, 11, 11, 11, 12, 12, 12],
-                    "LimitInfo": [0, 0, 0, 0, 0, 12, 12]
+                    "CdevCeiling": [0, 25, 25, 25, 26, 26, 26],
+                    "LimitInfo": [0, 0, 0, 0, 0, 26, 26]
                 }
             ]
         },
         {
             "Name":"VIRTUAL-SKIN-CHARGE-WLC",
             "Type":"UNKNOWN",
-            "Hidden":true,
             "VirtualSensor":true,
             "TriggerSensor":"modem_therm",
             "Formula":"MAXIMUM",
             "Combination":["VIRTUAL-SKIN-CHARGE-WLC-SUB-1"],
             "Coefficient":[1.0],
-	    "HotThreshold":["NAN", 35.0, 39.0, 43.0, 45.0, 47.0, 55.0],
-            "HotHysteresis":[0.0, 1.9, 1.9, 1.9, 1.9, 1.9, 1.9],
+            "HotThreshold":["NAN", 34.0, 38.0, 41.0, 45.0, 47.0, 55.0],
+            "HotHysteresis":[0.0, 1.9, 3.9, 2.9, 3.9, 1.9, 1.9],
             "Multiplier":0.001,
-            "PollingDelay":300000,
+            "PollingDelay":60000,
             "PassiveDelay":7000,
             "PIDInfo": {
-                "K_Po":["NAN", "NAN", 800, "NAN", "NAN", "NAN", "NAN"],
-                "K_Pu":["NAN", "NAN", 800, "NAN", "NAN", "NAN", "NAN"],
-                "K_I":["NAN", "NAN", 5, "NAN", "NAN", "NAN", "NAN"],
+                "K_Po":["NAN", "NAN", 310, "NAN", "NAN", "NAN", "NAN"],
+                "K_Pu":["NAN", "NAN", 310, "NAN", "NAN", "NAN", "NAN"],
+                "K_I":["NAN", "NAN", 21, "NAN", "NAN", "NAN", "NAN"],
                 "K_D":["NAN", "NAN", 0, "NAN", "NAN", "NAN", "NAN"],
-                "I_Max":["NAN", "NAN", 800, "NAN", "NAN", "NAN", "NAN"],
-                "S_Power":["NAN", "NAN", 2000, "NAN", "NAN", "NAN", "NAN"],
+                "I_Max":["NAN", "NAN", 2224, "NAN", "NAN", "NAN", "NAN"],
+                "S_Power":["NAN", "NAN", 2577, "NAN", "NAN", "NAN", "NAN"],
                 "MinAllocPower":["NAN", "NAN", 300, "NAN", "NAN", "NAN", "NAN"],
                 "MaxAllocPower":["NAN", "NAN", 6000, "NAN", "NAN", "NAN", "NAN"],
-                "I_Cutoff":["NAN", "NAN", 2, "NAN", "NAN", "NAN", "NAN"]
+                "I_Cutoff":["NAN", "NAN", 6, "NAN", "NAN", "NAN", "NAN"],
+                "I_Default":2224
             },
             "ExcludedPowerInfo": [
                 {
                     "PowerRail": "PARTIAL_SYSTEM_POWER",
-                    "PowerWeight": [0.5, 0.5, 0.8, 1.0, 1.0, 1.0, 1.0]
+                    "PowerWeight": [0.1, 0.1, 0.05, 0.05, 0.2, 0.2, 0.2]
                 }
             ],
             "BindedCdevInfo": [
@@ -165,8 +165,8 @@
                     "CdevWeightForPID": [1, 1, 1, 1, 1, 1, 1],
                     "MaxReleaseStep": 1,
                     "MaxThrottleStep": 1,
-                    "CdevCeiling": [0, 5, 8, 11, 12, 12, 12],
-                    "LimitInfo": [0, 0, 0, 0, 0, 12, 12]
+                    "CdevCeiling": [0, 25, 25, 25, 26, 26, 26],
+                    "LimitInfo": [0, 0, 1, 1, 1, 26, 26]
                 }
             ]
         },
