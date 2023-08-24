@@ -37,6 +37,12 @@ on post-fs-data
     chmod 644 /mnt/vendor/persist/audio/speaker.cal
 
 # Thermal
+on property:vendor.thermal.link_ready=1
+    chown system system /dev/thermal/tz-by-name/charger_therm/trip_point_0_temp
+    chown system system /dev/thermal/tz-by-name/charger_therm/trip_point_0_hyst
+    chown system system /dev/thermal/tz-by-name/modem_therm/trip_point_0_temp
+    chown system system /dev/thermal/tz-by-name/modem_therm/trip_point_0_hyst
+
 on property:ro.boot.hardware.revision=PROTO1.0
     setprop vendor.thermal.config "thermal_info_config_proto.json"
 
