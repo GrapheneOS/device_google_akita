@@ -64,6 +64,7 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	persist.vendor.camera.extended_launch_boost=1 \
+    persist.vendor.camera.adjust_backend_min_freq_for_video_120fps=1 \
     vendor.camera.debug.enable_software_post_sharpen_node=false \
 	vendor.camera.allow_sensor_binning_aspect_ratio_to_override_itp_output=false
 
@@ -111,7 +112,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.bluetooth.a2dp_offload.supported=true \
     persist.bluetooth.a2dp_offload.disabled=false \
-    persist.bluetooth.a2dp_offload.cap=sbc-aac-aptx-aptxhd-ldac-opus
+    persist.bluetooth.a2dp_offload.cap=sbc-aac-aptx-aptxhd-ldac
 
 # POF
 PRODUCT_PRODUCT_PROPERTIES += \
@@ -165,18 +166,33 @@ PRODUCT_PACKAGES += \
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.support_one_handed_mode=true
 
+# Override BQR mask to enable LE Audio Choppy report, remove BTRT logging
+ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
+PRODUCT_PRODUCT_PROPERTIES += \
+    persist.bluetooth.bqr.event_mask=295006 \
+    persist.bluetooth.bqr.vnd_quality_mask=29 \
+    persist.bluetooth.bqr.vnd_trace_mask=0 \
+    persist.bluetooth.vendor.btsnoop=true
+else
+PRODUCT_PRODUCT_PROPERTIES += \
+    persist.bluetooth.bqr.event_mask=295006 \
+    persist.bluetooth.bqr.vnd_quality_mask=16 \
+    persist.bluetooth.bqr.vnd_trace_mask=0 \
+    persist.bluetooth.vendor.btsnoop=false
+endif
+
 # Spatial Audio
 PRODUCT_PACKAGES += \
 	libspatialaudio \
 	librondo
 
-# declare use of spatial audio
-PRODUCT_PROPERTY_OVERRIDES += \
-       ro.audio.spatializer_enabled=true
-
 # Audio CCA property
 PRODUCT_PROPERTY_OVERRIDES += \
 	persist.vendor.audio.cca.enabled=true
+
+# Settings Overlay
+PRODUCT_PACKAGES += \
+    SettingsAkitaOverlay
 
 # Keymaster HAL
 #LOCAL_KEYMASTER_PRODUCT_PACKAGE ?= android.hardware.keymaster@4.1-service
@@ -267,7 +283,3 @@ PRODUCT_VENDOR_PROPERTIES += \
 # Increment the SVN for any official public releases
 PRODUCT_VENDOR_PROPERTIES += \
     ro.vendor.build.svn=1
-
-# Wifi SAP Interface Name
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.wifi.sap.interface=wlan1

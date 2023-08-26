@@ -425,6 +425,7 @@
       "Path": "/sys/devices/platform/17000030.devfreq_intcam/devfreq/17000030.devfreq_intcam/min_freq",
       "Values": [
         "664000",
+        "233000",
         "67000"
       ],
       "ResetOnInit": true
@@ -434,136 +435,67 @@
       "Path": "/sys/devices/platform/17000060.devfreq_tnr/devfreq/17000060.devfreq_tnr/min_freq",
       "Values": [
         "664000",
+        "233000",
         "67000"
       ],
       "ResetOnInit": true
     },
     {
-      "Name": "BigControlTempSet",
-      "Path": "/dev/thermal/tz-by-name/BIG/trip_point_2_temp",
+      "Name": "BigTjOffset",
+      "Path": "/sys/devices/platform/100a0000.BIG/offset_enabled",
       "Values": [
-        "90000",
-        "80000"
+        "0",
+        "1"
       ],
       "DefaultIndex": 0,
       "ResetOnInit": false
     },
     {
-      "Name": "MidControlTempSet",
-      "Path": "/dev/thermal/tz-by-name/MID/trip_point_2_temp",
+      "Name": "MidTjOffset",
+      "Path": "/sys/devices/platform/100a0000.MID/offset_enabled",
       "Values": [
-        "90000",
-        "80000"
+        "0",
+        "1"
       ],
       "DefaultIndex": 0,
       "ResetOnInit": false
     },
     {
-      "Name": "LittleControlTempSet",
-      "Path": "/dev/thermal/tz-by-name/LITTLE/trip_point_2_temp",
+      "Name": "LittleTjOffset",
+      "Path": "/sys/devices/platform/100a0000.LITTLE/offset_enabled",
       "Values": [
-        "95000",
-        "85000"
+        "0",
+        "1"
       ],
       "DefaultIndex": 0,
       "ResetOnInit": false
     },
     {
-      "Name": "G3dControlTempSet",
-      "Path": "/dev/thermal/tz-by-name/G3D/trip_point_2_temp",
+      "Name": "G3dTjOffset",
+      "Path": "/sys/devices/platform/100b0000.G3D/offset_enabled",
       "Values": [
-        "85000",
-        "80000"
+        "0",
+        "1"
       ],
       "DefaultIndex": 0,
       "ResetOnInit": false
     },
     {
-      "Name": "TpuControlTempSet",
-      "Path": "/dev/thermal/tz-by-name/TPU/trip_point_2_temp",
+      "Name": "TpuTjOffset",
+      "Path": "/sys/devices/platform/100b0000.TPU/offset_enabled",
       "Values": [
-        "85000",
-        "80000"
+        "0",
+        "1"
       ],
       "DefaultIndex": 0,
       "ResetOnInit": false
     },
     {
-      "Name": "AurControlTempSet",
-      "Path": "/dev/thermal/tz-by-name/AUR/trip_point_2_temp",
+      "Name": "AurTjOffset",
+      "Path": "/sys/devices/platform/100b0000.AUR/offset_enabled",
       "Values": [
-        "85000",
-        "80000"
-      ],
-      "DefaultIndex": 0,
-      "ResetOnInit": false
-    },
-    {
-      "Name": "BigSwitchOnTempSet",
-      "Path": "/dev/thermal/tz-by-name/BIG/trip_point_1_temp",
-      "Values": [
-        "70000",
-        "60000"
-      ],
-      "DefaultIndex": 0,
-      "ResetOnInit": false
-    },
-    {
-      "Name": "MidSwitchOnTempSet",
-      "Path": "/dev/thermal/tz-by-name/MID/trip_point_1_temp",
-      "Values": [
-        "70000",
-        "60000"
-      ],
-      "DefaultIndex": 0,
-      "ResetOnInit": false
-    },
-    {
-      "Name": "LittleSwitchOnTempSet",
-      "Path": "/dev/thermal/tz-by-name/LITTLE/trip_point_1_temp",
-      "Values": [
-        "70000",
-        "65000"
-      ],
-      "DefaultIndex": 0,
-      "ResetOnInit": false
-    },
-    {
-      "Name": "G3dSwitchOnTempSet",
-      "Path": "/dev/thermal/tz-by-name/G3D/trip_point_1_temp",
-      "Values": [
-        "65000",
-        "60000"
-      ],
-      "DefaultIndex": 0,
-      "ResetOnInit": false
-    },
-    {
-      "Name": "TpuSwitchOnTempSet",
-      "Path": "/dev/thermal/tz-by-name/TPU/trip_point_1_temp",
-      "Values": [
-        "65000",
-        "60000"
-      ],
-      "DefaultIndex": 0,
-      "ResetOnInit": false
-    },
-    {
-      "Name": "AurSwitchOnTempSet",
-      "Path": "/dev/thermal/tz-by-name/AUR/trip_point_1_temp",
-      "Values": [
-        "65000",
-        "60000"
-      ],
-      "DefaultIndex": 0,
-      "ResetOnInit": false
-    },
-    {
-      "Name": "BigEarlyThrottlingTempSet",
-      "Path": "/dev/thermal/tz-by-name/BIG/trip_point_4_temp",
-      "Values": [
-        "80000",
-        "85000"
+        "0",
+        "1"
       ],
       "DefaultIndex": 0,
       "ResetOnInit": false
@@ -1978,6 +1910,18 @@
       "Value": "302000"
     },
     {
+      "PowerHint": "CAMERA_ADJUST_BACKEND_MIN_FREQ",
+      "Node": "INTCAMFreq",
+      "Duration": 0,
+      "Value": "233000"
+    },
+    {
+      "PowerHint": "CAMERA_ADJUST_BACKEND_MIN_FREQ",
+      "Node": "TNRFreq",
+      "Duration": 0,
+      "Value": "233000"
+    },
+    {
       "PowerHint": "FIXED_PERFORMANCE",
       "Node": "CPUBigClusterMaxFreq",
       "Duration": 0,
@@ -2111,81 +2055,39 @@
     },
     {
       "PowerHint": "LOW_POWER",
-      "Node": "BigControlTempSet",
+      "Node": "BigTjOffset",
       "Duration": 0,
-      "Value": "80000"
+      "Value": "1"
     },
     {
       "PowerHint": "LOW_POWER",
-      "Node": "MidControlTempSet",
+      "Node": "MidTjOffset",
       "Duration": 0,
-      "Value": "80000"
+      "Value": "1"
     },
     {
       "PowerHint": "LOW_POWER",
-      "Node": "LittleControlTempSet",
+      "Node": "LittleTjOffset",
       "Duration": 0,
-      "Value": "85000"
+      "Value": "1"
     },
     {
       "PowerHint": "LOW_POWER",
-      "Node": "G3dControlTempSet",
+      "Node": "G3dTjOffset",
       "Duration": 0,
-      "Value": "80000"
+      "Value": "1"
     },
     {
       "PowerHint": "LOW_POWER",
-      "Node": "TpuControlTempSet",
+      "Node": "TpuTjOffset",
       "Duration": 0,
-      "Value": "80000"
+      "Value": "1"
     },
     {
       "PowerHint": "LOW_POWER",
-      "Node": "AurControlTempSet",
+      "Node": "AurTjOffset",
       "Duration": 0,
-      "Value": "80000"
-    },
-    {
-      "PowerHint": "LOW_POWER",
-      "Node": "BigSwitchOnTempSet",
-      "Duration": 0,
-      "Value": "60000"
-    },
-    {
-      "PowerHint": "LOW_POWER",
-      "Node": "MidSwitchOnTempSet",
-      "Duration": 0,
-      "Value": "60000"
-    },
-    {
-      "PowerHint": "LOW_POWER",
-      "Node": "LittleSwitchOnTempSet",
-      "Duration": 0,
-      "Value": "65000"
-    },
-    {
-      "PowerHint": "LOW_POWER",
-      "Node": "G3dSwitchOnTempSet",
-      "Duration": 0,
-      "Value": "60000"
-    },
-    {
-      "PowerHint": "LOW_POWER",
-      "Node": "TpuSwitchOnTempSet",
-      "Duration": 0,
-      "Value": "60000"
-    },
-    {
-      "PowerHint": "LOW_POWER",
-      "Node": "AurSwitchOnTempSet",
-      "Duration": 0,
-      "Value": "60000"
-    },
-    {
-      "PowerHint": "LOW_POWER",
-      "Node": "BigEarlyThrottlingTempSet",
-      "Duration": 0,
-      "Value": "85000"
+      "Value": "1"
     },
     {
       "PowerHint": "REFRESH_120FPS",
@@ -2290,81 +2192,39 @@
     },
     {
       "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_LIGHT",
-      "Node": "BigControlTempSet",
+      "Node": "BigTjOffset",
       "Duration": 0,
-      "Value": "80000"
+      "Value": "1"
     },
     {
       "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_LIGHT",
-      "Node": "MidControlTempSet",
+      "Node": "MidTjOffset",
       "Duration": 0,
-      "Value": "80000"
+      "Value": "1"
     },
     {
       "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_LIGHT",
-      "Node": "LittleControlTempSet",
+      "Node": "LittleTjOffset",
       "Duration": 0,
-      "Value": "85000"
+      "Value": "1"
     },
     {
       "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_LIGHT",
-      "Node": "G3dControlTempSet",
+      "Node": "G3dTjOffset",
       "Duration": 0,
-      "Value": "80000"
+      "Value": "1"
     },
     {
       "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_LIGHT",
-      "Node": "TpuControlTempSet",
+      "Node": "TpuTjOffset",
       "Duration": 0,
-      "Value": "80000"
+      "Value": "1"
     },
     {
       "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_LIGHT",
-      "Node": "AurControlTempSet",
+      "Node": "AurTjOffset",
       "Duration": 0,
-      "Value": "80000"
-    },
-    {
-      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_LIGHT",
-      "Node": "BigSwitchOnTempSet",
-      "Duration": 0,
-      "Value": "60000"
-    },
-    {
-      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_LIGHT",
-      "Node": "MidSwitchOnTempSet",
-      "Duration": 0,
-      "Value": "60000"
-    },
-    {
-      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_LIGHT",
-      "Node": "LittleSwitchOnTempSet",
-      "Duration": 0,
-      "Value": "65000"
-    },
-    {
-      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_LIGHT",
-      "Node": "G3dSwitchOnTempSet",
-      "Duration": 0,
-      "Value": "60000"
-    },
-    {
-      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_LIGHT",
-      "Node": "TpuSwitchOnTempSet",
-      "Duration": 0,
-      "Value": "60000"
-    },
-    {
-      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_LIGHT",
-      "Node": "AurSwitchOnTempSet",
-      "Duration": 0,
-      "Value": "60000"
-    },
-    {
-      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_LIGHT",
-      "Node": "BigEarlyThrottlingTempSet",
-      "Duration": 0,
-      "Value": "85000"
+      "Value": "1"
     },
     {
       "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_LIGHT",
