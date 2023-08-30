@@ -21,6 +21,10 @@
     <ctl name="US Record Enable" value="0" />
     <ctl name="ASPRX1 Slot Position" value="0"/>
     <ctl name="R ASPRX1 Slot Position" value="1"/>
+    <ctl name="USB Card" value="1"/>
+    <ctl name="USB Device" value="0"/>
+    <ctl name="USB Direction" value="0" />
+    <ctl name="USB Memory Config" value="0" />
 
     <path name="mfg-playback">
     </path>
@@ -46,6 +50,10 @@
         <ctl name="USB Capture EP ID v2" value="1" />
         <ctl name="USB Capture FORMAT v2" value="1" />
         <ctl name="USB Config To AoC v2" value="1"/>
+        <ctl name="USB Card" value="1"/>
+        <ctl name="USB Device" value="0"/>
+        <ctl name="USB Direction" value="1" />
+        <ctl name="USB Memory Config" value="1" />
         <ctl name="EP1 TX Mixer USB_TX" value="1"/>
     </path>
 
@@ -273,6 +281,10 @@
         <ctl name="USB Playback CH v2" value="2" />
         <ctl name="USB Playback BW v2" value="16" />
         <ctl name="USB Config To AoC v2" value="1" />
+        <ctl name="USB Card" value="1"/>
+        <ctl name="USB Device" value="0"/>
+        <ctl name="USB Direction" value="0" />
+        <ctl name="USB Memory Config" value="1" />
         <ctl name="USB_RX Mixer EP3" value="1" />
     </path>
 
