@@ -53,7 +53,8 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_VENDOR_PROPERTIES += \
     vendor.primarydisplay.op.hs_hz=120 \
-    vendor.primarydisplay.op.ns_hz=60
+    vendor.primarydisplay.op.ns_hz=60 \
+    vendor.primarydisplay.op.peak_refresh_rate=60
 
 # lhbm peak brightness delay: decided by kernel
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += vendor.primarydisplay.lhbm.frames_to_reach_peak_brightness=0
@@ -161,6 +162,12 @@ PRODUCT_SOONG_NAMESPACES += \
 # Bluetooth LE Auido offload capabilities setting
 PRODUCT_PACKAGES += \
     le_audio_codec_capabilities.xml
+
+# Bluetooth LE Audio CIS handover to SCO
+# Set the property only for the controller couldn't support CIS/SCO simultaneously. More detailed in b/242908683.
+PRODUCT_PRODUCT_PROPERTIES += \
+    persist.bluetooth.leaudio.notify.idle.during.call=true
+
 
 # Enable one-handed mode
 PRODUCT_PRODUCT_PROPERTIES += \
