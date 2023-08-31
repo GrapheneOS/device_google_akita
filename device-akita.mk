@@ -69,6 +69,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.camera.debug.enable_software_post_sharpen_node=false \
 	vendor.camera.allow_sensor_binning_aspect_ratio_to_override_itp_output=false
 
+# Enable front camera always binning for 720P or smaller resolution
+PRODUCT_VENDOR_PROPERTIES += \
+    persist.vendor.camera.front_720P_always_binning=true
+
 # Media Performance Class 13
 PRODUCT_PROPERTY_OVERRIDES += ro.odm.build.media_performance_class=33
 
