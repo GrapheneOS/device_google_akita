@@ -2353,6 +2353,12 @@
       "Value": "1"
     },
     {
+      "PowerHint": "FP_STORAGE_ACCESS",
+      "Node": "TAUClampBoost",
+      "Duration": 1000,
+      "Value": "765"
+    },
+    {
       "PowerHint": "ML_ACC",
       "Node": "MLUclampBoost",
       "Duration": 2000,
