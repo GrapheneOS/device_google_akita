@@ -140,6 +140,10 @@ PRODUCT_PACKAGES_DEBUG += \
 PRODUCT_PRODUCT_PROPERTIES += \
     persist.bluetooth.a2dp_aac.vbr_supported=true
 
+# Bluetooth Super Wide Band
+PRODUCT_PRODUCT_PROPERTIES += \
+    bluetooth.hfp.swb.supported=true
+
 # Bluetooth LE Audio
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.bluetooth.leaudio_switcher.supported=true \
