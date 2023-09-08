@@ -8,12 +8,8 @@
         {
             "Name":"modem_therm",
             "Type":"UNKNOWN",
-            "HotThreshold":["NAN", 35.5, "NAN", "NAN", "NAN", "NAN", "NAN"],
-            "HotHysteresis":[0.0, 0.9, 0.0, 0.0, 0.0, 0.0, 0.0],
             "TempPath":"/dev/thermal/tz-by-name/modem_therm/tz_temp",
-            "Multiplier":0.001,
-            "PollingDelay":60000,
-            "PassiveDelay":7000
+            "Multiplier":0.001
         },
         {
             "Name":"gnss_tcxo_therm",
@@ -24,7 +20,11 @@
         {
             "Name":"usb_conn_therm",
             "Type":"UNKNOWN",
-            "Multiplier":0.001
+            "HotThreshold":["NAN", 46.0, "NAN", "NAN", "NAN", "NAN", "NAN"],
+            "TempPath":"/dev/thermal/tz-by-name/usb_conn_therm/tz_temp",
+            "Multiplier":0.001,
+            "PollingDelay":60000,
+            "PassiveDelay":7000
         },
         {
             "Name":"rffe_therm",
@@ -35,17 +35,13 @@
         {
             "Name":"soc_therm",
             "Type":"UNKNOWN",
-            "HotThreshold":["NAN", 36.0, "NAN", "NAN", "NAN", "NAN", "NAN"],
-            "HotHysteresis":[0.0, 0.9, 0.0, 0.0, 0.0, 0.0, 0.0],
             "TempPath":"/dev/thermal/tz-by-name/soc_therm/tz_temp",
-            "Multiplier":0.001,
-            "PollingDelay":60000,
-            "PassiveDelay":7000
+            "Multiplier":0.001
         },
         {
             "Name":"charger_therm",
             "Type":"UNKNOWN",
-            "HotThreshold":["NAN", 35.5, "NAN", "NAN", "NAN", "NAN", "NAN"],
+            "HotThreshold":["NAN", 36.5, "NAN", "NAN", "NAN", "NAN", "NAN"],
             "HotHysteresis":[0.0, 0.9, 0.0, 0.0, 0.0, 0.0, 0.0],
             "TempPath":"/dev/thermal/tz-by-name/charger_therm/tz_temp",
             "Multiplier":0.001,
@@ -70,30 +66,31 @@
             "Hidden":true,
             "VirtualSensor":true,
             "Formula":"WEIGHTED_AVG",
-            "Combination":["modem_therm", "rffe_therm", "charger_therm"],
-            "Coefficient":[0.482, 0.206, 0.208],
-            "Offset":-120,
+            "Combination":["modem_therm", "rffe_therm", "soc_therm", "charger_therm"],
+            "Coefficient":[0.209, 0.368, 0.261, 0.146],
+            "Offset":-300,
             "Multiplier":0.001
         },
         {
-            "Name":"VIRTUAL-SKIN-CHARGE-WLC-SUB-1",
+            "Name":"VIRTUAL-SKIN-CHARGE-SUB-2",
             "Type":"UNKNOWN",
             "Hidden":true,
             "VirtualSensor":true,
             "Formula":"WEIGHTED_AVG",
-            "Combination":["modem_therm", "rffe_therm", "charger_therm"],
-            "Coefficient":[0.362, 0.244, 0.317],
-            "Offset":125,
+            "Combination":["quiet_therm", "rffe_therm"],
+            "Coefficient":[0.606, 0.429],
+            "Offset":-10,
             "Multiplier":0.001
         },
         {
             "Name":"VIRTUAL-SKIN-CHARGE",
             "Type":"UNKNOWN",
+            "Version":"0.3e",
             "VirtualSensor":true,
             "TriggerSensor":"charger_therm",
             "Formula":"MAXIMUM",
-            "Combination":["VIRTUAL-SKIN-CHARGE-SUB-1"],
-            "Coefficient":[1.0],
+            "Combination":["VIRTUAL-SKIN-CHARGE-SUB-1", "VIRTUAL-SKIN-CHARGE-SUB-2"],
+            "Coefficient":[1.0, 1.0],
             "HotThreshold":["NAN", 34.0, 38.0, 41.0, 45.0, 47.0, 55.0],
             "HotHysteresis":[0.0, 1.9, 3.9, 2.9, 3.9, 1.9, 1.9],
             "Multiplier":0.001,
@@ -129,10 +126,22 @@
             ]
         },
         {
+            "Name":"VIRTUAL-SKIN-CHARGE-WLC-SUB-1",
+            "Type":"UNKNOWN",
+            "Hidden":true,
+            "VirtualSensor":true,
+            "Formula":"WEIGHTED_AVG",
+            "Combination":["modem_therm", "rffe_therm", "soc_therm", "charger_therm"],
+            "Coefficient":[0.214, 0.373, 0.266, 0.151],
+            "Offset":170,
+            "Multiplier":0.001
+        },
+        {
             "Name":"VIRTUAL-SKIN-CHARGE-WLC",
             "Type":"UNKNOWN",
+            "Version":"0.3e",
             "VirtualSensor":true,
-            "TriggerSensor":"modem_therm",
+            "TriggerSensor":"charger_therm",
             "Formula":"MAXIMUM",
             "Combination":["VIRTUAL-SKIN-CHARGE-WLC-SUB-1"],
             "Coefficient":[1.0],
