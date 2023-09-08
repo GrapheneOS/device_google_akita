@@ -68,7 +68,7 @@
             "Formula":"WEIGHTED_AVG",
             "Combination":["modem_therm", "rffe_therm", "soc_therm", "charger_therm"],
             "Coefficient":[0.209, 0.368, 0.261, 0.146],
-            "Offset":-300,
+            "Offset":300,
             "Multiplier":0.001
         },
         {
@@ -79,7 +79,7 @@
             "Formula":"WEIGHTED_AVG",
             "Combination":["quiet_therm", "rffe_therm"],
             "Coefficient":[0.606, 0.429],
-            "Offset":-10,
+            "Offset":10,
             "Multiplier":0.001
         },
         {
