@@ -949,6 +949,24 @@
     },
     {
       "PowerHint": "CAMERA_LAUNCH",
+      "Node": "CPU_BIG_TSKIN_BYPASS",
+      "Duration": 1000,
+      "Value": "1"
+    },
+    {
+      "PowerHint": "CAMERA_LAUNCH",
+      "Node": "CPU_MID_TSKIN_BYPASS",
+      "Duration": 1000,
+      "Value": "1"
+    },
+    {
+      "PowerHint": "CAMERA_LAUNCH",
+      "Node": "CPU_LITTLE_TSKIN_BYPASS",
+      "Duration": 1000,
+      "Value": "1"
+    },
+    {
+      "PowerHint": "CAMERA_LAUNCH",
       "Node": "MemFreq",
       "Duration": 1000,
       "Value": "9999999"
@@ -1017,6 +1035,24 @@
       "PowerHint": "CAMERA_LAUNCH",
       "Node": "CDPreferIdle",
       "Duration": 1000,
+      "Value": "1"
+    },
+    {
+      "PowerHint": "CAMERA_LAUNCH_EXTENDED",
+      "Node": "CPU_BIG_TSKIN_BYPASS",
+      "Duration": 2000,
+      "Value": "1"
+    },
+    {
+      "PowerHint": "CAMERA_LAUNCH_EXTENDED",
+      "Node": "CPU_MID_TSKIN_BYPASS",
+      "Duration": 2000,
+      "Value": "1"
+    },
+    {
+      "PowerHint": "CAMERA_LAUNCH_EXTENDED",
+      "Node": "CPU_LITTLE_TSKIN_BYPASS",
+      "Duration": 2000,
       "Value": "1"
     },
     {
@@ -2263,19 +2299,19 @@
       "Value": "2"
     },
     {
-      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_EMERGENCY",
+      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_CRITICAL",
       "Node": "CPU_LITTLE_TSKIN_BYPASS",
       "Duration": 0,
       "Value": "0"
     },
     {
-      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_EMERGENCY",
+      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_CRITICAL",
       "Node": "CPU_MID_TSKIN_BYPASS",
       "Duration": 0,
       "Value": "0"
     },
     {
-      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_EMERGENCY",
+      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_CRITICAL",
       "Node": "CPU_BIG_TSKIN_BYPASS",
       "Duration": 0,
       "Value": "0"
