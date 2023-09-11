@@ -145,6 +145,7 @@
       "Path": "/sys/devices/system/cpu/cpu4/cpufreq/sched_pixel/down_rate_limit_us",
       "Values": [
         "20000",
+        "3000",
         "2000",
         "500"
       ],
@@ -184,6 +185,7 @@
       "Path": "/sys/devices/system/cpu/cpu8/cpufreq/sched_pixel/down_rate_limit_us",
       "Values": [
         "20000",
+        "3000",
         "2000",
         "500"
       ],
@@ -2181,6 +2183,36 @@
       "Node": "VIRTUAL-SKIN-CPU-HIGH",
       "Duration": 0,
       "Value": "game"
+    },
+    {
+      "PowerHint": "GAME",
+      "Node": "CPUDVFSHeadroom",
+      "Duration": 0,
+      "Value": "1100"
+    },
+    {
+      "PowerHint": "GAME",
+      "Node": "CPUTaperedDVFSHeadroomEnable",
+      "Duration": 0,
+      "Value": "1"
+    },
+    {
+      "PowerHint": "GAME",
+      "Node": "CPULittleClusterDownRateLimitUs",
+      "Duration": 0,
+      "Value": "500"
+    },
+    {
+      "PowerHint": "GAME",
+      "Node": "CPUMidClusterDownRateLimitUs",
+      "Duration": 0,
+      "Value": "3000"
+    },
+    {
+      "PowerHint": "GAME",
+      "Node": "CPUBigClusterDownRateLimitUs",
+      "Duration": 0,
+      "Value": "3000"
     },
     {
       "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_LIGHT",
