@@ -239,6 +239,16 @@
       "ResetOnInit": true
     },
     {
+      "Name": "CPUTaperedDVFSHeadroomEnable",
+      "Path": "/proc/vendor_sched/tapered_dvfs_headroom_enable",
+      "Values": [
+        "0",
+        "1"
+      ],
+      "DefaultIndex": 0,
+      "ResetOnInit": true
+    },
+    {
       "Name": "CAMUClampBoost",
       "Path": "/proc/vendor_sched/cam_uclamp_min",
       "Values": [
