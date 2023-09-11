@@ -378,8 +378,8 @@
       "Name": "NPITaskPacking",
       "Path": "/proc/vendor_sched/npi_packing",
       "Values": [
-        "0",
-        "1"
+        "1",
+        "0"
       ],
       "ResetOnInit": true
     },
@@ -814,12 +814,6 @@
     },
     {
       "PowerHint": "LAUNCH",
-      "Node": "NPITaskPacking",
-      "Duration": 5000,
-      "Value": "0"
-    },
-    {
-      "PowerHint": "LAUNCH",
       "Type": "DoHint",
       "Value": "LAUNCH_PMU"
     },
@@ -1021,12 +1015,6 @@
     },
     {
       "PowerHint": "CAMERA_LAUNCH",
-      "Node": "NPITaskPacking",
-      "Duration": 1000,
-      "Value": "0"
-    },
-    {
-      "PowerHint": "CAMERA_LAUNCH",
       "Node": "PMU_POLL",
       "Duration": 1000,
       "Value": "0"
@@ -1072,12 +1060,6 @@
       "Node": "CPULittleClusterMaxFreq",
       "Duration": 2000,
       "Value": "9999999"
-    },
-    {
-      "PowerHint": "CAMERA_LAUNCH_EXTENDED",
-      "Node": "NPITaskPacking",
-      "Duration": 2000,
-      "Value": "0"
     },
     {
       "PowerHint": "CAMERA_LAUNCH_EXTENDED",
@@ -1399,12 +1381,6 @@
     },
     {
       "PowerHint": "CAMERA_STREAMING_EXTREME",
-      "Node": "NPITaskPacking",
-      "Duration": 0,
-      "Value": "0"
-    },
-    {
-      "PowerHint": "CAMERA_STREAMING_EXTREME",
       "Node": "VIRTUAL-SKIN-CPU-HIGH",
       "Duration": 0,
       "Value": "camera"
@@ -1549,12 +1525,6 @@
     },
     {
       "PowerHint": "CAMERA_STREAMING_HIGH",
-      "Node": "NPITaskPacking",
-      "Duration": 0,
-      "Value": "0"
-    },
-    {
-      "PowerHint": "CAMERA_STREAMING_HIGH",
       "Node": "VIRTUAL-SKIN-CPU-HIGH",
       "Duration": 0,
       "Value": "camera"
@@ -1681,12 +1651,6 @@
     },
     {
       "PowerHint": "CAMERA_STREAMING_STANDARD",
-      "Node": "NPITaskPacking",
-      "Duration": 0,
-      "Value": "0"
-    },
-    {
-      "PowerHint": "CAMERA_STREAMING_STANDARD",
       "Node": "VIRTUAL-SKIN-CPU-HIGH",
       "Duration": 0,
       "Value": "camera"
@@ -1762,12 +1726,6 @@
       "Node": "CDMidHighCpusetCpus",
       "Duration": 0,
       "Value": "4-8"
-    },
-    {
-      "PowerHint": "CAMERA_STREAMING_LOW",
-      "Node": "NPITaskPacking",
-      "Duration": 0,
-      "Value": "0"
     },
     {
       "PowerHint": "CAMERA_STREAMING_VIDEO_CALL",
@@ -1906,12 +1864,6 @@
       "Node": "PMU_LIT_SPC_THRESHOLD",
       "Duration": 0,
       "Value": "30"
-    },
-    {
-      "PowerHint": "CAMERA_STREAMING_VIDEO_CALL",
-      "Node": "NPITaskPacking",
-      "Duration": 0,
-      "Value": "0"
     },
     {
       "PowerHint": "CAMERA_VIDEO_RECORDING",
@@ -2531,12 +2483,6 @@
       "Node": "CDCpuset",
       "Duration": 0,
       "Value": "0-8"
-    },
-    {
-      "PowerHint": "CAMERA_PROJECT11",
-      "Node": "NPITaskPacking",
-      "Duration": 0,
-      "Value": "0"
     },
     {
       "PowerHint": "CAMERA_PROJECT11",
