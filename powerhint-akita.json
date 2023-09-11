@@ -362,9 +362,10 @@
       "Name": "TAPreferIdle",
       "Path": "/proc/vendor_sched/ta_prefer_idle",
       "Values": [
-        "0",
-        "1"
+        "1",
+        "0"
       ],
+      "DefaultIndex": 0,
       "ResetOnInit": true
     },
     {
@@ -767,12 +768,6 @@
     },
     {
       "PowerHint": "LAUNCH",
-      "Node": "FGPreferIdle",
-      "Duration": 5000,
-      "Value": "1"
-    },
-    {
-      "PowerHint": "LAUNCH",
       "Type": "DoHint",
       "Value": "LAUNCH_GPU"
     },
@@ -857,6 +852,48 @@
       "PowerHint": "LAUNCH",
       "Type": "DoHint",
       "Value": "LAUNCH_EXTEND"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "CPUDVFSHeadroom",
+      "Duration": 5000,
+      "Value": "1280"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "CPUTaperedDVFSHeadroomEnable",
+      "Duration": 5000,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "CPULittleClusterDownRateLimitUs",
+      "Duration": 5000,
+      "Value": "5000"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "CPUMidClusterDownRateLimitUs",
+      "Duration": 5000,
+      "Value": "20000"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "CPUBigClusterDownRateLimitUs",
+      "Duration": 5000,
+      "Value": "20000"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "TAPreferIdle",
+      "Duration": 5000,
+      "Value": "1"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "FGPreferIdle",
+      "Duration": 5000,
+      "Value": "1"
     },
     {
       "PowerHint": "LAUNCH_EXTEND",
