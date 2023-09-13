@@ -303,3 +303,11 @@ PRODUCT_VENDOR_PROPERTIES += \
 PRODUCT_PRODUCT_PROPERTIES += \
           ro.com.google.ime.kb_pad_port_b=4.19 \
           ro.com.google.ime.height_ratio=1.1
+
+ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
+PRODUCT_VENDOR_PROPERTIES += \
+       persist.vendor.usb.displayport.enabled=1
+else
+PRODUCT_VENDOR_PROPERTIES += \
+       persist.vendor.usb.displayport.enabled=0
+endif
