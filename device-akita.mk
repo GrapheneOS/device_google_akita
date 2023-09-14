@@ -64,8 +64,9 @@ PRODUCT_COPY_FILES += \
 	device/google/akita/media_profiles_akita.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml
 
 PRODUCT_PROPERTY_OVERRIDES += \
-	persist.vendor.camera.extended_launch_boost=1 \
     persist.vendor.camera.adjust_backend_min_freq_for_video_120fps=1 \
+	persist.vendor.camera.extended_launch_boost=1 \
+	persist.vendor.camera.optimized_tnr_freq=1 \
     vendor.camera.debug.enable_software_post_sharpen_node=false \
 	vendor.camera.allow_sensor_binning_aspect_ratio_to_override_itp_output=false
 
