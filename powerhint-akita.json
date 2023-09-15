@@ -444,6 +444,16 @@
       "ResetOnInit": true
     },
     {
+      "Name": "TNRMaxFreq",
+      "Path": "/sys/devices/platform/17000060.devfreq_tnr/devfreq/17000060.devfreq_tnr/max_freq",
+      "Values": [
+        "664000",
+        "111000"
+      ],
+      "DefaultIndex": 0,
+      "ResetOnInit": true
+    },
+    {
       "Name": "TNRFreq",
       "Path": "/sys/devices/platform/17000060.devfreq_tnr/devfreq/17000060.devfreq_tnr/min_freq",
       "Values": [
@@ -1945,6 +1955,12 @@
       "Node": "GPUMinFreq",
       "Duration": 0,
       "Value": "302000"
+    },
+    {
+      "PowerHint": "CAMERA_TNR_LOW",
+      "Node": "TNRMaxFreq",
+      "Duration": 0,
+      "Value": "111000"
     },
     {
       "PowerHint": "CAMERA_ADJUST_BACKEND_MIN_FREQ",
