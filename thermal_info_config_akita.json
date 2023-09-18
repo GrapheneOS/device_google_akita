@@ -610,7 +610,7 @@
             "Type":"UNKNOWN",
             "Version":"3.0e",
             "VirtualSensor":true,
-            "TriggerSensor":["usb_conn_therm"],
+            "TriggerSensor":["usb_conn_therm", "charger_therm"],
             "Formula":"MAXIMUM",
             "Combination":["VIRTUAL-SKIN-SPEAKER-SUB-1", "VIRTUAL-SKIN-SPEAKER-SUB-2"],
             "Coefficient":[1.0, 1.0],
