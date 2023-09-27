@@ -623,14 +623,10 @@
             "Name":"USB-MINUS-CHARGER",
             "Type":"UNKNOWN",
             "VirtualSensor":true,
-            "TriggerSensor": "usb_conn_therm",
             "Formula":"WEIGHTED_AVG",
             "Combination":["usb_conn_therm", "charger_therm"],
             "Coefficient":[1.0, -1.0],
-            "HotThreshold":["NAN", "7.0", "NAN", "NAN", "NAN", "NAN", "NAN"],
-            "Multiplier":0.001,
-            "PollingDelay":0,
-            "PassiveDelay":7000
+            "Multiplier":0.001
         },
         {
             "Name":"VIRTUAL-USB-THROTTLING",
@@ -648,9 +644,8 @@
                     "LimitInfo": [0, 0, 0, 0, 1, 1, 1]
                 }
             ],
-            "VrThreshold":"NAN",
             "Multiplier":1,
-            "PollingDelay":60000,
+            "PollingDelay":300000,
             "PassiveDelay":7000
         },
         {
@@ -663,7 +658,6 @@
             "Combination":["usb_conn_therm", "USB-MINUS-CHARGER"],
             "Coefficient":[46000, 13000],
             "HotThreshold":["NAN", "NAN", "NAN", "NAN", "NAN", "2.0", "NAN"],
-            "VrThreshold":"NAN",
             "Multiplier":1,
             "SendCallback":true,
             "PollingDelay":60000,
