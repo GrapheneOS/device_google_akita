@@ -261,6 +261,36 @@
       "ResetOnInit": true
     },
     {
+      "Name": "CPUUClampMaxFilterEnable",
+      "Path": "/proc/vendor_sched/uclamp_max_filter_enable",
+      "Values": [
+        "1",
+        "0"
+      ],
+      "DefaultIndex": 0,
+      "ResetOnInit": true
+    },
+    {
+      "Name": "BGUClampMaxBoost",
+      "Path": "/proc/vendor_sched/bg_uclamp_max",
+      "Values": [
+        "130",
+        "512"
+      ],
+      "DefaultIndex": 0,
+      "ResetOnInit": true
+    },
+    {
+      "Name": "Dex2oatUClampMaxBoost",
+      "Path": "/proc/vendor_sched/dex2oat_uclamp_max",
+      "Values": [
+        "-2",
+        "615"
+      ],
+      "DefaultIndex": 0,
+      "ResetOnInit": true
+    },
+    {
       "Name": "CAMUClampBoost",
       "Path": "/proc/vendor_sched/cam_uclamp_min",
       "Values": [
@@ -811,6 +841,24 @@
     },
     {
       "PowerHint": "LAUNCH",
+      "Node": "CPUUClampMaxFilterEnable",
+      "Duration": 5000,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "BGUClampMaxBoost",
+      "Duration": 5000,
+      "Value": "512"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "Dex2oatUClampMaxBoost",
+      "Duration": 5000,
+      "Value": "615"
+    },
+    {
+      "PowerHint": "LAUNCH",
       "Node": "TAUClampBoost",
       "Duration": 5000,
       "Value": "765"
@@ -908,6 +956,24 @@
       "Node": "CPULittleClusterMaxFreq",
       "Duration": 2000,
       "Value": "9999999"
+    },
+    {
+      "PowerHint": "LAUNCH_EXTEND",
+      "Node": "CPUUClampMaxFilterEnable",
+      "Duration": 2000,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "LAUNCH_EXTEND",
+      "Node": "BGUClampMaxBoost",
+      "Duration": 2000,
+      "Value": "512"
+    },
+    {
+      "PowerHint": "LAUNCH_EXTEND",
+      "Node": "Dex2oatUClampMaxBoost",
+      "Duration": 2000,
+      "Value": "615"
     },
     {
       "PowerHint": "LAUNCH_PMU",
