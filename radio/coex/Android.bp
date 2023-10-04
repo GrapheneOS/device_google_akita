@@ -34,3 +34,11 @@ prebuilt_etc {
     src: "display_primary_mipi_coex_table.csv",
     relative_install_path: "modem"
 }
+
+prebuilt_etc {
+    name: "display_primary_ssc_coex_table",
+    filename: "display_primary_ssc_coex_table.csv",
+    vendor: true,
+    src: "display_primary_ssc_coex_table.csv",
+    relative_install_path: "modem"
+}
