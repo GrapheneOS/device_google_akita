@@ -6,7 +6,8 @@
       "Values": [
         "1",
         "0"
-      ]
+      ],
+      "WriteOnly": true
     },
     {
       "Name": "GPUMinFreq",
@@ -211,8 +212,8 @@
       "ResetOnInit": true
     },
     {
-      "Name": "MidClusterPowerDownTargetResidency",
-      "Path": "/sys/devices/platform/cpupm/cpupm/cpd_cl1_target_residency",
+      "Name": "BigClusterPowerDownTargetResidency",
+      "Path": "/sys/devices/platform/cpupm/cpupm/cpd_cl2_target_residency",
       "Values": [
         "750000",
         "10000"
@@ -221,8 +222,8 @@
       "ResetOnInit": true
     },
     {
-      "Name": "BigClusterPowerDownTargetResidency",
-      "Path": "/sys/devices/platform/cpupm/cpupm/cpd_cl2_target_residency",
+      "Name": "MidClusterPowerDownTargetResidency",
+      "Path": "/sys/devices/platform/cpupm/cpupm/cpd_cl1_target_residency",
       "Values": [
         "750000",
         "10000"
@@ -974,6 +975,18 @@
     },
     {
       "PowerHint": "LAUNCH_EXTEND",
+      "Node": "CPUDVFSHeadroom",
+      "Duration": 2000,
+      "Value": "1280"
+    },
+    {
+      "PowerHint": "LAUNCH_EXTEND",
+      "Node": "CPUTaperedDVFSHeadroomEnable",
+      "Duration": 2000,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "LAUNCH_EXTEND",
       "Node": "CPUUClampMaxFilterEnable",
       "Duration": 2000,
       "Value": "0"
@@ -989,6 +1002,36 @@
       "Node": "Dex2oatUClampMaxBoost",
       "Duration": 2000,
       "Value": "615"
+    },
+    {
+      "PowerHint": "LAUNCH_EXTEND",
+      "Node": "CPULittleClusterDownRateLimitUs",
+      "Duration": 2000,
+      "Value": "5000"
+    },
+    {
+      "PowerHint": "LAUNCH_EXTEND",
+      "Node": "CPUMidClusterDownRateLimitUs",
+      "Duration": 2000,
+      "Value": "20000"
+    },
+    {
+      "PowerHint": "LAUNCH_EXTEND",
+      "Node": "CPUBigClusterDownRateLimitUs",
+      "Duration": 2000,
+      "Value": "20000"
+    },
+    {
+      "PowerHint": "LAUNCH_EXTEND",
+      "Node": "TAPreferIdle",
+      "Duration": 2000,
+      "Value": "1"
+    },
+    {
+      "PowerHint": "LAUNCH_EXTEND",
+      "Node": "FGPreferIdle",
+      "Duration": 2000,
+      "Value": "1"
     },
     {
       "PowerHint": "LAUNCH_EXTEND",
@@ -1122,13 +1165,13 @@
     },
     {
       "PowerHint": "DISPLAY_INACTIVE",
-      "Node": "MidClusterPowerDownTargetResidency",
+      "Node": "BigClusterPowerDownTargetResidency",
       "Duration": 0,
       "Value": "10000"
     },
     {
       "PowerHint": "DISPLAY_INACTIVE",
-      "Node": "BigClusterPowerDownTargetResidency",
+      "Node": "MidClusterPowerDownTargetResidency",
       "Duration": 0,
       "Value": "10000"
     },
@@ -2293,34 +2336,10 @@
       "Value": "1"
     },
     {
-      "PowerHint": "REFRESH_120FPS",
-      "Node": "TAUClampBoost",
-      "Duration": 0,
-      "Value": "1"
-    },
-    {
-      "PowerHint": "REFRESH_60FPS",
-      "Node": "TAUClampBoost",
-      "Duration": 0,
-      "Value": "1"
-    },
-    {
-      "PowerHint": "ADPF_DISABLE_TA_BOOST",
-      "Node": "TAUClampBoost",
-      "Duration": 0,
-      "Value": "1"
-    },
-    {
       "PowerHint": "DISPLAY_IDLE",
       "Node": "FGPreferIdle",
       "Duration": 0,
       "Value": "0"
-    },
-    {
-      "PowerHint": "DISPLAY_IDLE",
-      "Node": "TAUClampBoost",
-      "Duration": 0,
-      "Value": "1"
     },
     {
       "PowerHint": "DISPLAY_IDLE",
@@ -2377,18 +2396,6 @@
     },
     {
       "PowerHint": "GAME",
-      "Node": "VIRTUAL-SKIN-CPU-MID",
-      "Duration": 0,
-      "Value": "game"
-    },
-    {
-      "PowerHint": "GAME",
-      "Node": "VIRTUAL-SKIN-CPU-HIGH",
-      "Duration": 0,
-      "Value": "game"
-    },
-    {
-      "PowerHint": "GAME",
       "Node": "CPUDVFSHeadroom",
       "Duration": 0,
       "Value": "1100"
@@ -2428,6 +2435,18 @@
       "Node": "FGPreferIdle",
       "Duration": 0,
       "Value": "0"
+    },
+    {
+      "PowerHint": "GAME",
+      "Node": "VIRTUAL-SKIN-CPU-MID",
+      "Duration": 0,
+      "Value": "game"
+    },
+    {
+      "PowerHint": "GAME",
+      "Node": "VIRTUAL-SKIN-CPU-HIGH",
+      "Duration": 0,
+      "Value": "game"
     },
     {
       "PowerHint": "GAME",
