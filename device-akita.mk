@@ -209,6 +209,11 @@ PRODUCT_PACKAGES += \
 	libspatialaudio \
 	librondo
 
+# Sound Dose
+PRODUCT_PACKAGES += \
+	android.hardware.audio.sounddose-vendor-impl \
+	audio_sounddose_aoc \
+
 # Audio CCA property
 PRODUCT_PROPERTY_OVERRIDES += \
 	persist.vendor.audio.cca.enabled=true
