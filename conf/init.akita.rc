@@ -11,6 +11,7 @@ on init
     # NFC streset tool name
     setprop persist.vendor.nfc.streset libstreset23
     setprop persist.vendor.se.streset libstreset23
+    setprop dalvik.vm.dexopt.thermal-cutoff 1
 
 on early-boot
     # Wait for insmod_sh to finish all common modules
