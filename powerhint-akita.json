@@ -273,7 +273,7 @@
     },
     {
       "Name": "BGUClampMaxBoost",
-      "Path": "/proc/vendor_sched/bg_uclamp_max",
+      "Path": "/proc/vendor_sched/groups/bg/uclamp_max",
       "Values": [
         "130",
         "512"
@@ -283,7 +283,7 @@
     },
     {
       "Name": "Dex2oatUClampMaxBoost",
-      "Path": "/proc/vendor_sched/dex2oat_uclamp_max",
+      "Path": "/proc/vendor_sched/groups/dex2oat/uclamp_max",
       "Values": [
         "-2",
         "615"
@@ -293,7 +293,7 @@
     },
     {
       "Name": "CAMUClampBoost",
-      "Path": "/proc/vendor_sched/cam_uclamp_min",
+      "Path": "/proc/vendor_sched/groups/cam/uclamp_min",
       "Values": [
         "765",
         "0"
@@ -302,7 +302,7 @@
     },
     {
       "Name": "TAUClampBoost",
-      "Path": "/proc/vendor_sched/ta_uclamp_min",
+      "Path": "/proc/vendor_sched/groups/ta/uclamp_min",
       "Values": [
         "765",
         "1"
@@ -311,7 +311,7 @@
     },
     {
       "Name": "FGUClampBoost",
-      "Path": "/proc/vendor_sched/fg_uclamp_min",
+      "Path": "/proc/vendor_sched/groups/fg/uclamp_min",
       "Values": [
         "159",
         "0"
@@ -320,7 +320,7 @@
     },
     {
       "Name": "MLUclampBoost",
-      "Path": "/proc/vendor_sched/nnapi_uclamp_min",
+      "Path": "/proc/vendor_sched/groups/nnapi/uclamp_min",
       "Values": [
           "225",
           "812"
@@ -339,7 +339,7 @@
     },
     {
       "Name": "CDPreferIdle",
-      "Path": "/proc/vendor_sched/cam_prefer_idle",
+      "Path": "/proc/vendor_sched/groups/cam/prefer_idle",
       "Values": [
         "1",
         "0"
@@ -392,7 +392,7 @@
     },
     {
       "Name": "TAPreferHighCap",
-      "Path": "/proc/vendor_sched/ta_prefer_high_cap",
+      "Path": "/proc/vendor_sched/groups/ta/prefer_high_cap",
       "Values": [
         "1",
         "0"
@@ -401,7 +401,7 @@
     },
     {
       "Name": "TAPreferIdle",
-      "Path": "/proc/vendor_sched/ta_prefer_idle",
+      "Path": "/proc/vendor_sched/groups/ta/prefer_idle",
       "Values": [
         "1",
         "0"
@@ -411,7 +411,7 @@
     },
     {
       "Name": "FGPreferIdle",
-      "Path": "/proc/vendor_sched/fg_prefer_idle",
+      "Path": "/proc/vendor_sched/groups/fg/prefer_idle",
       "Values": [
         "1",
         "0"
@@ -421,7 +421,7 @@
     },
     {
       "Name": "CDPreferHighCap",
-      "Path": "/proc/vendor_sched/cam_prefer_high_cap",
+      "Path": "/proc/vendor_sched/groups/cam/prefer_high_cap",
       "Values": [
         "1",
         "0"
@@ -739,7 +739,7 @@
     },
     {
       "Name": "Dex2oatGroup",
-      "Path": "/proc/vendor_sched/dex2oat_ug",
+      "Path": "/proc/vendor_sched/groups/dex2oat/ug",
       "Values": [
         "1",
         "0"
