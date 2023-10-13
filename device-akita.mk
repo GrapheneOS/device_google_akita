@@ -21,6 +21,7 @@ $(call inherit-product-if-exists, vendor/google_devices/akita/prebuilts/device-v
 $(call inherit-product-if-exists, vendor/google_devices/zuma/prebuilts/device-vendor.mk)
 $(call inherit-product-if-exists, vendor/google_devices/zuma/proprietary/device-vendor.mk)
 $(call inherit-product-if-exists, vendor/google_devices/akita/proprietary/akita/device-vendor-akita.mk)
+$(call inherit-product-if-exists, vendor/google_devices/akita/proprietary/WallpapersAkita.mk)
 
 DEVICE_PACKAGE_OVERLAYS += device/google/akita/akita/overlay
 
@@ -184,6 +185,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PRODUCT_PROPERTIES += \
     persist.bluetooth.leaudio.notify.idle.during.call=true
 
+# Bluetooth LE Audio enable dual mic SWB call
+PRODUCT_PRODUCT_PROPERTIES += \
+    bluetooth.leaudio.dual_bidirection_swb.supported=true
 
 # Enable one-handed mode
 PRODUCT_PRODUCT_PROPERTIES += \
@@ -208,6 +212,11 @@ endif
 PRODUCT_PACKAGES += \
 	libspatialaudio \
 	librondo
+
+# Sound Dose
+PRODUCT_PACKAGES += \
+	android.hardware.audio.sounddose-vendor-impl \
+	audio_sounddose_aoc \
 
 # Audio CCA property
 PRODUCT_PROPERTY_OVERRIDES += \
