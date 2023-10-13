@@ -1274,33 +1274,15 @@
     },
     {
       "PowerHint": "CAMERA_SHOT",
-      "Node": "MemFreq",
-      "Duration": 300,
-      "Value": "9999999"
+      "Node": "PMU_POLL",
+      "Duration": 100,
+      "Value": "0"
     },
     {
       "PowerHint": "CAMERA_SHOT",
-      "Node": "CPUBigClusterMaxFreq",
-      "Duration": 300,
-      "Value": "9999999"
-    },
-    {
-      "PowerHint": "CAMERA_SHOT",
-      "Node": "CPUBigClusterMinFreq",
-      "Duration": 300,
-      "Value": "9999999"
-    },
-    {
-      "PowerHint": "CAMERA_SHOT",
-      "Node": "CPUMidClusterMaxFreq",
-      "Duration": 300,
-      "Value": "9999999"
-    },
-    {
-      "PowerHint": "CAMERA_SHOT",
-      "Node": "CPUMidClusterMinFreq",
-      "Duration": 300,
-      "Value": "9999999"
+      "Node": "CAMUClampBoost",
+      "Duration": 100,
+      "Value": "765"
     },
     {
       "PowerHint": "CAMERA_BACKEND_BOOST",
