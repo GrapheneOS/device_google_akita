@@ -96,7 +96,7 @@ PRODUCT_COPY_FILES += \
 	device/google/akita/nfc/libnfc-nci.conf:$(TARGET_COPY_OUT_PRODUCT)/etc/libnfc-nci.conf
 
 PRODUCT_PACKAGES += \
-	NfcNci \
+	com.android.nfcservices \
 	Tag \
 	android.hardware.nfc-service.st
 
@@ -299,6 +299,12 @@ PRODUCT_VENDOR_PROPERTIES += \
 # Fingerprint exposure compensation
 PRODUCT_VENDOR_PROPERTIES += \
     persist.vendor.udfps.auto_exposure_compensation_supported=true
+
+# Fingerprint Auth Filter
+ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
+PRODUCT_VENDOR_PROPERTIES += \
+    persist.vendor.udfps.auth_filter.log_all_coverages=true
+endif
 
 # OIS with system imu
 PRODUCT_VENDOR_PROPERTIES += \
