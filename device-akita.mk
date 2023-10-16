@@ -71,12 +71,13 @@ PRODUCT_COPY_FILES += \
 	device/google/akita/media_profiles_akita.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.vendor.camera.adjust_backend_min_freq_for_1p_front_video_1080p_30fps=1 \
-    persist.vendor.camera.adjust_backend_min_freq_for_video_120fps=1 \
+	persist.vendor.camera.adjust_backend_min_freq_for_1p_front_video_1080p_30fps=1 \
+	persist.vendor.camera.adjust_backend_min_freq_for_video_120fps=1 \
 	persist.vendor.camera.extended_launch_boost=1 \
 	persist.vendor.camera.optimized_tnr_freq=1 \
-    vendor.camera.debug.enable_software_post_sharpen_node=false \
-	vendor.camera.allow_sensor_binning_aspect_ratio_to_override_itp_output=false
+	vendor.camera.debug.enable_software_post_sharpen_node=false \
+	vendor.camera.allow_sensor_binning_aspect_ratio_to_override_itp_output=false \
+	vendor.camera.debug.enable_blending_node=false
 
 # Enable front camera always binning for 720P or smaller resolution
 PRODUCT_VENDOR_PROPERTIES += \
