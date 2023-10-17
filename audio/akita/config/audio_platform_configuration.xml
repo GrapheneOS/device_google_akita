@@ -244,6 +244,7 @@
     <soundcard_name name="google,aoc-snd-card" />
     <features>
         <feature name="BatteryThrottle=Type:BCL_VOLTAGE,Name:BCL_AUDIO_BAACL,Strategy:MediaSpeakerAndScreenOn"/>
+        <feature name="PlaybackThermalThrottle=PollWaitMs:20000,ThermistorName:VIRTUAL-SKIN-SPEAKER,ThermistorType:SKIN,ThrottlingSeverity:MODERATE"/>
     </features>
 
     <cfg_attr>
@@ -299,7 +300,7 @@
 
     <external_module>
         <module libname="audio_spk_35l41.so" argu="AcousticShockProtection"/>
-        <module libname="audio_waves_aoc.so" argu="Sink=SPK:1"/>
+        <module libname="audio_waves_aoc.so" argu="Sink=SPK:1 ThermistorsName=VIRTUAL-SKIN-SPEAKER"/>
         <module libname="audio_cca_aoc.so" argu="UnsupportBands=48000 ExSharedBands=48000 VoIPMode=Dl"/>
         <module libname="audio_fortemedia_aoc.so" argu="MCPS_TABLE=y DL_CH=y VoIP_DLCHs=SPK:2,USB:2,BT:2 VoIP_Rate=32000 SHARED_MODULE=1130578253"/>
         <module libname="audio_sounddose_aoc.so"/>
