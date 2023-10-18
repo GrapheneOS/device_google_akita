@@ -2336,6 +2336,18 @@
       "Value": "1"
     },
     {
+      "PowerHint": "REFRESH_120FPS",
+      "Node": "TAUClampBoost",
+      "Duration": 0,
+      "Value": "1"
+    },
+    {
+      "PowerHint": "REFRESH_60FPS",
+      "Node": "TAUClampBoost",
+      "Duration": 0,
+      "Value": "1"
+    },
+    {
       "PowerHint": "DISPLAY_IDLE",
       "Node": "FGPreferIdle",
       "Duration": 0,
