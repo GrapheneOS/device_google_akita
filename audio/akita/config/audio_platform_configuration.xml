@@ -244,7 +244,7 @@
     <soundcard_name name="google,aoc-snd-card" />
     <features>
         <feature name="BatteryThrottle=Type:BCL_VOLTAGE,Name:BCL_AUDIO_BAACL,Strategy:MediaSpeakerAndScreenOn"/>
-        <feature name="PlaybackThermalThrottle=PollWaitMs:20000,ThermistorName:VIRTUAL-SKIN-SPEAKER,ThermistorType:SKIN,ThrottlingSeverity:MODERATE"/>
+        <feature name="PlaybackThermalThrottle=PollWaitMs:20000,ThermistorName:VIRTUAL-SKIN-SPEAKER,ThermistorType:UNKNOWN,ThrottlingSeverity:MODERATE"/>
     </features>
 
     <cfg_attr>
