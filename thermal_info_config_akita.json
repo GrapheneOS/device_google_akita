@@ -124,7 +124,7 @@
             "Coefficient":[-25000, 80],
             "HotThreshold":["NAN", "NAN",  "NAN", "NAN", 2.0, "NAN", "NAN"],
             "PollingDelay":0,
-            "PassiveDelay":1000,
+            "PassiveDelay":600000,
             "Multiplier":1,
             "SendCallback":true
         },
