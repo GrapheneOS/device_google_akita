@@ -21,6 +21,7 @@ $(call inherit-product-if-exists, vendor/google_devices/akita/prebuilts/device-v
 $(call inherit-product-if-exists, vendor/google_devices/zuma/prebuilts/device-vendor.mk)
 $(call inherit-product-if-exists, vendor/google_devices/zuma/proprietary/device-vendor.mk)
 $(call inherit-product-if-exists, vendor/google_devices/akita/proprietary/akita/device-vendor-akita.mk)
+$(call inherit-product-if-exists, vendor/google_devices/akita/proprietary/device-vendor.mk)
 $(call inherit-product-if-exists, vendor/google_devices/akita/proprietary/WallpapersAkita.mk)
 
 DEVICE_PACKAGE_OVERLAYS += device/google/akita/akita/overlay
@@ -293,7 +294,7 @@ endif
 
 # Display
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += vendor.display.lbe.supported=1
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.surface_flinger.set_idle_timer_ms=1500
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.surface_flinger.set_idle_timer_ms=1000
 
 PRODUCT_VENDOR_PROPERTIES += \
     persist.vendor.udfps.als_feed_forward_supported=true \
