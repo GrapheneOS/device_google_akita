@@ -21,6 +21,7 @@ $(call inherit-product-if-exists, vendor/google_devices/akita/prebuilts/device-v
 $(call inherit-product-if-exists, vendor/google_devices/zuma/prebuilts/device-vendor.mk)
 $(call inherit-product-if-exists, vendor/google_devices/zuma/proprietary/device-vendor.mk)
 $(call inherit-product-if-exists, vendor/google_devices/akita/proprietary/akita/device-vendor-akita.mk)
+$(call inherit-product-if-exists, vendor/google_devices/akita/proprietary/device-vendor.mk)
 $(call inherit-product-if-exists, vendor/google_devices/akita/proprietary/WallpapersAkita.mk)
 
 DEVICE_PACKAGE_OVERLAYS += device/google/akita/akita/overlay
