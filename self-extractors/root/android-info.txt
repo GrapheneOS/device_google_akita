@@ -1,0 +1,6 @@
+require board=akita
+require version-bootloader=akita-14.1-10943696
+
+
+
+require version-baseband=g5300o-231012-231016-B-10954749
