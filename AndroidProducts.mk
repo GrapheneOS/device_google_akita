@@ -20,4 +20,4 @@ PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/factory_akita.mk
 
 COMMON_LUNCH_CHOICES := \
-    aosp_akita-userdebug
+    aosp_akita-trunk_staging-userdebug
