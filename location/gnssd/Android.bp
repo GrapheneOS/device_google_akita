@@ -4,6 +4,7 @@ soong_namespace {
 package {
     default_applicable_licenses: ["vendor_samsung_slsi_gnss_license"],
 }
+
 license {
     name: "vendor_samsung_slsi_gnss_license",
     visibility: [":__subpackages__"],
@@ -27,7 +28,7 @@ lassen_gnss_aidl_service_cc_defaults {
         enable_pixel_gnss_aidl_service: {
             vintf_fragments: ["android.hardware.gnss@vendor.xml"],
             conditions_default: {
-                vintf_fragments: ["android.hardware.gnss@default.xml"]
+                vintf_fragments: ["android.hardware.gnss@default.xml"],
             },
         },
     },
@@ -62,6 +63,14 @@ cc_prebuilt_binary {
     // Bypass because libhidltransport is deprecated
     // Bypass because libhwbinder is deprecated
     check_elf_files: false,
+    product_variables: {
+        debuggable: {
+            required: [
+                "libsighandler",
+            ],
+        },
+    },
+
     init_rc: ["init.gnss.rc"],
 }
 
@@ -96,4 +105,11 @@ cc_prebuilt_binary {
     },
     // Bypass because libsitril-gps is Android.mk module
     check_elf_files: false,
+    product_variables: {
+        debuggable: {
+            required: [
+                "libsighandler",
+            ],
+        },
+    },
 }
