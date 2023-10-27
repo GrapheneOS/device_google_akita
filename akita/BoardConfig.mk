@@ -24,6 +24,11 @@ BOARD_KERNEL_CMDLINE += samsung_iommu_v9.load_sequential=1
 
 TARGET_BOARD_INFO_FILE := device/google/akita/board-info.txt
 TARGET_BOOTLOADER_BOARD_NAME := akita
+ifneq (,$(filter AP1%,$(RELEASE_PLATFORM_VERSION)))
+RELEASE_GOOGLE_PRODUCT_BOOTLOADER_DIR := bootloader/24Q1
+else
+RELEASE_GOOGLE_PRODUCT_BOOTLOADER_DIR := bootloader/trunk
+endif
 TARGET_SCREEN_DENSITY := 420
 BOARD_USES_GENERIC_AUDIO := true
 USES_DEVICE_GOOGLE_AKITA := true
