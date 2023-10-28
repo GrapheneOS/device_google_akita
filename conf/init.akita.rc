@@ -13,6 +13,10 @@ on init
     setprop persist.vendor.se.streset libstreset23
     setprop dalvik.vm.dexopt.thermal-cutoff 1
 
+    # Display permissions for SSC mode
+    chown system system /sys/class/backlight/panel0-backlight/ssc_mode
+    chmod 664 /sys/class/backlight/panel0-backlight/ssc_mode
+
 on early-boot
     # Wait for insmod_sh to finish all common modules
     wait_for_prop vendor.common.modules.ready 1
