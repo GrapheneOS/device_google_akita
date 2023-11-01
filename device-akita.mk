@@ -70,10 +70,6 @@ PRODUCT_PACKAGES += \
         display_primary_mipi_coex_table \
         display_primary_ssc_coex_table
 
-# Camera
-PRODUCT_COPY_FILES += \
-	device/google/akita/media_profiles_akita.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml
-
 PRODUCT_PROPERTY_OVERRIDES += \
 	persist.vendor.camera.adjust_backend_min_freq_for_1p_front_video_1080p_30fps=1 \
 	persist.vendor.camera.adjust_backend_min_freq_for_video_120fps=1 \
