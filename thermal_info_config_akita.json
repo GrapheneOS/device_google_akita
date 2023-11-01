@@ -339,16 +339,19 @@
                         {
                            "CdevRequest": "thermal-cpufreq-0",
                            "MaxReleaseStep": 1,
+                           "CdevCeiling": [0, 6, 6, 6, 6, 6, 6],
                            "Disabled":true
                         },
                         {
                            "CdevRequest": "thermal-cpufreq-1",
                            "MaxReleaseStep": 1,
+                           "CdevCeiling": [0, 9, 9, 9, 9, 9, 9],
                            "Disabled":true
                         },
                         {
                            "CdevRequest": "thermal-cpufreq-2",
                            "MaxReleaseStep": 1,
+                           "CdevCeiling": [0, 12, 12, 12, 12, 12, 12],
                            "Disabled":true
                         }
                     ]
@@ -410,16 +413,19 @@
                         {
                            "CdevRequest": "thermal-cpufreq-0",
                            "MaxReleaseStep": 1,
+                           "CdevCeiling": [0, 8, 8, 8, 8, 8, 8],
                            "Disabled":true
                         },
                         {
                            "CdevRequest": "thermal-cpufreq-1",
                            "MaxReleaseStep": 1,
+                           "CdevCeiling": [0, 11, 11, 11, 11, 11, 11],
                            "Disabled":true
                         },
                         {
                            "CdevRequest": "thermal-cpufreq-2",
                            "MaxReleaseStep": 1,
+                           "CdevCeiling": [0, 13, 13, 13, 13, 13, 13],
                            "Disabled":true
                         }
                     ]
@@ -430,16 +436,19 @@
                         {
                            "CdevRequest": "thermal-cpufreq-0",
                            "MaxReleaseStep": 1,
+                           "CdevCeiling": [0, 8, 8, 8, 8, 8, 8],
                            "Disabled":true
                         },
                         {
                            "CdevRequest": "thermal-cpufreq-1",
                            "MaxReleaseStep": 1,
+                           "CdevCeiling": [0, 11, 11, 11, 11, 11, 11],
                            "Disabled":true
                         },
                         {
                            "CdevRequest": "thermal-cpufreq-2",
                            "MaxReleaseStep": 1,
+                           "CdevCeiling": [0, 13, 13, 13, 13, 13, 13],
                            "Disabled":true
                         }
                     ]
