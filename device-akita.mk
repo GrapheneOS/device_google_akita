@@ -226,7 +226,7 @@ PRODUCT_PACKAGES += \
 
 # Audio CCA property
 PRODUCT_PROPERTY_OVERRIDES += \
-	persist.vendor.audio.cca.enabled=true
+	persist.vendor.audio.cca.enabled=false
 
 # Settings Overlay
 PRODUCT_PACKAGES += \
