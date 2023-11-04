@@ -752,7 +752,8 @@
       "Path": "vendor.thermal.VIRTUAL-SKIN-CPU-MID.profile",
       "Values": [
         "",
-        "game"
+        "game",
+        "camera"
       ],
       "DefaultIndex": 0,
       "ResetOnInit": true,
@@ -1634,6 +1635,12 @@
     },
     {
       "PowerHint": "CAMERA_STREAMING_EXTREME",
+      "Node": "VIRTUAL-SKIN-CPU-MID",
+      "Duration": 0,
+      "Value": "camera"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_EXTREME",
       "Node": "VIRTUAL-SKIN-CPU-HIGH",
       "Duration": 0,
       "Value": "camera"
@@ -1778,6 +1785,12 @@
     },
     {
       "PowerHint": "CAMERA_STREAMING_HIGH",
+      "Node": "VIRTUAL-SKIN-CPU-MID",
+      "Duration": 0,
+      "Value": "camera"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_HIGH",
       "Node": "VIRTUAL-SKIN-CPU-HIGH",
       "Duration": 0,
       "Value": "camera"
@@ -1901,6 +1914,12 @@
       "Node": "CDCpuset",
       "Duration": 0,
       "Value": "0-8"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_STANDARD",
+      "Node": "VIRTUAL-SKIN-CPU-MID",
+      "Duration": 0,
+      "Value": "camera"
     },
     {
       "PowerHint": "CAMERA_STREAMING_STANDARD",
