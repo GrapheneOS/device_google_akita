@@ -32,6 +32,7 @@ include hardware/google/pixel/vibrator/cs40l26/device.mk
 include device/google/gs-common/bcmbt/bluetooth.mk
 include device/google/gs-common/touch/gti/gti.mk
 include device/google/gs-common/modem/radio_ext/radio_ext.mk
+include device/google/gs-common/diagnosticstool/diagnosticstool.mk
 
 # go/lyric-soong-variables
 $(call soong_config_set,lyric,camera_hardware,akita)
@@ -97,10 +98,9 @@ PRODUCT_COPY_FILES += \
 	device/google/akita/nfc/libnfc-nci.conf:$(TARGET_COPY_OUT_PRODUCT)/etc/libnfc-nci.conf
 
 PRODUCT_PACKAGES += \
-	com.android.nfcservices \
+	NfcNci \
 	Tag \
-	android.hardware.nfc-service.st \
-	NfcOverlayAkita
+	android.hardware.nfc-service.st
 
 # SecureElement
 PRODUCT_PACKAGES += \
