@@ -58,7 +58,7 @@ cc_prebuilt_binary {
     vendor: true,
     relative_install_path: "hw",
     strip: {
-        keep_symbols: true,
+        none: true,
     },
     // Bypass because libhidltransport is deprecated
     // Bypass because libhwbinder is deprecated
@@ -101,7 +101,7 @@ cc_prebuilt_binary {
     vendor: true,
     relative_install_path: "hw",
     strip: {
-        keep_symbols: true,
+        none: true,
     },
     // Bypass because libsitril-gps is Android.mk module
     check_elf_files: false,
