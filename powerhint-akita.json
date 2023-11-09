@@ -348,6 +348,15 @@
       "ResetOnInit": true
     },
     {
+      "Name": "FGCpuset",
+      "Path": "/dev/cpuset/foreground/cpus",
+      "Values": [
+        "0-5",
+        "0-7"
+      ],
+      "ResetOnInit": true
+    },
+    {
       "Name": "CDCpuset",
       "Path": "/dev/cpuset/camera-daemon/cpus",
       "Values": [
@@ -1209,6 +1218,12 @@
       "Value": "1"
     },
     {
+      "PowerHint": "CAMERA_LAUNCH",
+      "Node": "FGCpuset",
+      "Duration": 1000,
+      "Value": "0-5"
+    },
+    {
       "PowerHint": "CAMERA_LAUNCH_EXTENDED",
       "Node": "CPU_BIG_TSKIN_BYPASS",
       "Duration": 2000,
@@ -1249,6 +1264,12 @@
       "Node": "PMU_POLL",
       "Duration": 2000,
       "Value": "0"
+    },
+    {
+      "PowerHint": "CAMERA_LAUNCH_EXTENDED",
+      "Node": "FGCpuset",
+      "Duration": 2000,
+      "Value": "0-5"
     },
     {
       "PowerHint": "CAMERA_CAPTURE_CPU_THROTTLE",
