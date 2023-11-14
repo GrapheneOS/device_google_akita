@@ -346,3 +346,7 @@ PRODUCT_VENDOR_PROPERTIES += \
 PRODUCT_PRODUCT_PROPERTIES += \
           ro.com.google.ime.kb_pad_port_b=4.19 \
           ro.com.google.ime.height_ratio=1.1
+
+# Enable DeviceAsWebcam support
+PRODUCT_VENDOR_PROPERTIES += \
+    ro.usb.uvc.enabled=true
