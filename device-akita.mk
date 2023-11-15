@@ -309,7 +309,8 @@ PRODUCT_VENDOR_PROPERTIES += \
 # Fingerprint Auth Filter
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
 PRODUCT_VENDOR_PROPERTIES += \
-    persist.vendor.udfps.auth_filter.log_all_coverages=true
+    persist.vendor.udfps.auth_filter.log_all_coverages=true \
+    persist.vendor.udfps.auth_filter.data_collection_enabled=false
 endif
 
 # OIS with system imu
