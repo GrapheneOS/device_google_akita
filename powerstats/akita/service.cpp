@@ -17,6 +17,7 @@
 #define LOG_TAG "android.hardware.power.stats-service.pixel"
 
 #include <dataproviders/DisplayStateResidencyDataProvider.h>
+#include <dataproviders/GenericStateResidencyDataProvider.h>
 #include <dataproviders/PowerStatsEnergyConsumer.h>
 #include <ZumaCommonDataProviders.h>
 #include <PowerStatsAidl.h>
@@ -29,6 +30,7 @@
 
 using aidl::android::hardware::power::stats::DisplayStateResidencyDataProvider;
 using aidl::android::hardware::power::stats::EnergyConsumerType;
+using aidl::android::hardware::power::stats::GenericStateResidencyDataProvider;
 using aidl::android::hardware::power::stats::PowerStatsEnergyConsumer;
 
 void addDisplay(std::shared_ptr<PowerStats> p) {
@@ -56,6 +58,42 @@ void addDisplay(std::shared_ptr<PowerStats> p) {
              {"HBM: 1080x2400@120", 5}}));
 }
 
+void addGPS(std::shared_ptr<PowerStats> p)
+{
+    // A constant to represent the number of microseconds in one millisecond.
+    const int US_TO_MS = 1000;
+
+    // gnss power_stats are reported in microseconds. The transform function
+    // converts microseconds to milliseconds.
+    std::function<uint64_t(uint64_t)> gnssUsToMs = [](uint64_t a) { return a / US_TO_MS; };
+
+    const GenericStateResidencyDataProvider::StateResidencyConfig gnssStateConfig = {
+        .entryCountSupported = true,
+        .entryCountPrefix = "count:",
+        .totalTimeSupported = true,
+        .totalTimePrefix = "duration_usec:",
+        .totalTimeTransform = gnssUsToMs,
+        .lastEntrySupported = true,
+        .lastEntryPrefix = "last_entry_timestamp_usec:",
+        .lastEntryTransform = gnssUsToMs,
+    };
+
+    // External GNSS power stats are controlled by GPS chip side. The power stats
+    // would not update while GPS chip is down. This means that GPS OFF state
+    // residency won't reflect the elapsed off time. So only GPS ON state
+    // residency is present.
+    const std::vector<std::pair<std::string, std::string>> gnssStateHeaders = {
+        std::make_pair("ON", "GPS_ON:"),
+    };
+
+    std::vector<GenericStateResidencyDataProvider::PowerEntityConfig> cfgs;
+    cfgs.emplace_back(generateGenericStateResidencyConfigs(gnssStateConfig, gnssStateHeaders),
+            "GPS", "");
+
+    p->addStateResidencyDataProvider(std::make_unique<GenericStateResidencyDataProvider>(
+            "/data/vendor/gps/power_stats", cfgs));
+}
+
 int main() {
     LOG(INFO) << "Pixel PowerStats HAL AIDL Service is starting.";
 
@@ -69,7 +107,7 @@ int main() {
     addPixelStateResidencyDataProvider(p);
     addCPUclusters(p);
     addSoC(p);
-    // TODO(b/289764363): add GNSS power stats back when the sysfs is ready
+    addGPS(p);
     addMobileRadio(p);
     addNFC(p);
     addPCIe(p);
