@@ -52,6 +52,7 @@
         "1800000",
         "1548000",
         "820000",
+        "610000",
         "0"
       ],
       "ResetOnInit": true
@@ -1653,6 +1654,12 @@
       "Node": "PowerHALCameraRunning",
       "Duration": 0,
       "Value": "1"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_HIGH",
+      "Node": "DsuMinFreq",
+      "Duration": 0,
+      "Value": "610000"
     },
     {
       "PowerHint": "CAMERA_STREAMING_HIGH",
