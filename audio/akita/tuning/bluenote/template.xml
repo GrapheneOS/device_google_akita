@@ -59,7 +59,7 @@
         <param default="4" name="type" size="60" type="int32"/>
       </struct>
     </module>
-    <module id="8" name="[DISABLED] Multi Band DRC">
+    <module id="8" name="Multi Band DRC">
       <param default="0" id="0" max="3" name="opMode_" type="uint32"/>
       <param default="48000" id="1" name="fs_" type="uint32"/>
       <param default="2" id="2" name="numCh_" type="uint32"/>
@@ -253,159 +253,6 @@
         <param max="100" min="0" name="limiter_releaseTime_ms" type="uint32"/>
       </struct>
     </module>
-    <module id="40" name="Pixel Gain Controller">
-      <param default="0" id="0" max="3" name="opMode_" type="uint32"/>
-      <param default="48000" id="1" name="fs_" type="uint32"/>
-      <param default="2" id="2" name="numCh_" type="uint32"/>
-      <param default="3" id="3" name="chMask_" type="uint32"/>
-      <struct id="16">
-        <param name="crossover_iir_lp1" size="5" type="float"/>
-        <param name="crossover_iir_hp1" size="5" type="float"/>
-        <param name="crossover_iir_lp2" size="5" type="float"/>
-        <param name="crossover_iir_hp2" size="5" type="float"/>
-        <param default="250" max="1000" min="5" name="environment_rms_window_ms" type="int32"/>
-        <param default="-40" max="0" name="environment_rms_threshold_db" type="float"/>
-        <param default="10000" min="0" name="environment_rms_attack_release_ms" type="int32"/>
-        <param default="1" min="0" name="environment_loudness_ratio_band0" type="float"/>
-        <param default="1" min="0" name="environment_loudness_ratio_band1" type="float"/>
-        <param default="1" min="0" name="environment_loudness_ratio_band2" type="float"/>
-        <param default="150" max="1000" min="5" name="drc_window_ms_lowaop_band0" type="int32"/>
-        <param default="28" name="drc_gain_db_lowaop_band0" type="float"/>
-        <param default="-20" name="drc_min_gain_db_lowaop_band0" type="float"/>
-        <param default="-70" name="drc_thres_db_expander_lowaop_band0" type="float"/>
-        <param default="-40" name="drc_thres_db_upward_compressor_lowaop_band0" type="float"/>
-        <param default="-36" name="drc_thres_db_downward_compressor_lowaop_band0" type="float"/>
-        <param default="4.0" min="0" name="drc_knee_width_db_expander_lowaop_band0" type="float"/>
-        <param default="4.0" min="0" name="drc_knee_width_db_upward_compressor_lowaop_band0" type="float"/>
-        <param default="4.0" min="0" name="drc_knee_width_db_downward_compressor_lowaop_band0" type="float"/>
-        <param default="2.0" min="0" name="drc_ratio_expander_lowaop_band0" type="float"/>
-        <param default="1.5" min="0" name="drc_ratio_upward_compressor_lowaop_band0" type="float"/>
-        <param default="1.0" min="0" name="drc_ratio_linear_lowaop_band0" type="float"/>
-        <param default="9.0" min="0" name="drc_ratio_downward_compressor_lowaop_band0" type="float"/>
-        <param default="350" min="0" name="drc_attack_ms_expander_lowaop_band0" type="float"/>
-        <param default="500" min="0" name="drc_attack_ms_upward_compressor_lowaop_band0" type="float"/>
-        <param default="500" min="0" name="drc_attack_ms_linear_lowaop_band0" type="float"/>
-        <param default="350" min="0" name="drc_attack_ms_downward_compressor_lowaop_band0" type="float"/>
-        <param default="5000" min="0" name="drc_release_ms_expander_lowaop_band0" type="float"/>
-        <param default="12000" min="0" name="drc_release_ms_upward_compressor_lowaop_band0" type="float"/>
-        <param default="12000" min="0" name="drc_release_ms_linear_lowaop_band0" type="float"/>
-        <param default="5000" min="0" name="drc_release_ms_downward_compressor_lowaop_band0" type="float"/>
-        <param default="150" max="1000" min="5" name="drc_window_ms_lowaop_band1" type="int32"/>
-        <param default="28" name="drc_gain_db_lowaop_band1" type="float"/>
-        <param default="-20" name="drc_min_gain_db_lowaop_band1" type="float"/>
-        <param default="-70" name="drc_thres_db_expander_lowaop_band1" type="float"/>
-        <param default="-40" name="drc_thres_db_upward_compressor_lowaop_band1" type="float"/>
-        <param default="-36" name="drc_thres_db_downward_compressor_lowaop_band1" type="float"/>
-        <param default="4.0" min="0" name="drc_knee_width_db_expander_lowaop_band1" type="float"/>
-        <param default="4.0" min="0" name="drc_knee_width_db_upward_compressor_lowaop_band1" type="float"/>
-        <param default="4.0" min="0" name="drc_knee_width_db_downward_compressor_lowaop_band1" type="float"/>
-        <param default="2.0" min="0" name="drc_ratio_expander_lowaop_band1" type="float"/>
-        <param default="1.5" min="0" name="drc_ratio_upward_compressor_lowaop_band1" type="float"/>
-        <param default="1.0" min="0" name="drc_ratio_linear_lowaop_band1" type="float"/>
-        <param default="9.0" min="0" name="drc_ratio_downward_compressor_lowaop_band1" type="float"/>
-        <param default="350" min="0" name="drc_attack_ms_expander_lowaop_band1" type="float"/>
-        <param default="500" min="0" name="drc_attack_ms_upward_compressor_lowaop_band1" type="float"/>
-        <param default="500" min="0" name="drc_attack_ms_linear_lowaop_band1" type="float"/>
-        <param default="350" min="0" name="drc_attack_ms_downward_compressor_lowaop_band1" type="float"/>
-        <param default="5000" min="0" name="drc_release_ms_expander_lowaop_band1" type="float"/>
-        <param default="12000" min="0" name="drc_release_ms_upward_compressor_lowaop_band1" type="float"/>
-        <param default="12000" min="0" name="drc_release_ms_linear_lowaop_band1" type="float"/>
-        <param default="5000" min="0" name="drc_release_ms_downward_compressor_lowaop_band1" type="float"/>
-        <param default="150" max="1000" min="5" name="drc_window_ms_lowaop_band2" type="int32"/>
-        <param default="28" name="drc_gain_db_lowaop_band2" type="float"/>
-        <param default="-20" name="drc_min_gain_db_lowaop_band2" type="float"/>
-        <param default="-70" name="drc_thres_db_expander_lowaop_band2" type="float"/>
-        <param default="-40" name="drc_thres_db_upward_compressor_lowaop_band2" type="float"/>
-        <param default="-36" name="drc_thres_db_downward_compressor_lowaop_band2" type="float"/>
-        <param default="4.0" min="0" name="drc_knee_width_db_expander_lowaop_band2" type="float"/>
-        <param default="4.0" min="0" name="drc_knee_width_db_upward_compressor_lowaop_band2" type="float"/>
-        <param default="4.0" min="0" name="drc_knee_width_db_downward_compressor_lowaop_band2" type="float"/>
-        <param default="2.0" min="0" name="drc_ratio_expander_lowaop_band2" type="float"/>
-        <param default="1.5" min="0" name="drc_ratio_upward_compressor_lowaop_band2" type="float"/>
-        <param default="1.0" min="0" name="drc_ratio_linear_lowaop_band2" type="float"/>
-        <param default="9.0" min="0" name="drc_ratio_downward_compressor_lowaop_band2" type="float"/>
-        <param default="350" min="0" name="drc_attack_ms_expander_lowaop_band2" type="float"/>
-        <param default="500" min="0" name="drc_attack_ms_upward_compressor_lowaop_band2" type="float"/>
-        <param default="500" min="0" name="drc_attack_ms_linear_lowaop_band2" type="float"/>
-        <param default="350" min="0" name="drc_attack_ms_downward_compressor_lowaop_band2" type="float"/>
-        <param default="5000" min="0" name="drc_release_ms_expander_lowaop_band2" type="float"/>
-        <param default="12000" min="0" name="drc_release_ms_upward_compressor_lowaop_band2" type="float"/>
-        <param default="12000" min="0" name="drc_release_ms_linear_lowaop_band2" type="float"/>
-        <param default="5000" min="0" name="drc_release_ms_downward_compressor_lowaop_band2" type="float"/>
-        <param default="150" max="1000" min="5" name="drc_window_ms_highaop_band0" type="int32"/>
-        <param default="28" name="drc_gain_db_highaop_band0" type="float"/>
-        <param default="-20" name="drc_min_gain_db_highaop_band0" type="float"/>
-        <param default="-70" name="drc_thres_db_expander_highaop_band0" type="float"/>
-        <param default="-40" name="drc_thres_db_upward_compressor_highaop_band0" type="float"/>
-        <param default="-36" name="drc_thres_db_downward_compressor_highaop_band0" type="float"/>
-        <param default="4.0" min="0" name="drc_knee_width_db_expander_highaop_band0" type="float"/>
-        <param default="4.0" min="0" name="drc_knee_width_db_upward_compressor_highaop_band0" type="float"/>
-        <param default="4.0" min="0" name="drc_knee_width_db_downward_compressor_highaop_band0" type="float"/>
-        <param default="2.5" min="0" name="drc_ratio_expander_highaop_band0" type="float"/>
-        <param default="1.5" min="0" name="drc_ratio_upward_compressor_highaop_band0" type="float"/>
-        <param default="1.0" min="0" name="drc_ratio_linear_highaop_band0" type="float"/>
-        <param default="9.0" min="0" name="drc_ratio_downward_compressor_highaop_band0" type="float"/>
-        <param default="80" min="0" name="drc_attack_ms_expander_highaop_band0" type="float"/>
-        <param default="500" min="0" name="drc_attack_ms_upward_compressor_highaop_band0" type="float"/>
-        <param default="500" min="0" name="drc_attack_ms_linear_highaop_band0" type="float"/>
-        <param default="80" min="0" name="drc_attack_ms_downward_compressor_highaop_band0" type="float"/>
-        <param default="8000" min="0" name="drc_release_ms_expander_highaop_band0" type="float"/>
-        <param default="5000" min="0" name="drc_release_ms_upward_compressor_highaop_band0" type="float"/>
-        <param default="5000" min="0" name="drc_release_ms_linear_highaop_band0" type="float"/>
-        <param default="8000" min="0" name="drc_release_ms_downward_compressor_highaop_band0" type="float"/>
-        <param default="150" max="1000" min="5" name="drc_window_ms_highaop_band1" type="int32"/>
-        <param default="28" name="drc_gain_db_highaop_band1" type="float"/>
-        <param default="-20" name="drc_min_gain_db_highaop_band1" type="float"/>
-        <param default="-70" name="drc_thres_db_expander_highaop_band1" type="float"/>
-        <param default="-40" name="drc_thres_db_upward_compressor_highaop_band1" type="float"/>
-        <param default="-36" name="drc_thres_db_downward_compressor_highaop_band1" type="float"/>
-        <param default="4.0" min="0" name="drc_knee_width_db_expander_highaop_band1" type="float"/>
-        <param default="4.0" min="0" name="drc_knee_width_db_upward_compressor_highaop_band1" type="float"/>
-        <param default="4.0" min="0" name="drc_knee_width_db_downward_compressor_highaop_band1" type="float"/>
-        <param default="2.5" min="0" name="drc_ratio_expander_highaop_band1" type="float"/>
-        <param default="1.5" min="0" name="drc_ratio_upward_compressor_highaop_band1" type="float"/>
-        <param default="1.0" min="0" name="drc_ratio_linear_highaop_band1" type="float"/>
-        <param default="6.0" min="0" name="drc_ratio_downward_compressor_highaop_band1" type="float"/>
-        <param default="80" min="0" name="drc_attack_ms_expander_highaop_band1" type="float"/>
-        <param default="500" min="0" name="drc_attack_ms_upward_compressor_highaop_band1" type="float"/>
-        <param default="500" min="0" name="drc_attack_ms_linear_highaop_band1" type="float"/>
-        <param default="80" min="0" name="drc_attack_ms_downward_compressor_highaop_band1" type="float"/>
-        <param default="8000" min="0" name="drc_release_ms_expander_highaop_band1" type="float"/>
-        <param default="5000" min="0" name="drc_release_ms_upward_compressor_highaop_band1" type="float"/>
-        <param default="5000" min="0" name="drc_release_ms_linear_highaop_band1" type="float"/>
-        <param default="8000" min="0" name="drc_release_ms_downward_compressor_highaop_band1" type="float"/>
-        <param default="150" max="1000" min="5" name="drc_window_ms_highaop_band2" type="int32"/>
-        <param default="28" name="drc_gain_db_highaop_band2" type="float"/>
-        <param default="-20" name="drc_min_gain_db_highaop_band2" type="float"/>
-        <param default="-70" name="drc_thres_db_expander_highaop_band2" type="float"/>
-        <param default="-40" name="drc_thres_db_upward_compressor_highaop_band2" type="float"/>
-        <param default="-36" name="drc_thres_db_downward_compressor_highaop_band2" type="float"/>
-        <param default="4.0" min="0" name="drc_knee_width_db_expander_highaop_band2" type="float"/>
-        <param default="4.0" min="0" name="drc_knee_width_db_upward_compressor_highaop_band2" type="float"/>
-        <param default="4.0" min="0" name="drc_knee_width_db_downward_compressor_highaop_band2" type="float"/>
-        <param default="2.5" min="0" name="drc_ratio_expander_highaop_band2" type="float"/>
-        <param default="1.5" min="0" name="drc_ratio_upward_compressor_highaop_band2" type="float"/>
-        <param default="1.0" min="0" name="drc_ratio_linear_highaop_band2" type="float"/>
-        <param default="9.0" min="0" name="drc_ratio_downward_compressor_highaop_band2" type="float"/>
-        <param default="80" min="0" name="drc_attack_ms_expander_highaop_band2" type="float"/>
-        <param default="500" min="0" name="drc_attack_ms_upward_compressor_highaop_band2" type="float"/>
-        <param default="500" min="0" name="drc_attack_ms_linear_highaop_band2" type="float"/>
-        <param default="80" min="0" name="drc_attack_ms_downward_compressor_highaop_band2" type="float"/>
-        <param default="8000" min="0" name="drc_release_ms_expander_highaop_band2" type="float"/>
-        <param default="5000" min="0" name="drc_release_ms_upward_compressor_highaop_band2" type="float"/>
-        <param default="5000" min="0" name="drc_release_ms_linear_highaop_band2" type="float"/>
-        <param default="8000" min="0" name="drc_release_ms_downward_compressor_highaop_band2" type="float"/>
-        <param default="100" max="100" min="0" name="drc_delay_ms" type="int32"/>
-        <param default="1" max="1" min="0" name="drc_use_peak_amplitude" type="int32"/>
-        <param default="0" max="100" min="-100" name="drc_band1_minus_band2_max_gain_db" type="float"/>
-        <param default="0" max="100" min="-100" name="drc_band3_minus_band2_max_gain_db" type="float"/>
-        <param default="20" max="20" min="0" name="limiter_delay_ms" type="int32"/>
-        <param default="-0.5" max="0" name="limiter_thres_db" type="float"/>
-        <param default="0" name="limiter_gain_db" type="float"/>
-        <param default="10" min="0" name="limiter_attack_time_ms" type="int32"/>
-        <param default="50" min="0" name="limiter_release_time_ms" type="int32"/>
-      </struct>
-    </module>
     <module id="10000" name="Eraser">
       <param id="275" name="eraser_pre_gain" type="uint32"/>
       <param id="277" name="eraser_post_gain" type="uint32"/>
@@ -433,7 +280,6 @@
         <moduleRef id="6"/>
         <moduleRef id="7"/>
         <moduleRef id="5"/>
-        <moduleRef id="40"/>
         <moduleRef id="8"/>
       </block>
     </signalflow>
@@ -442,7 +288,6 @@
         <moduleRef id="14"/>
         <moduleRef id="7"/>
         <moduleRef id="5"/>
-        <moduleRef id="40"/>
         <moduleRef id="8"/>
       </block>
     </signalflow>
