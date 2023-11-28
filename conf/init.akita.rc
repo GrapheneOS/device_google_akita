@@ -17,10 +17,6 @@ on init
     chown system system /sys/class/backlight/panel0-backlight/ssc_mode
     chmod 664 /sys/class/backlight/panel0-backlight/ssc_mode
 
-    # adjust PCP high level
-    write /proc/sys/vm/percpu_pagelist_high_fraction 430
-
-
 on early-boot
     # Wait for insmod_sh to finish all common modules
     wait_for_prop vendor.common.modules.ready 1
