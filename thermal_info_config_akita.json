@@ -612,16 +612,16 @@
             "PollingDelay":60000,
             "PassiveDelay":7000,
             "PIDInfo": {
-                "K_Po":["NAN", "NAN", 310, "NAN", "NAN", "NAN", "NAN"],
-                "K_Pu":["NAN", "NAN", 310, "NAN", "NAN", "NAN", "NAN"],
+                "K_Po":["NAN", "NAN", 600, "NAN", "NAN", "NAN", "NAN"],
+                "K_Pu":["NAN", "NAN", 400, "NAN", "NAN", "NAN", "NAN"],
                 "K_I":["NAN", "NAN", 21, "NAN", "NAN", "NAN", "NAN"],
                 "K_D":["NAN", "NAN", 0, "NAN", "NAN", "NAN", "NAN"],
-                "I_Max":["NAN", "NAN", 2224, "NAN", "NAN", "NAN", "NAN"],
-                "S_Power":["NAN", "NAN", 2577, "NAN", "NAN", "NAN", "NAN"],
+                "I_Max":["NAN", "NAN", 1600, "NAN", "NAN", "NAN", "NAN"],
+                "S_Power":["NAN", "NAN", 2200, "NAN", "NAN", "NAN", "NAN"],
                 "MinAllocPower":["NAN", "NAN", 300, "NAN", "NAN", "NAN", "NAN"],
                 "MaxAllocPower":["NAN", "NAN", 6000, "NAN", "NAN", "NAN", "NAN"],
                 "I_Cutoff":["NAN", "NAN", 6, "NAN", "NAN", "NAN", "NAN"],
-                "I_Default":2224
+                "I_Default":1600
             },
             "ExcludedPowerInfo": [
                 {
@@ -641,41 +641,31 @@
             ]
         },
         {
-            "Name":"VIRTUAL-SKIN-CHARGE-WLC-SUB-1",
+            "Name":"VIRTUAL-SKIN-CHARGE-WLC",
             "Type":"UNKNOWN",
-            "Hidden":true,
+            "Version":"0.4",
             "VirtualSensor":true,
+            "TriggerSensor":"charger_therm",
             "Formula":"WEIGHTED_AVG",
             "Combination":["modem_therm", "rffe_therm", "soc_therm", "charger_therm"],
             "Coefficient":[0.214, 0.373, 0.266, 0.151],
             "Offset":170,
-            "Multiplier":0.001
-        },
-        {
-            "Name":"VIRTUAL-SKIN-CHARGE-WLC",
-            "Type":"UNKNOWN",
-            "Version":"0.3e",
-            "VirtualSensor":true,
-            "TriggerSensor":"charger_therm",
-            "Formula":"MAXIMUM",
-            "Combination":["VIRTUAL-SKIN-CHARGE-WLC-SUB-1"],
-            "Coefficient":[1.0],
             "HotThreshold":["NAN", 34.0, 38.0, 41.0, 45.0, 47.0, 55.0],
             "HotHysteresis":[0.0, 1.9, 3.9, 2.9, 3.9, 1.9, 1.9],
             "Multiplier":0.001,
             "PollingDelay":60000,
             "PassiveDelay":7000,
             "PIDInfo": {
-                "K_Po":["NAN", "NAN", 310, "NAN", "NAN", "NAN", "NAN"],
-                "K_Pu":["NAN", "NAN", 310, "NAN", "NAN", "NAN", "NAN"],
+                "K_Po":["NAN", "NAN", 600, "NAN", "NAN", "NAN", "NAN"],
+                "K_Pu":["NAN", "NAN", 200, "NAN", "NAN", "NAN", "NAN"],
                 "K_I":["NAN", "NAN", 21, "NAN", "NAN", "NAN", "NAN"],
                 "K_D":["NAN", "NAN", 0, "NAN", "NAN", "NAN", "NAN"],
-                "I_Max":["NAN", "NAN", 2224, "NAN", "NAN", "NAN", "NAN"],
-                "S_Power":["NAN", "NAN", 2577, "NAN", "NAN", "NAN", "NAN"],
+                "I_Max":["NAN", "NAN", 400, "NAN", "NAN", "NAN", "NAN"],
+                "S_Power":["NAN", "NAN", 1400, "NAN", "NAN", "NAN", "NAN"],
                 "MinAllocPower":["NAN", "NAN", 300, "NAN", "NAN", "NAN", "NAN"],
                 "MaxAllocPower":["NAN", "NAN", 6000, "NAN", "NAN", "NAN", "NAN"],
                 "I_Cutoff":["NAN", "NAN", 6, "NAN", "NAN", "NAN", "NAN"],
-                "I_Default":2224
+                "I_Default":400
             },
             "ExcludedPowerInfo": [
                 {
@@ -690,7 +680,7 @@
                     "MaxReleaseStep": 1,
                     "MaxThrottleStep": 1,
                     "CdevCeiling": [0, 25, 25, 25, 26, 26, 26],
-                    "LimitInfo": [0, 0, 1, 1, 1, 26, 26]
+                    "LimitInfo": [0, 1, 1, 1, 1, 26, 26]
                 }
             ]
         },
