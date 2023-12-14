@@ -186,6 +186,14 @@ PRODUCT_SOONG_NAMESPACES += \
 PRODUCT_PACKAGES += \
     le_audio_codec_capabilities.xml
 
+# LE Audio Lunch Config for Phase 1 (LE audio toggle hidden by default)
+PRODUCT_PRODUCT_PROPERTIES += \
+    persist.bluetooth.leaudio.toggle_visible=false
+
+# LE Audio use classic connection by default
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.bluetooth.leaudio.le_audio_connection_by_default=false
+
 # Bluetooth LE Audio CIS handover to SCO
 # Set the property only for the controller couldn't support CIS/SCO simultaneously. More detailed in b/242908683.
 PRODUCT_PRODUCT_PROPERTIES += \
