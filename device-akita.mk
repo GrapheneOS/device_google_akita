@@ -87,6 +87,9 @@ PRODUCT_VENDOR_PROPERTIES += \
 # Media Performance Class 13
 PRODUCT_PROPERTY_OVERRIDES += ro.odm.build.media_performance_class=33
 
+# Modem
+PRODUCT_PROPERTY_OVERRIDES += persist.vendor.radio.volte_mif_off=true
+
 # NFC
 PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.nfc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.xml \
@@ -98,9 +101,10 @@ PRODUCT_COPY_FILES += \
 	device/google/akita/nfc/libnfc-nci.conf:$(TARGET_COPY_OUT_PRODUCT)/etc/libnfc-nci.conf
 
 PRODUCT_PACKAGES += \
-	NfcNci \
+	$(RELEASE_PACKAGE_NFC_STACK) \
 	Tag \
-	android.hardware.nfc-service.st
+	android.hardware.nfc-service.st \
+	NfcOverlayAkita
 
 # SecureElement
 PRODUCT_PACKAGES += \
@@ -181,6 +185,14 @@ PRODUCT_SOONG_NAMESPACES += \
 # Bluetooth LE Auido offload capabilities setting
 PRODUCT_PACKAGES += \
     le_audio_codec_capabilities.xml
+
+# LE Audio Lunch Config for Phase 1 (LE audio toggle hidden by default)
+PRODUCT_PRODUCT_PROPERTIES += \
+    persist.bluetooth.leaudio.toggle_visible=false
+
+# LE Audio use classic connection by default
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.bluetooth.leaudio.le_audio_connection_by_default=false
 
 # Bluetooth LE Audio CIS handover to SCO
 # Set the property only for the controller couldn't support CIS/SCO simultaneously. More detailed in b/242908683.
@@ -274,6 +286,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_SOONG_NAMESPACES += vendor/google_devices/akita/prebuilts
 ifneq (,$(filter AP1%,$(RELEASE_PLATFORM_VERSION)))
 PRODUCT_SOONG_NAMESPACES += vendor/google_devices/akita/prebuilts/trusty/24Q1
+else ifneq (,$(filter AP2%,$(RELEASE_PLATFORM_VERSION)))
+PRODUCT_SOONG_NAMESPACES += vendor/google_devices/akita/prebuilts/trusty/24Q2
 else
 PRODUCT_SOONG_NAMESPACES += vendor/google_devices/akita/prebuilts/trusty/trunk
 endif
@@ -294,6 +308,8 @@ PRODUCT_VENDOR_PROPERTIES += \
 GOODIX_CONFIG_BUILD_VERSION := g7_trusty
 ifneq (,$(filter AP1%,$(RELEASE_PLATFORM_VERSION)))
 PRODUCT_SOONG_NAMESPACES += vendor/google_devices/akita/prebuilts/firmware/fingerprint/24Q1
+else ifneq (,$(filter AP2%,$(RELEASE_PLATFORM_VERSION)))
+PRODUCT_SOONG_NAMESPACES += vendor/google_devices/akita/prebuilts/firmware/fingerprint/24Q2
 else
 PRODUCT_SOONG_NAMESPACES += vendor/google_devices/akita/prebuilts/firmware/fingerprint/trunk
 endif
