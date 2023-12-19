@@ -87,9 +87,6 @@ PRODUCT_VENDOR_PROPERTIES += \
 # Media Performance Class 13
 PRODUCT_PROPERTY_OVERRIDES += ro.odm.build.media_performance_class=33
 
-# Modem
-PRODUCT_PROPERTY_OVERRIDES += persist.vendor.radio.volte_mif_off=true
-
 # NFC
 PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.nfc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.xml \
