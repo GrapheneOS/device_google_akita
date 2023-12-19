@@ -2448,12 +2448,6 @@
     },
     {
       "PowerHint": "GAME",
-      "Node": "CPUUtilThreshold",
-      "Duration": 0,
-      "Value": "1280"
-    },
-    {
-      "PowerHint": "GAME",
       "Node": "VIRTUAL-SKIN-CPU-MID",
       "Duration": 0,
       "Value": "game"
