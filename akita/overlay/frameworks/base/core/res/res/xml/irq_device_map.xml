@@ -26,7 +26,9 @@
     <device name="cp2ap_wakeup">
         <subsystem>Cellular_data</subsystem>
     </device>
-    <!-- TODO(b/317130983): Insert mapping for Sound_trigger once it is known -->
+    <device name="MAILBOX_AOCF12APx1300">
+        <subsystem>Sound_trigger</subsystem>
+    </device>
     <device name="MAILBOX_AOCA322APx100">
         <subsystem>Sensor</subsystem>
     </device>
