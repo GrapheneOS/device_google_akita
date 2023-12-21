@@ -133,19 +133,19 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Bluetooth Tx power caps
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/bluetooth/bluetooth_power_limits_AK3.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits.csv \
-    $(LOCAL_PATH)/bluetooth/bluetooth_power_limits_AK3_G6GPR_CA.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits_G6GPR_CA.csv \
-    $(LOCAL_PATH)/bluetooth/bluetooth_power_limits_AK3_G6GPR_EU.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits_G6GPR_EU.csv \
-    $(LOCAL_PATH)/bluetooth/bluetooth_power_limits_AK3_G6GPR_US.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits_G6GPR_US.csv \
-    $(LOCAL_PATH)/bluetooth/bluetooth_power_limits_AK3_G8HHN_EU.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits_G8HHN_EU.csv \
-    $(LOCAL_PATH)/bluetooth/bluetooth_power_limits_AK3_G8HHN_US.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits_G8HHN_US.csv \
-    $(LOCAL_PATH)/bluetooth/bluetooth_power_limits_AK3_G576D_CA.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits_G576D_CA.csv \
-    $(LOCAL_PATH)/bluetooth/bluetooth_power_limits_AK3_G576D_EU.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits_G576D_EU.csv \
-    $(LOCAL_PATH)/bluetooth/bluetooth_power_limits_AK3_G576D_JP.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits_G576D_JP.csv \
-    $(LOCAL_PATH)/bluetooth/bluetooth_power_limits_AK3_G576D_US.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits_G576D_US.csv \
-    $(LOCAL_PATH)/bluetooth/bluetooth_power_limits_AK3_GKV4X_CA.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits_GKV4X_CA.csv \
-    $(LOCAL_PATH)/bluetooth/bluetooth_power_limits_AK3_GKV4X_EU.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits_GKV4X_EU.csv \
-    $(LOCAL_PATH)/bluetooth/bluetooth_power_limits_AK3_GKV4X_US.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits_GKV4X_US.csv
+    device/google/akita/bluetooth/bluetooth_power_limits_AK3.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits.csv \
+    device/google/akita/bluetooth/bluetooth_power_limits_AK3_G6GPR_CA.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits_G6GPR_CA.csv \
+    device/google/akita/bluetooth/bluetooth_power_limits_AK3_G6GPR_EU.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits_G6GPR_EU.csv \
+    device/google/akita/bluetooth/bluetooth_power_limits_AK3_G6GPR_US.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits_G6GPR_US.csv \
+    device/google/akita/bluetooth/bluetooth_power_limits_AK3_G8HHN_EU.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits_G8HHN_EU.csv \
+    device/google/akita/bluetooth/bluetooth_power_limits_AK3_G8HHN_US.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits_G8HHN_US.csv \
+    device/google/akita/bluetooth/bluetooth_power_limits_AK3_G576D_CA.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits_G576D_CA.csv \
+    device/google/akita/bluetooth/bluetooth_power_limits_AK3_G576D_EU.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits_G576D_EU.csv \
+    device/google/akita/bluetooth/bluetooth_power_limits_AK3_G576D_JP.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits_G576D_JP.csv \
+    device/google/akita/bluetooth/bluetooth_power_limits_AK3_G576D_US.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits_G576D_US.csv \
+    device/google/akita/bluetooth/bluetooth_power_limits_AK3_GKV4X_CA.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits_GKV4X_CA.csv \
+    device/google/akita/bluetooth/bluetooth_power_limits_AK3_GKV4X_EU.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits_GKV4X_EU.csv \
+    device/google/akita/bluetooth/bluetooth_power_limits_AK3_GKV4X_US.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits_GKV4X_US.csv
 
 # POF
 PRODUCT_PRODUCT_PROPERTIES += \
