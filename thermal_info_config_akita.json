@@ -221,6 +221,7 @@
             "Name":"VIRTUAL-SKIN-HINT",
             "Type":"UNKNOWN",
             "VirtualSensor":true,
+            "Hidden":true,
             "TriggerSensor":"soc_therm",
             "Formula":"MAXIMUM",
             "Combination":["VIRTUAL-SKIN"],
