@@ -17,7 +17,6 @@ PRODUCT_SOONG_NAMESPACES += \
 
 # AOSP packages required by the blobs
 PRODUCT_PACKAGES := \
-    PixelQualifiedNetworksService \
     ShannonIms \
     ShannonRcs \
 
@@ -26,7 +25,6 @@ PRODUCT_PACKAGES += \
 
 #  blob(s) necessary for akita hardware
 PRODUCT_COPY_FILES := \
-    vendor/google_devices/akita/proprietary/com.android.qns.xml:system_ext/etc/permissions/com.android.qns.xml:google \
     vendor/google_devices/akita/proprietary/com.shannon.imsservice.xml:system_ext/etc/permissions/com.shannon.imsservice.xml:samsung \
     vendor/google_devices/akita/proprietary/com.shannon.rcsservice.xml:system_ext/etc/permissions/com.shannon.rcsservice.xml:samsung \
 
