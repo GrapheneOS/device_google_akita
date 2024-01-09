@@ -59,7 +59,8 @@ PRODUCT_COPY_FILES += \
 # Display
 PRODUCT_COPY_FILES += \
 	device/google/akita/akita/display_colordata_dev_cal0.pb:$(TARGET_COPY_OUT_VENDOR)/etc/display_colordata_dev_cal0.pb \
-	device/google/akita/akita/display_golden_google-ak3b_cal0.pb:$(TARGET_COPY_OUT_VENDOR)/etc/display_golden_google-ak3b_cal0.pb
+	device/google/akita/akita/display_golden_google-ak3b_cal0.pb:$(TARGET_COPY_OUT_VENDOR)/etc/display_golden_google-ak3b_cal0.pb \
+	device/google/akita/display_golden_external_display_cal2.pb:$(TARGET_COPY_OUT_VENDOR)/etc/display_golden_external_display_cal2.pb
 
 # Display brightness curve
 PRODUCT_COPY_FILES += \
