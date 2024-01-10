@@ -41,7 +41,6 @@ include hardware/google/pixel/vibrator/cs40l26/device.mk
 include device/google/gs-common/bcmbt/bluetooth.mk
 include device/google/gs-common/touch/gti/gti.mk
 include device/google/gs-common/modem/radio_ext/radio_ext.mk
-include device/google/gs-common/diagnosticstool/diagnosticstool.mk
 
 # go/lyric-soong-variables
 $(call soong_config_set,lyric,camera_hardware,akita)
