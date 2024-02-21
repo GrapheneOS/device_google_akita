@@ -159,4 +159,10 @@
 
     <!-- boolean indicating whether the caller thread needs to wait for destroyed listeners -->
     <bool translatable="false" name ="config_wifiWaitForDestroyedListeners">true</bool>
+
+    <!-- Boolean indicating performing a partial initial scan is enabled -->
+    <bool translatable="false" name="config_wifiEnablePartialInitialScan">true</bool>
+    <!-- Configure the max number of new channels to add into the initial partial scan list per network.
+         If equals to 0, it means there's no limit on the max number of channels to include per network.-->
+    <integer translatable="false" name="config_wifiInitialPartialScanMaxNewChannelsPerNetwork">3</integer>
 </resources>
