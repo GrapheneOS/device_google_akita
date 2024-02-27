@@ -2235,6 +2235,12 @@
       "Value": "233000"
     },
     {
+      "PowerHint": "CAMERA_ADJUST_CAM_UCLAMP_MIN",
+      "Node": "CAMUClampBoost",
+      "Duration": 0,
+      "Value": "250"
+    },
+    {
       "PowerHint": "FIXED_PERFORMANCE",
       "Node": "CPUBigClusterMaxFreq",
       "Duration": 0,

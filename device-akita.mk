@@ -85,6 +85,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
 	persist.vendor.camera.adjust_backend_min_freq_for_1p_front_video_1080p_30fps=1 \
 	persist.vendor.camera.adjust_backend_min_freq_for_video_120fps=1 \
+	persist.vendor.camera.adjust_cam_uclamp_min_for_1p_rear_video_60fps=1 \
 	persist.vendor.camera.extended_launch_boost=1 \
 	persist.vendor.camera.optimized_tnr_freq=1 \
 	vendor.camera.debug.enable_software_post_sharpen_node=false \
