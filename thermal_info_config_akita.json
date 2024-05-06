@@ -221,6 +221,7 @@
             "Name":"VIRTUAL-SKIN-HINT",
             "Type":"UNKNOWN",
             "VirtualSensor":true,
+            "Hidden":true,
             "TriggerSensor":"soc_therm",
             "Formula":"MAXIMUM",
             "Combination":["VIRTUAL-SKIN"],
@@ -458,21 +459,21 @@
                            "CdevWeightForPID": [0.156, 0.156, 0.156, 0.156, 0.156, 0.156, 0.156],
                            "MaxReleaseStep": 1,
                            "MaxThrottleStep": 1,
-                           "CdevCeiling": [0, 6, 6, 6, 6, 6, 6]
+                           "CdevCeiling": [0, 2, 6, 6, 6, 6, 6]
                         },
                         {
                            "CdevRequest": "thermal-cpufreq-1",
                            "CdevWeightForPID": [0.428, 0.428, 0.428, 0.428, 0.428, 0.428, 0.428],
                            "MaxReleaseStep": 1,
                            "MaxThrottleStep": 2,
-                           "CdevCeiling": [0, 9, 9, 9, 9, 9, 9]
+                           "CdevCeiling": [0, 6, 9, 9, 9, 9, 9]
                         },
                         {
                            "CdevRequest": "thermal-cpufreq-2",
                            "CdevWeightForPID": [0.225, 0.225, 0.225, 0.225, 0.225, 0.225, 0.225],
                            "MaxReleaseStep": 1,
                            "MaxThrottleStep": 2,
-                           "CdevCeiling": [0, 12, 12, 12, 12, 12, 12]
+                           "CdevCeiling": [0, 8, 12, 12, 12, 12, 12]
                         }
                     ]
                 }

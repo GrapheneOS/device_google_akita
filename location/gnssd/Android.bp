@@ -14,29 +14,8 @@ license {
     ],
 }
 
-soong_config_module_type {
-    name: "lassen_gnss_aidl_service_cc_defaults",
-    module_type: "cc_defaults",
-    config_namespace: "pixel_gnss",
-    bool_variables: ["enable_pixel_gnss_aidl_service"],
-    properties: ["vintf_fragments"],
-}
-
-lassen_gnss_aidl_service_cc_defaults {
-    name: "lassen_gnss_aidl_service_cc_defaults",
-    soong_config_variables: {
-        enable_pixel_gnss_aidl_service: {
-            vintf_fragments: ["android.hardware.gnss@vendor.xml"],
-            conditions_default: {
-                vintf_fragments: ["android.hardware.gnss@default.xml"],
-            },
-        },
-    },
-}
-
 cc_prebuilt_binary {
     name: "android.hardware.gnss-service",
-    defaults: ["lassen_gnss_aidl_service_cc_defaults"],
     arch: {
         arm64: {
             srcs: ["release/android.hardware.gnss-service"],
@@ -72,6 +51,7 @@ cc_prebuilt_binary {
     },
 
     init_rc: ["init.gnss.rc"],
+    vintf_fragments: ["android.hardware.gnss@default.xml"],
 }
 
 cc_prebuilt_binary {

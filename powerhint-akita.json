@@ -300,6 +300,7 @@
       "Path": "/proc/vendor_sched/groups/cam/uclamp_min",
       "Values": [
         "765",
+        "250",
         "0"
       ],
       "ResetOnInit": true
@@ -793,15 +794,6 @@
         "20 40"
       ],
       "ResetOnInit": true
-    },
-    {
-      "Name": "SchedLibMaskIn",
-      "Path": "/proc/vendor_sched/sched_lib_mask_in",
-      "Values": [
-        "0x100",
-        "0x0"
-      ],
-      "ResetOnInit": true
     }
   ],
   "Actions": [
@@ -965,12 +957,6 @@
       "Value": "1"
     },
     {
-      "PowerHint": "LAUNCH",
-      "Node": "SchedLibMaskIn",
-      "Duration": 5000,
-      "Value": "0x100"
-    },
-    {
       "PowerHint": "LAUNCH_EXTEND",
       "Node": "CPUBigClusterMaxFreq",
       "Duration": 2000,
@@ -1047,12 +1033,6 @@
       "Node": "FGPreferIdle",
       "Duration": 2000,
       "Value": "1"
-    },
-    {
-      "PowerHint": "LAUNCH_EXTEND",
-      "Node": "SchedLibMaskIn",
-      "Duration": 5000,
-      "Value": "0x100"
     },
     {
       "PowerHint": "LAUNCH_PMU",
@@ -1513,6 +1493,12 @@
       "Node": "PowerHALCameraRunning",
       "Duration": 0,
       "Value": "1"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_EXTREME",
+      "Node": "CAMUClampBoost",
+      "Duration": 0,
+      "Value": "250"
     },
     {
       "PowerHint": "CAMERA_STREAMING_EXTREME",
@@ -2225,6 +2211,12 @@
       "Value": "233000"
     },
     {
+      "PowerHint": "CAMERA_ADJUST_CAM_UCLAMP_MIN",
+      "Node": "CAMUClampBoost",
+      "Duration": 0,
+      "Value": "250"
+    },
+    {
       "PowerHint": "FIXED_PERFORMANCE",
       "Node": "CPUBigClusterMaxFreq",
       "Duration": 0,
@@ -2501,12 +2493,6 @@
     },
     {
       "PowerHint": "GAME",
-      "Node": "CPUUtilThreshold",
-      "Duration": 0,
-      "Value": "1280"
-    },
-    {
-      "PowerHint": "GAME",
       "Node": "VIRTUAL-SKIN-CPU-MID",
       "Duration": 0,
       "Value": "game"
@@ -2522,12 +2508,6 @@
       "Node": "NPITaskPacking",
       "Duration": 0,
       "Value": "1"
-    },
-    {
-      "PowerHint": "GAME",
-      "Node": "SchedLibMaskIn",
-      "Duration": 0,
-      "Value": "0x100"
     },
     {
       "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_LIGHT",
@@ -2859,7 +2839,7 @@
       "Name": "REFRESH_120FPS",
       "PID_On": true,
       "PID_Po": 2.0,
-      "PID_Pu": 1.0,
+      "PID_Pu": 0.6,
       "PID_I": 0.0,
       "PID_I_Init": 200,
       "PID_I_High": 512,

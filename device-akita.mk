@@ -14,8 +14,19 @@
 # limitations under the License.
 #
 
+PRODUCT_RELEASE_CONFIG_MAPS += vendor/google_devices/release/phones/release_config_map.mk
+
 TARGET_KERNEL_DIR ?= device/google/akita-kernel
 TARGET_BOARD_KERNEL_HEADERS := device/google/akita-kernel/kernel-headers
+
+ifdef RELEASE_GOOGLE_AKITA_KERNEL_VERSION
+TARGET_LINUX_KERNEL_VERSION := $(RELEASE_GOOGLE_AKITA_KERNEL_VERSION)
+endif
+
+ifdef RELEASE_GOOGLE_AKITA_KERNEL_DIR
+TARGET_KERNEL_DIR := $(RELEASE_GOOGLE_AKITA_KERNEL_DIR)
+TARGET_BOARD_KERNEL_HEADERS := $(RELEASE_GOOGLE_AKITA_KERNEL_DIR)/kernel-headers
+endif
 
 $(call inherit-product-if-exists, vendor/google_devices/akita/prebuilts/device-vendor-akita.mk)
 $(call inherit-product-if-exists, vendor/google_devices/zuma/prebuilts/device-vendor.mk)
@@ -32,7 +43,6 @@ include hardware/google/pixel/vibrator/cs40l26/device.mk
 include device/google/gs-common/bcmbt/bluetooth.mk
 include device/google/gs-common/touch/gti/gti.mk
 include device/google/gs-common/modem/radio_ext/radio_ext.mk
-include device/google/gs-common/diagnosticstool/diagnosticstool.mk
 
 # go/lyric-soong-variables
 $(call soong_config_set,lyric,camera_hardware,akita)
@@ -50,7 +60,8 @@ PRODUCT_COPY_FILES += \
 # Display
 PRODUCT_COPY_FILES += \
 	device/google/akita/akita/display_colordata_dev_cal0.pb:$(TARGET_COPY_OUT_VENDOR)/etc/display_colordata_dev_cal0.pb \
-	device/google/akita/akita/display_golden_google-ak3b_cal0.pb:$(TARGET_COPY_OUT_VENDOR)/etc/display_golden_google-ak3b_cal0.pb
+	device/google/akita/akita/display_golden_google-ak3b_cal0.pb:$(TARGET_COPY_OUT_VENDOR)/etc/display_golden_google-ak3b_cal0.pb \
+	device/google/akita/display_golden_external_display_cal2.pb:$(TARGET_COPY_OUT_VENDOR)/etc/display_golden_external_display_cal2.pb
 
 # Display brightness curve
 PRODUCT_COPY_FILES += \
@@ -74,6 +85,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
 	persist.vendor.camera.adjust_backend_min_freq_for_1p_front_video_1080p_30fps=1 \
 	persist.vendor.camera.adjust_backend_min_freq_for_video_120fps=1 \
+	persist.vendor.camera.adjust_cam_uclamp_min_for_1p_rear_video_60fps=1 \
 	persist.vendor.camera.extended_launch_boost=1 \
 	persist.vendor.camera.optimized_tnr_freq=1 \
 	vendor.camera.debug.enable_software_post_sharpen_node=false \
@@ -84,11 +96,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_VENDOR_PROPERTIES += \
     persist.vendor.camera.front_720P_always_binning=true
 
+# Enable camera exif model/make reporting
+PRODUCT_VENDOR_PROPERTIES += \
+    persist.vendor.camera.exif_reveal_make_model=true
+
 # Media Performance Class 13
 PRODUCT_PROPERTY_OVERRIDES += ro.odm.build.media_performance_class=33
-
-# Modem
-PRODUCT_PROPERTY_OVERRIDES += persist.vendor.radio.volte_mif_off=true
 
 # NFC
 PRODUCT_COPY_FILES += \
@@ -133,6 +146,22 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.bluetooth.a2dp_offload.supported=true \
     persist.bluetooth.a2dp_offload.disabled=false \
     persist.bluetooth.a2dp_offload.cap=sbc-aac-aptx-aptxhd-ldac
+
+# Bluetooth Tx power caps
+PRODUCT_COPY_FILES += \
+    device/google/akita/bluetooth/bluetooth_power_limits_AK3.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits.csv \
+    device/google/akita/bluetooth/bluetooth_power_limits_AK3_G6GPR_CA.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits_G6GPR_CA.csv \
+    device/google/akita/bluetooth/bluetooth_power_limits_AK3_G6GPR_EU.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits_G6GPR_EU.csv \
+    device/google/akita/bluetooth/bluetooth_power_limits_AK3_G6GPR_US.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits_G6GPR_US.csv \
+    device/google/akita/bluetooth/bluetooth_power_limits_AK3_G8HHN_EU.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits_G8HHN_EU.csv \
+    device/google/akita/bluetooth/bluetooth_power_limits_AK3_G8HHN_US.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits_G8HHN_US.csv \
+    device/google/akita/bluetooth/bluetooth_power_limits_AK3_G576D_CA.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits_G576D_CA.csv \
+    device/google/akita/bluetooth/bluetooth_power_limits_AK3_G576D_EU.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits_G576D_EU.csv \
+    device/google/akita/bluetooth/bluetooth_power_limits_AK3_G576D_JP.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits_G576D_JP.csv \
+    device/google/akita/bluetooth/bluetooth_power_limits_AK3_G576D_US.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits_G576D_US.csv \
+    device/google/akita/bluetooth/bluetooth_power_limits_AK3_GKV4X_CA.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits_GKV4X_CA.csv \
+    device/google/akita/bluetooth/bluetooth_power_limits_AK3_GKV4X_EU.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits_GKV4X_EU.csv \
+    device/google/akita/bluetooth/bluetooth_power_limits_AK3_GKV4X_US.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits_GKV4X_US.csv
 
 # POF
 PRODUCT_PRODUCT_PROPERTIES += \
@@ -286,7 +315,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_SOONG_NAMESPACES += vendor/google_devices/akita/prebuilts
 ifneq (,$(filter AP1%,$(RELEASE_PLATFORM_VERSION)))
 PRODUCT_SOONG_NAMESPACES += vendor/google_devices/akita/prebuilts/trusty/24Q1
-else ifneq (,$(filter AP2%,$(RELEASE_PLATFORM_VERSION)))
+else ifneq (,$(filter AP2% AP3%,$(RELEASE_PLATFORM_VERSION)))
 PRODUCT_SOONG_NAMESPACES += vendor/google_devices/akita/prebuilts/trusty/24Q2
 else
 PRODUCT_SOONG_NAMESPACES += vendor/google_devices/akita/prebuilts/trusty/trunk
@@ -308,7 +337,7 @@ PRODUCT_VENDOR_PROPERTIES += \
 GOODIX_CONFIG_BUILD_VERSION := g7_trusty
 ifneq (,$(filter AP1%,$(RELEASE_PLATFORM_VERSION)))
 PRODUCT_SOONG_NAMESPACES += vendor/google_devices/akita/prebuilts/firmware/fingerprint/24Q1
-else ifneq (,$(filter AP2%,$(RELEASE_PLATFORM_VERSION)))
+else ifneq (,$(filter AP2% AP3%,$(RELEASE_PLATFORM_VERSION)))
 PRODUCT_SOONG_NAMESPACES += vendor/google_devices/akita/prebuilts/firmware/fingerprint/24Q2
 else
 PRODUCT_SOONG_NAMESPACES += vendor/google_devices/akita/prebuilts/firmware/fingerprint/trunk
@@ -357,7 +386,7 @@ PRODUCT_VENDOR_PROPERTIES += \
 
 # Increment the SVN for any official public releases
 PRODUCT_VENDOR_PROPERTIES += \
-    ro.vendor.build.svn=1
+    ro.vendor.build.svn=2
 
 # Keyboard height ratio and bottom padding in dp for portrait mode
 PRODUCT_PRODUCT_PROPERTIES += \

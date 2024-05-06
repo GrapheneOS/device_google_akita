@@ -27,6 +27,7 @@
 #include <android/binder_manager.h>
 #include <android/binder_process.h>
 #include <log/log.h>
+#include <sys/stat.h>
 
 using aidl::android::hardware::power::stats::DisplayStateResidencyDataProvider;
 using aidl::android::hardware::power::stats::EnergyConsumerType;
@@ -35,18 +36,25 @@ using aidl::android::hardware::power::stats::PowerStatsEnergyConsumer;
 
 void addDisplay(std::shared_ptr<PowerStats> p) {
     // Add display residency stats
-    std::vector<std::string> states = {
-        "Off",
-        "LP: 1080x2400@30",
-        "On: 1080x2400@60",
-        "On: 1080x2400@120",
-        "HBM: 1080x2400@60",
-        "HBM: 1080x2400@120"};
+    struct stat buffer;
+    if (stat("/sys/class/drm/card0/device/primary-panel/time_in_state", &buffer)) {
+        // time_in_state doesn't exist
+        std::vector<std::string> states = {
+            "Off",
+            "LP: 1080x2400@30",
+            "On: 1080x2400@60",
+            "On: 1080x2400@120",
+            "HBM: 1080x2400@60",
+            "HBM: 1080x2400@120"};
 
-    p->addStateResidencyDataProvider(std::make_unique<DisplayStateResidencyDataProvider>(
-            "Display",
-            "/sys/class/backlight/panel0-backlight/state",
-            states));
+        p->addStateResidencyDataProvider(std::make_unique<DisplayStateResidencyDataProvider>(
+                "Display",
+                "/sys/class/backlight/panel0-backlight/state",
+                states));
+    } else {
+        // time_in_state exists
+        addDisplayMRR(p);
+    }
 
     // Add display energy consumer
     p->addEnergyConsumer(PowerStatsEnergyConsumer::createMeterAndEntityConsumer(
