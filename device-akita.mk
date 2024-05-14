@@ -355,10 +355,6 @@ PRODUCT_VENDOR_PROPERTIES += \
 	persist.vendor.vibrator.hal.context.cooldowntime=1600 \
 	persist.vendor.vibrator.hal.context.settlingtime=5000
 
-# Increment the SVN for any official public releases
-PRODUCT_VENDOR_PROPERTIES += \
-    ro.vendor.build.svn=3
-
 # Keyboard height ratio and bottom padding in dp for portrait mode
 PRODUCT_PRODUCT_PROPERTIES += \
           ro.com.google.ime.kb_pad_port_b=4.19 \
