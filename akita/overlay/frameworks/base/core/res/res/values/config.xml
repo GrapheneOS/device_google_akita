@@ -303,4 +303,6 @@
     <!-- Allow the GPS_PROVIDER to be replaced by the location provider app at run-time. -->
     <bool name="config_useGnssHardwareProvider" translatable="false">true</bool>
 
+    <string name="config_gnssPsdsType">samsung</string>
+
 </resources>
