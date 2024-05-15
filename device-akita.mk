@@ -364,9 +364,8 @@ PRODUCT_PRODUCT_PROPERTIES += \
           ro.com.google.ime.kb_pad_port_b=4.19 \
           ro.com.google.ime.height_ratio=1.1
 
-# DisplayPort is disabled (b/300167292, b/300167292)
 PRODUCT_VENDOR_PROPERTIES += \
-       persist.vendor.usb.displayport.enabled=0
+       persist.vendor.usb.displayport.enabled=1
 
 # Enable DeviceAsWebcam support
 PRODUCT_VENDOR_PROPERTIES += \
