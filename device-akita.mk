@@ -413,3 +413,7 @@ PRODUCT_SYSTEM_PROPERTIES += \
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
 $(call inherit-product-if-exists, device/google/common/etm/device-userdebug-modules.mk)
 endif
+
+# sysconfigs from stock OS
+PRODUCT_COPY_FILES += \
+    device/google/akita/product-sysconfig-stock.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/product-sysconfig-stock.xml
