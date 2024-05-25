@@ -305,4 +305,6 @@
 
     <string name="config_gnssPsdsType">samsung</string>
 
+    <string name="config_qualified_networks_service_package">com.android.qns</string>
+
 </resources>
