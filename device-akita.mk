@@ -417,3 +417,5 @@ endif
 # sysconfigs from stock OS
 PRODUCT_COPY_FILES += \
     device/google/akita/product-sysconfig-stock.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/product-sysconfig-stock.xml
+
+PRODUCT_VENDOR_PROPERTIES := $(filter-out ro.vendor.build.svn=% , $(PRODUCT_VENDOR_PROPERTIES))
