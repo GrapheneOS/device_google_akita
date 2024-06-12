@@ -10,3 +10,5 @@ PRODUCT_VENDOR_PROPERTIES += \
 # Compatibility matrix
 DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE += \
     device/google/akita/location/gnssd/device_framework_matrix_product.xml
+
+DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE += device/google/gs-common/proprietary/vendor.google.aam.xml
