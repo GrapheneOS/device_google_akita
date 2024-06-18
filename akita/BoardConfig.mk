@@ -18,6 +18,7 @@
 BOARD_BOOTCONFIG += androidboot.load_modules_parallel=true
 
 # The modules which need to be loaded in sequential
+BOARD_KERNEL_CMDLINE += fips140.load_sequential=1
 BOARD_KERNEL_CMDLINE += exynos_drm.load_sequential=1
 BOARD_KERNEL_CMDLINE += g2d.load_sequential=1
 BOARD_KERNEL_CMDLINE += samsung_iommu_v9.load_sequential=1
@@ -27,13 +28,9 @@ RELEASE_GOOGLE_PRODUCT_RADIOCFG_DIR := $(RELEASE_GOOGLE_AKITA_RADIOCFG_DIR)
 
 TARGET_BOARD_INFO_FILE := device/google/akita/board-info.txt
 TARGET_BOOTLOADER_BOARD_NAME := akita
-ifneq (,$(filter AP1%,$(RELEASE_PLATFORM_VERSION)))
-RELEASE_GOOGLE_PRODUCT_BOOTLOADER_DIR := bootloader/24Q1
-else ifneq (,$(filter AP2% AP3%,$(RELEASE_PLATFORM_VERSION)))
-RELEASE_GOOGLE_PRODUCT_BOOTLOADER_DIR := bootloader/24Q2
-else
-RELEASE_GOOGLE_PRODUCT_BOOTLOADER_DIR := bootloader/trunk
-endif
+RELEASE_GOOGLE_BOOTLOADER_AKITA_DIR ?= pdk# Keep this for pdk TODO: b/327119000
+RELEASE_GOOGLE_PRODUCT_BOOTLOADER_DIR := bootloader/$(RELEASE_GOOGLE_BOOTLOADER_AKITA_DIR)
+$(call soong_config_set,akita_bootloader,prebuilt_dir,$(RELEASE_GOOGLE_BOOTLOADER_AKITA_DIR))
 TARGET_SCREEN_DENSITY := 420
 BOARD_USES_GENERIC_AUDIO := true
 USES_DEVICE_GOOGLE_AKITA := true
@@ -45,3 +42,7 @@ include device/google/zuma/BoardConfig-common.mk
 -include vendor/google_devices/akita/proprietary/BoardConfigVendor.mk
 include device/google/akita-sepolicy/akita-sepolicy.mk
 include device/google/akita/wifi/BoardConfig-wifi.mk
+
+ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
+-include device/google/common/etm/5_15/BoardUserdebugModules.mk
+endif

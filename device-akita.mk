@@ -14,18 +14,19 @@
 # limitations under the License.
 #
 
-PRODUCT_RELEASE_CONFIG_MAPS += $(wildcard vendor/google_devices/release/phones/release_config_map.mk)
+PRODUCT_RELEASE_CONFIG_MAPS += $(wildcard vendor/google_devices/release/phones/pixel_2024_midyear/release_config_map.textproto)
 
-TARGET_KERNEL_DIR ?= device/google/akita-kernel
-TARGET_BOARD_KERNEL_HEADERS := device/google/akita-kernel/kernel-headers
-
-ifdef RELEASE_GOOGLE_AKITA_KERNEL_VERSION
-TARGET_LINUX_KERNEL_VERSION := $(RELEASE_GOOGLE_AKITA_KERNEL_VERSION)
+ifdef RELEASE_KERNEL_AKITA_VERSION
+TARGET_LINUX_KERNEL_VERSION := $(RELEASE_KERNEL_AKITA_VERSION)
 endif
 
-ifdef RELEASE_GOOGLE_AKITA_KERNEL_DIR
-TARGET_KERNEL_DIR := $(RELEASE_GOOGLE_AKITA_KERNEL_DIR)
-TARGET_BOARD_KERNEL_HEADERS := $(RELEASE_GOOGLE_AKITA_KERNEL_DIR)/kernel-headers
+ifdef RELEASE_KERNEL_AKITA_DIR
+# Keeps flexibility for kasan and ufs builds
+TARGET_KERNEL_DIR ?= $(RELEASE_KERNEL_AKITA_DIR)
+TARGET_BOARD_KERNEL_HEADERS ?= $(RELEASE_KERNEL_AKITA_DIR)/kernel-headers
+else
+TARGET_KERNEL_DIR ?= device/google/akita-kernels/5.15/trunk
+TARGET_BOARD_KERNEL_HEADERS ?= device/google/akita-kernels/5.15/trunk/kernel-headers
 endif
 
 $(call inherit-product-if-exists, vendor/google_devices/akita/prebuilts/device-vendor-akita.mk)
@@ -217,11 +218,11 @@ PRODUCT_PACKAGES += \
 
 # LE Audio Lunch Config for Phase 1 (LE audio toggle hidden by default)
 PRODUCT_PRODUCT_PROPERTIES += \
-    persist.bluetooth.leaudio.toggle_visible=false
+    persist.bluetooth.leaudio.toggle_visible=true
 
 # LE Audio use classic connection by default
 PRODUCT_PRODUCT_PROPERTIES += \
-    ro.bluetooth.leaudio.le_audio_connection_by_default=false
+    ro.bluetooth.leaudio.le_audio_connection_by_default=true
 
 # Bluetooth LE Audio CIS handover to SCO
 # Set the property only for the controller couldn't support CIS/SCO simultaneously. More detailed in b/242908683.
@@ -235,6 +236,10 @@ PRODUCT_PRODUCT_PROPERTIES += \
 # LE Audio Unicast Allowlist
 PRODUCT_PRODUCT_PROPERTIES += \
     persist.bluetooth.leaudio.allow_list=SM-R510
+
+# Support LE & Classic concurrent encryption (b/330704060)
+PRODUCT_PRODUCT_PROPERTIES += \
+    bluetooth.ble.allow_enc_with_bredr=true
 
 # Enable one-handed mode
 PRODUCT_PRODUCT_PROPERTIES += \
@@ -254,6 +259,10 @@ PRODUCT_PRODUCT_PROPERTIES += \
     persist.bluetooth.bqr.vnd_trace_mask=0 \
     persist.bluetooth.vendor.btsnoop=false
 endif
+
+# Enable Bluetooth AutoOn feature
+PRODUCT_PRODUCT_PROPERTIES += \
+    bluetooth.server.automatic_turn_on=true
 
 # Spatial Audio
 PRODUCT_PACKAGES += \
@@ -313,13 +322,6 @@ PRODUCT_PACKAGES += \
 
 # Trusty liboemcrypto.so
 PRODUCT_SOONG_NAMESPACES += vendor/google_devices/akita/prebuilts
-ifneq (,$(filter AP1%,$(RELEASE_PLATFORM_VERSION)))
-PRODUCT_SOONG_NAMESPACES += vendor/google_devices/akita/prebuilts/trusty/24Q1
-else ifneq (,$(filter AP2% AP3%,$(RELEASE_PLATFORM_VERSION)))
-PRODUCT_SOONG_NAMESPACES += vendor/google_devices/akita/prebuilts/trusty/24Q2
-else
-PRODUCT_SOONG_NAMESPACES += vendor/google_devices/akita/prebuilts/trusty/trunk
-endif
 
 # include GNSSD
 include device/google/akita/location/gnssd/device-gnss.mk
@@ -335,13 +337,6 @@ PRODUCT_VENDOR_PROPERTIES += \
 
 # Fingerprint HAL
 GOODIX_CONFIG_BUILD_VERSION := g7_trusty
-ifneq (,$(filter AP1%,$(RELEASE_PLATFORM_VERSION)))
-PRODUCT_SOONG_NAMESPACES += vendor/google_devices/akita/prebuilts/firmware/fingerprint/24Q1
-else ifneq (,$(filter AP2% AP3%,$(RELEASE_PLATFORM_VERSION)))
-PRODUCT_SOONG_NAMESPACES += vendor/google_devices/akita/prebuilts/firmware/fingerprint/24Q2
-else
-PRODUCT_SOONG_NAMESPACES += vendor/google_devices/akita/prebuilts/firmware/fingerprint/trunk
-endif
 $(call inherit-product-if-exists, vendor/goodix/udfps/configuration/udfps_common.mk)
 ifeq ($(filter factory%, $(TARGET_PRODUCT)),)
 $(call inherit-product-if-exists, vendor/goodix/udfps/configuration/udfps_shipping.mk)
@@ -373,6 +368,7 @@ PRODUCT_VENDOR_PROPERTIES += \
     persist.vendor.camera.ois_with_system_imu=true
 
 # Vibrator HAL
+$(call soong_config_set,haptics,kernel_ver,v$(subst .,_,$(TARGET_LINUX_KERNEL_VERSION)))
 ADAPTIVE_HAPTICS_FEATURE := adaptive_haptics_v1
 PRODUCT_VENDOR_PROPERTIES += \
     ro.vendor.vibrator.hal.supported_primitives=243 \
@@ -386,7 +382,7 @@ PRODUCT_VENDOR_PROPERTIES += \
 
 # Increment the SVN for any official public releases
 PRODUCT_VENDOR_PROPERTIES += \
-    ro.vendor.build.svn=9
+    ro.vendor.build.svn=10
 
 # Keyboard height ratio and bottom padding in dp for portrait mode
 PRODUCT_PRODUCT_PROPERTIES += \
@@ -403,3 +399,8 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/window_extensions.mk)
 # Disable Settings large-screen optimization enabled by Window Extensions
 PRODUCT_SYSTEM_PROPERTIES += \
     persist.settings.large_screen_opt.enabled=false
+
+# ETM
+ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
+$(call inherit-product-if-exists, device/google/common/etm/device-userdebug-modules.mk)
+endif
