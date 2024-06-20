@@ -25,8 +25,8 @@ ifdef RELEASE_KERNEL_AKITA_DIR
 TARGET_KERNEL_DIR ?= $(RELEASE_KERNEL_AKITA_DIR)
 TARGET_BOARD_KERNEL_HEADERS ?= $(RELEASE_KERNEL_AKITA_DIR)/kernel-headers
 else
-TARGET_KERNEL_DIR ?= device/google/akita-kernels/5.15/trunk
-TARGET_BOARD_KERNEL_HEADERS ?= device/google/akita-kernels/5.15/trunk/kernel-headers
+TARGET_KERNEL_DIR ?= device/google/akita-kernels/5.15/trunk-11967919
+TARGET_BOARD_KERNEL_HEADERS ?= device/google/akita-kernels/5.15/trunk-11967919/kernel-headers
 endif
 
 $(call inherit-product-if-exists, vendor/google_devices/akita/prebuilts/device-vendor-akita.mk)
