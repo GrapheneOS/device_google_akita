@@ -29,6 +29,10 @@ TARGET_KERNEL_DIR ?= device/google/akita-kernels/5.15/trunk
 TARGET_BOARD_KERNEL_HEADERS ?= device/google/akita-kernels/5.15/trunk/kernel-headers
 endif
 
+ifneq ($(TARGET_BOOTS_16K),true)
+PRODUCT_16K_DEVELOPER_OPTION := $(RELEASE_GOOGLE_AKITA_16K_DEVELOPER_OPTION)
+endif
+
 $(call inherit-product-if-exists, vendor/google_devices/akita/prebuilts/device-vendor-akita.mk)
 $(call inherit-product-if-exists, vendor/google_devices/zuma/prebuilts/device-vendor.mk)
 $(call inherit-product-if-exists, vendor/google_devices/zuma/proprietary/device-vendor.mk)
