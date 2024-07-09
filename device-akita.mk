@@ -414,3 +414,7 @@ $(call inherit-product-if-exists, device/google/common/etm/device-userdebug-modu
 endif
 
 PRODUCT_NO_BIONIC_PAGE_SIZE_MACRO := true
+
+# Bluetooth device id
+PRODUCT_PRODUCT_PROPERTIES += \
+    bluetooth.device_id.product_id=20495
