@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-PRODUCT_RELEASE_CONFIG_MAPS += $(wildcard vendor/google_devices/release/phones/release_config_map.mk)
+PRODUCT_RELEASE_CONFIG_MAPS += $(wildcard vendor/google_devices/release/phones/release_config_map.textproto)
 
 TARGET_KERNEL_DIR ?= device/google/akita-kernel
 TARGET_BOARD_KERNEL_HEADERS := device/google/akita-kernel/kernel-headers
