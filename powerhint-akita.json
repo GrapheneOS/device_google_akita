@@ -470,6 +470,15 @@
       "ResetOnInit": true
     },
     {
+      "Name": "SysGroupCfsSkipMask",
+      "Path": "/proc/vendor_sched/groups/sys/group_cfs_skip_mask",
+      "Values": [
+        "0x0",
+        "0x100"
+      ],
+      "ResetOnInit": true
+    },
+    {
       "Name": "FGPreferIdle",
       "Path": "/proc/vendor_sched/groups/fg/prefer_idle",
       "Values": [
