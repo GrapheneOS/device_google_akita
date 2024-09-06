@@ -213,6 +213,16 @@
       "ResetOnInit": true
     },
     {
+      "Name": "AutoPreferIdle",
+      "Path": "/proc/vendor_sched/auto_prefer_idle",
+      "Values": [
+        "0",
+        "1"
+      ],
+      "DefaultIndex": 0,
+      "ResetOnInit": true
+    },
+    {
       "Name": "BigClusterPowerDownTargetResidency",
       "Path": "/sys/devices/platform/cpupm/cpupm/cpd_cl2_target_residency",
       "Values": [
@@ -421,6 +431,33 @@
         "0"
       ],
       "DefaultIndex": 0,
+      "ResetOnInit": true
+    },
+    {
+      "Name": "TAPreferredIdleMaskHigh",
+      "Path": "/proc/vendor_sched/groups/ta/preferred_idle_mask_high",
+      "Values": [
+        "0x1ff",
+        "0xff"
+      ],
+      "ResetOnInit": true
+    },
+    {
+      "Name": "TAPreferredIdleMaskMid",
+      "Path": "/proc/vendor_sched/groups/ta/preferred_idle_mask_mid",
+      "Values": [
+        "0x1ff",
+        "0xff"
+      ],
+      "ResetOnInit": true
+    },
+    {
+      "Name": "TAPreferredIdleMaskLow",
+      "Path": "/proc/vendor_sched/groups/ta/preferred_idle_mask_low",
+      "Values": [
+        "0x1ff",
+        "0xff"
+      ],
       "ResetOnInit": true
     },
     {
@@ -828,6 +865,12 @@
       "Value": "0"
     },
     {
+      "PowerHint": "LAUNCH",
+      "Node": "AutoPreferIdle",
+      "Duration": 5000,
+      "Value": "0"
+    },
+    {
       "PowerHint": "LAUNCH_GPU",
       "Node": "GPUDvfsPeriod",
       "Duration": 1000,
@@ -1029,10 +1072,28 @@
       "Value": "1"
     },
     {
+      "PowerHint": "LAUNCH",
+      "Node": "TAPreferredIdleMaskHigh",
+      "Duration": 5000,
+      "Value": "0x1ff"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "TAPreferredIdleMaskMid",
+      "Duration": 5000,
+      "Value": "0x1ff"
+    },
+    {
       "PowerHint": "LAUNCH_EXTEND",
       "Node": "FGPreferIdle",
       "Duration": 2000,
       "Value": "1"
+    },
+    {
+      "PowerHint": "LAUNCH_EXTEND",
+      "Node": "AutoPreferIdle",
+      "Duration": 2000,
+      "Value": "0"
     },
     {
       "PowerHint": "LAUNCH_PMU",
@@ -1043,6 +1104,12 @@
     {
       "PowerHint": "DISPLAY_CHANGE",
       "Node": "ReducePreferIdle",
+      "Duration": 5000,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "DISPLAY_CHANGE",
+      "Node": "AutoPreferIdle",
       "Duration": 5000,
       "Value": "0"
     },
@@ -1178,6 +1245,12 @@
     },
     {
       "PowerHint": "DISPLAY_INACTIVE",
+      "Node": "AutoPreferIdle",
+      "Duration": 0,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "DISPLAY_INACTIVE",
       "Node": "FGPreferIdle",
       "Duration": 0,
       "Value": "0"
@@ -1265,6 +1338,12 @@
       "Node": "CDPreferIdle",
       "Duration": 1000,
       "Value": "1"
+    },
+    {
+      "PowerHint": "CAMERA_LAUNCH",
+      "Node": "AutoPreferIdle",
+      "Duration": 1000,
+      "Value": "0"
     },
     {
       "PowerHint": "CAMERA_LAUNCH",
@@ -1385,6 +1464,12 @@
       "Node": "CDPreferIdle",
       "Duration": 100,
       "Value": "1"
+    },
+    {
+      "PowerHint": "CAMERA_ZOOMING_BOOST",
+      "Node": "AutoPreferIdle",
+      "Duration": 100,
+      "Value": "0"
     },
     {
       "PowerHint": "CAMERA_ZOOMING_BOOST",
@@ -1604,6 +1689,12 @@
     },
     {
       "PowerHint": "CAMERA_STREAMING_EXTREME",
+      "Node": "AutoPreferIdle",
+      "Duration": 0,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_EXTREME",
       "Node": "CDHighCpusetCpus",
       "Duration": 0,
       "Value": "8"
@@ -1760,6 +1851,12 @@
     },
     {
       "PowerHint": "CAMERA_STREAMING_HIGH",
+      "Node": "AutoPreferIdle",
+      "Duration": 0,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_HIGH",
       "Node": "CDPreferIdle",
       "Duration": 0,
       "Value": "0"
@@ -1793,6 +1890,12 @@
       "Node": "VIRTUAL-SKIN-CPU-HIGH",
       "Duration": 0,
       "Value": "camera"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_STANDARD",
+      "Node": "AutoPreferIdle",
+      "Duration": 0,
+      "Value": "0"
     },
     {
       "PowerHint": "CAMERA_STREAMING_STANDARD",
@@ -1940,6 +2043,12 @@
     },
     {
       "PowerHint": "CAMERA_STREAMING_LOW",
+      "Node": "AutoPreferIdle",
+      "Duration": 0,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_LOW",
       "Node": "CPUDVFSHeadroom",
       "Duration": 0,
       "Value": "1280"
@@ -2049,6 +2158,12 @@
     {
       "PowerHint": "CAMERA_STREAMING_VIDEO_CALL",
       "Node": "TAPreferIdle",
+      "Duration": 0,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_VIDEO_CALL",
+      "Node": "AutoPreferIdle",
       "Duration": 0,
       "Value": "0"
     },
@@ -2487,6 +2602,12 @@
     },
     {
       "PowerHint": "GAME",
+      "Node": "AutoPreferIdle",
+      "Duration": 0,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "GAME",
       "Node": "FGPreferIdle",
       "Duration": 0,
       "Value": "0"
@@ -2620,25 +2741,19 @@
     {
       "PowerHint": "FACE_UNLOCK_BOOST",
       "Node": "CPUBigClusterMaxFreq",
-      "Duration": 1000,
+      "Duration": 500,
       "Value": "9999999"
     },
     {
       "PowerHint": "FACE_UNLOCK_BOOST",
-      "Node": "CPU_LITTLE_TSKIN_BYPASS",
-      "Duration": 1000,
-      "Value": "1"
-    },
-    {
-      "PowerHint": "FACE_UNLOCK_BOOST",
-      "Node": "CPU_MID_TSKIN_BYPASS",
-      "Duration": 1000,
-      "Value": "1"
+      "Node": "CPUBigClusterMinFreq",
+      "Duration": 500,
+      "Value": "1852000"
     },
     {
       "PowerHint": "FACE_UNLOCK_BOOST",
       "Node": "CPU_BIG_TSKIN_BYPASS",
-      "Duration": 1000,
+      "Duration": 500,
       "Value": "1"
     },
     {
@@ -2834,6 +2949,7 @@
       "Value": "20 80"
     }
   ],
+  "GpuSysfsPath" : "/sys/devices/platform/1f000000.mali",
   "AdpfConfig": [
     {
       "Name": "REFRESH_120FPS",
@@ -2857,7 +2973,18 @@
       "EarlyBoost_On": false,
       "EarlyBoost_TimeFactor": 0.0,
       "TargetTimeFactor": 1.0,
-      "StaleTimeFactor": 15.0
+      "StaleTimeFactor": 15.0,
+      "GpuBoost": true,
+      "GpuCapacityBoostMax": 40000,
+      "HeuristicBoost_On": true,
+      "HBoostOnMissedCycles": 8,
+      "HBoostOffMaxAvgRatio": 4.0,
+      "HBoostOffMissedCycles": 5,
+      "HBoostPidPuFactor": 0.5,
+      "HBoostUclampMin": 722,
+      "JankCheckTimeFactor": 1.2,
+      "LowFrameRateThreshold": 25,
+      "MaxRecordsNum": 300
     },
     {
       "Name": "REFRESH_90FPS",
@@ -2881,7 +3008,18 @@
       "EarlyBoost_On": false,
       "EarlyBoost_TimeFactor": 0.0,
       "TargetTimeFactor": 1.0,
-      "StaleTimeFactor": 15.0
+      "StaleTimeFactor": 15.0,
+      "GpuBoost": true,
+      "GpuCapacityBoostMax": 32500,
+      "HeuristicBoost_On": true,
+      "HBoostOnMissedCycles": 8,
+      "HBoostOffMaxAvgRatio": 4.0,
+      "HBoostOffMissedCycles": 5,
+      "HBoostPidPuFactor": 0.5,
+      "HBoostUclampMin": 722,
+      "JankCheckTimeFactor": 1.2,
+      "LowFrameRateThreshold": 25,
+      "MaxRecordsNum": 300
     },
     {
       "Name": "REFRESH_60FPS",
@@ -2905,7 +3043,18 @@
       "EarlyBoost_On": false,
       "EarlyBoost_TimeFactor": 0.0,
       "TargetTimeFactor": 1.0,
-      "StaleTimeFactor": 15.0
+      "StaleTimeFactor": 15.0,
+      "GpuBoost": true,
+      "GpuCapacityBoostMax": 25000,
+      "HeuristicBoost_On": true,
+      "HBoostOnMissedCycles": 8,
+      "HBoostOffMaxAvgRatio": 4.0,
+      "HBoostOffMissedCycles": 5,
+      "HBoostPidPuFactor": 0.5,
+      "HBoostUclampMin": 722,
+      "JankCheckTimeFactor": 1.2,
+      "LowFrameRateThreshold": 25,
+      "MaxRecordsNum": 300
     },
     {
       "Name": "UiHighBoostWithoutPid",
@@ -2929,7 +3078,8 @@
       "EarlyBoost_On": false,
       "EarlyBoost_TimeFactor": 0.0,
       "TargetTimeFactor": 1.0,
-      "StaleTimeFactor": 5.0
+      "StaleTimeFactor": 5.0,
+      "GpuBooost" : false
     },
     {
       "Name": "UiLowBoostWithoutPid",
@@ -2953,7 +3103,8 @@
       "EarlyBoost_On": false,
       "EarlyBoost_TimeFactor": 0.0,
       "TargetTimeFactor": 1.0,
-      "StaleTimeFactor": 5.0
+      "StaleTimeFactor": 5.0,
+      "GpuBooost" : false
     },
     {
       "Name": "UiLowNoneBoost",
@@ -2977,7 +3128,8 @@
       "EarlyBoost_On": false,
       "EarlyBoost_TimeFactor": 0.0,
       "TargetTimeFactor": 1.0,
-      "StaleTimeFactor": 5.0
+      "StaleTimeFactor": 5.0,
+      "GpuBooost" : false
     }
   ]
 }
